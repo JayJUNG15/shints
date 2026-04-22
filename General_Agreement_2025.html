@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>General Agreement 2025 핵심 조항 대조표 (Clause 순 재배치)</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --paper: #fff;
+      --ink: #18212b;
+      --muted: #5a6775;
+      --line: #dde3ea;
+      --shadow: 0 12px 28px rgba(14, 28, 45, .08);
+      --critical: #b42318;
+      --critical-bg: #fee4e2;
+      --medium: #b54708;
+      --medium-bg: #ffead5;
+      --low: #027a48;
+      --low-bg: #d1fadf;
+      --unknown: #475467;
+      --unknown-bg: #eaecf0;
+      --accent-1: #0f4c81;
+      --accent-2: #3b9ad9
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: radial-gradient(1000px 500px at 90% -10%, #d9ebff 0, transparent 65%), radial-gradient(800px 400px at 0 0, #e8f5f0 0, transparent 55%), var(--bg);
+      font-family: "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif;
+      line-height: 1.55
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 20px 42px
+    }
+
+    .hero {
+      padding: 26px 24px;
+      border-radius: 18px;
+      background: linear-gradient(120deg, var(--accent-1), var(--accent-2));
+      color: #fff;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      letter-spacing: -.02em
+    }
+
+    .hero p {
+      margin: 0;
+      opacity: .92;
+      font-size: .95rem
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 14px
+    }
+
+    .controls button {
+      border: 1px solid #c7d4e2;
+      background: #fff;
+      color: #17324c;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(16, 24, 40, .06)
+    }
+
+    .controls button:hover {
+      background: #f5f9ff;
+      border-color: #9cb9d8
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px
+    }
+
+    .acc-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden
+    }
+
+    .acc-item>summary {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      cursor: pointer;
+      background: linear-gradient(180deg, #fcfdff, #f8fbff)
+    }
+
+    .acc-item>summary::-webkit-details-marker {
+      display: none
+    }
+
+    .summary-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0
+    }
+
+    .num {
+      font-weight: 700;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums
+    }
+
+    .ttl {
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .summary-right {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .chev {
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid var(--muted);
+      border-bottom: 2px solid var(--muted);
+      transform: rotate(45deg);
+      transition: transform .2s ease;
+      margin-right: 2px
+    }
+
+    .acc-item[open] .chev {
+      transform: rotate(-135deg)
+    }
+
+    .acc-body {
+      border-top: 1px solid var(--line);
+      padding: 14px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+      min-height: 120px
+    }
+
+    .panel h3 {
+      margin: 0 0 8px;
+      font-size: .9rem;
+      color: #1f3850
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px
+    }
+
+    li {
+      margin: 0 0 6px;
+      font-size: .92rem
+    }
+
+    .empty {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      white-space: nowrap;
+      border: 1px solid transparent
+    }
+
+    .risk-critical {
+      color: var(--critical);
+      background: var(--critical-bg);
+      border-color: #fecdca
+    }
+
+    .risk-medium {
+      color: var(--medium);
+      background: var(--medium-bg);
+      border-color: #fed7aa
+    }
+
+    .risk-low {
+      color: var(--low);
+      background: var(--low-bg);
+      border-color: #a6f4c5
+    }
+
+    .risk-unknown {
+      color: var(--unknown);
+      background: var(--unknown-bg);
+      border-color: #d0d5dd
+    }
+
+    .foot {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .84rem;
+      text-align: right
+    }
+
+    @media (max-width:900px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>General Agreement 2025 독소 조항 및 변경 권고안</h1>
+      <p>Click a clause to expand details. Only one section opens by default.</p>
+    </header>
+    <div class="controls">
+      <button id="btn-open-all" type="button">전체 보기</button>
+      <button id="btn-close-all" type="button">전체 닫기</button>
+    </div>
+    <main class="stack">
+
+      <details class="acc-item" id="clause-1">
+        <summary>
+          <div class="summary-left">
+            <span class="num">01</span>
+            <span class="ttl">Clause 3. Purchase Orders</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-critical">필수 변경</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>The Supplier undertakes to comply with Customer requirements, including future revisions of the
+                  appendices currently attached to this General Agreement.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>공급자는 본 일반계약에 현재 첨부된 부속서의 향후 개정사항을 포함한 고객 요구사항을 준수해야 한다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Supplier shall comply with Customer requirements in force as of the Effective Date.</li>
+                <li>Any material revision affecting price, lead time, quality scope, or payment shall require prior
+                  written agreement by both Parties.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>공급자는 계약 발효일 기준으로 유효한 고객 요구사항을 준수한다.</li>
+                <li>가격, 리드타임, 품질 범위, 대금지급에 영향을 주는 중요한 개정은 양 당사자의 사전 서면합의가 있어야 효력이 발생한다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-2">
+        <summary>
+          <div class="summary-left">
+            <span class="num">02</span>
+            <span class="ttl">Clause 4. Information and Support</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-medium">수용 가능</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>The Supplier undertakes to provide any information and support that may reasonably be requested by
+                  Customer.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>공급자는 고객이 합리적으로 요청하는 정보 및 지원을 제공해야 한다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Supplier shall provide information and support reasonably requested by Customer to perform this
+                  Agreement, provided that such requests are proportionate, lawful, and subject to confidentiality
+                  obligations under Clause 14.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>공급자는 본 계약 이행을 위해 고객이 합리적으로 요청하는 정보와 지원을 제공하되, 해당 요청은 비례적이고 적법해야 하며 Clause 14의 비밀유지 의무를 따른다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-3">
+        <summary>
+          <div class="summary-left">
+            <span class="num">03</span>
+            <span class="ttl">Clause 5. Social Responsibility &amp; Environmental Requirements</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-critical">필수 변경</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>Customer shall at any time and without notice have full admission to the Suppliers’ premises.</li>
+                <li>Customer shall be entitled to obtain documentation regarding working conditions, factory
+                  environment, the manufacturing process, environmental impact, quality control procedures and any other
+                  relevant information.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>고객은 언제든지 사전 통지 없이 공급자 사업장에 전면 출입할 수 있다.</li>
+                <li>고객은 근로환경, 공장환경, 제조공정, 환경영향, 품질절차 및 기타 관련 정보를 요구할 수 있다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Customer may conduct compliance audits upon at least five (5) business days’ prior written notice,
+                  during normal business hours, and in a manner that does not unreasonably disrupt Supplier’s
+                  operations.</li>
+                <li>Audit scope shall be limited to information reasonably necessary to verify compliance with this
+                  Agreement and applicable law.</li>
+                <li>Any third-party auditor shall be bound by confidentiality obligations no less protective than Clause
+                  14.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>고객은 최소 5영업일 전 서면통지 후, 정상 영업시간 내에서 공급자의 운영을 불합리하게 방해하지 않는 방식으로 컴플라이언스 감사를 수행할 수 있다.</li>
+                <li>감사 범위는 본 계약 및 관련 법령 준수 여부 확인에 합리적으로 필요한 정보로 제한된다.</li>
+                <li>제3자 감사인은 Clause 14와 동등하거나 그 이상으로 엄격한 비밀유지 의무를 부담해야 한다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-4">
+        <summary>
+          <div class="summary-left">
+            <span class="num">04</span>
+            <span class="ttl">Clause 6.3.2 Ready-made Products IP</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-medium">협의 가능</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>Unless expressly excluded in Specifications, Customer will acquire all intellectual property rights
+                  pertaining to ready-made Products.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>사양서에서 명시적으로 제외하지 않는 한, 기성품 관련 모든 지식재산권은 고객이 취득한다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Supplier retains all rights in its pre-existing designs, know-how, methods, and other background
+                  intellectual property.</li>
+                <li>For ready-made Products, Customer is granted a non-exclusive, worldwide, royalty-free license to
+                  market and sell such Products under Customer’s trademarks.</li>
+                <li>Any exclusive transfer of IP requires explicit written agreement in the relevant Specification or
+                  Purchase Order.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>공급자는 기존 디자인, 노하우, 방법론 및 기타 배경 지식재산권에 대한 모든 권리를 보유한다.</li>
+                <li>기성품에 대해서는 고객 상표 하의 마케팅 및 판매를 위한 비독점적, 전 세계적, 로열티 없는 라이선스를 고객에게 부여한다.</li>
+                <li>IP의 독점적 이전은 관련 사양서 또는 구매오더에 명시된 서면합의가 있는 경우에만 가능하다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-5">
+        <summary>
+          <div class="summary-left">
+            <span class="num">05</span>
+            <span class="ttl">Clause 6.5 / 6.6 Third-party IP Claims &amp; Indemnity</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-critical">필수 변경</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>Customer shall in its absolute discretion decide what actions to take and have sole control.</li>
+                <li>Supplier shall bear all costs in relation to the actions taken.</li>
+                <li>Supplier shall hold Customer harmless of any costs, damages or other expenses.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>고객은 절대적 재량으로 조치를 결정하고 단독 통제한다.</li>
+                <li>공급자는 관련 모든 비용을 부담한다.</li>
+                <li>공급자는 고객에게 발생한 비용·손해·기타 지출을 면책/배상한다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Where Supplier is responsible for a third-party IP claim, Supplier shall indemnify Customer for
+                  reasonable and documented direct losses.</li>
+                <li>Customer shall promptly notify Supplier and allow Supplier to participate in defense and settlement
+                  discussions.</li>
+                <li>No settlement imposing payment or admission by Supplier shall be made without Supplier’s prior
+                  written consent (not to be unreasonably withheld).</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>제3자 IP 클레임이 공급자 책임인 경우, 공급자는 합리적이고 입증 가능한 직접손해 범위에서 고객을 면책/배상한다.</li>
+                <li>고객은 해당 클레임을 신속히 공급자에게 통지하고, 공급자가 방어 및 합의 논의에 참여할 수 있도록 해야 한다.</li>
+                <li>공급자에게 금전지급 또는 책임인정을 부담시키는 합의는 공급자의 사전 서면동의 없이 체결할 수 없으며, 동의는 불합리하게 거절되어서는 안 된다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-6">
+        <summary>
+          <div class="summary-left">
+            <span class="num">06</span>
+            <span class="ttl">Clause 9.1 Delivery Instructions</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-critical">필수 변경</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>The Supplier must comply with Customer Delivery Instructions, as amended from time to time.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>공급자는 수시로 개정되는 고객 배송지침을 준수해야 한다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Supplier shall comply with Delivery Instructions in force at the date of each Purchase Order.</li>
+                <li>Any material revision affecting cost or lead time shall apply only upon mutual written agreement.
+                </li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>공급자는 각 구매오더 발행일 기준으로 유효한 배송지침을 준수한다.</li>
+                <li>비용 또는 리드타임에 영향을 주는 중요한 개정은 상호 서면합의가 있는 경우에만 적용된다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-7">
+        <summary>
+          <div class="summary-left">
+            <span class="num">07</span>
+            <span class="ttl">Clause 9.6 Handling and Compensation for Delivery Delays</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-critical">필수 변경</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>Delay penalties include 10% for 6-10 working days delay and 25% for more than 10 working days
+                  (European production).</li>
+                <li>For Asian production, delays beyond 10 working days may trigger 100% air freight at Supplier’s
+                  expense.</li>
+                <li>In addition, Customer may cancel the order, reduce quantity, charge handling costs, and claim costs
+                  of faster transportation.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>지연 시 6~10영업일은 10%, 10영업일 초과는 25% 페널티가 적용될 수 있다(유럽 생산 기준).</li>
+                <li>아시아 생산의 경우 10영업일 초과 지연 시 공급자 부담 항공운송(100%)이 적용될 수 있다.</li>
+                <li>추가로 고객은 주문 취소, 수량 감축, 지연처리비, 긴급운송비를 청구할 수 있다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>For delays attributable to Supplier, penalties under this Clause shall be the primary monetary
+                  remedy.</li>
+                <li>Additional recovery (including expedited freight) shall be limited to reasonable, documented, and
+                  actually incurred costs, without duplicate recovery for the same delay event.</li>
+                <li>Both Parties shall cooperate in good faith to mitigate delay impacts, including partial shipment and
+                  recovery plans.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>공급자 귀책 지연의 경우, 본 조항의 지연 페널티를 기본적인 금전 구제수단으로 한다.</li>
+                <li>추가 비용 회수(긴급 운송비 포함)는 합리적이고 입증되며 실제 발생한 비용으로 제한하고, 동일 지연 사건에 대한 중복 회수는 허용하지 않는다.</li>
+                <li>양 당사자는 분할 선적 및 복구계획을 포함하여 지연 영향을 완화하기 위해 성실히 협력한다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-8">
+        <summary>
+          <div class="summary-left">
+            <span class="num">08</span>
+            <span class="ttl">Clause 10. Payments</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-medium">협의 권장</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>The Supplier must comply with Customer Payment Instructions, 30% deposit + 70% TT at sight for the
+                  first year, as amended from time to time.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>공급자는 첫 해 30% 선금 + 70% 일람불 TT 조건의 고객 지급지침(수시 개정 가능)을 준수해야 한다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Payment terms are 30% deposit and 70% TT at sight for the first contract year.</li>
+                <li>Any change to payment terms shall require prior written agreement by both Parties.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>첫 계약연도의 지급조건은 30% 선금, 70% 일람불 TT로 한다.</li>
+                <li>지급조건의 변경은 양 당사자의 사전 서면합의가 있어야 한다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-9">
+        <summary>
+          <div class="summary-left">
+            <span class="num">09</span>
+            <span class="ttl">Clause 11. Defects / Breach (손해범위)</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-critical">필수 변경</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>Customer shall be entitled to full compensation for direct and indirect losses, including lost
+                  sales.</li>
+                <li>Costs such as photography, additional inspections, modelling fees, and advertising agency costs
+                  shall be compensated.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>고객은 매출손실을 포함한 직접·간접손해 전부를 배상받을 수 있다.</li>
+                <li>촬영비, 추가검사비, 모델비, 광고대행비 등도 배상 대상이다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Supplier shall be liable for direct losses reasonably and demonstrably caused by Supplier’s breach.
+                </li>
+                <li>Neither Party shall be liable for indirect, consequential, or speculative losses, including loss of
+                  profit or loss of sales, except in cases of willful misconduct or fraud.</li>
+                <li>Corrective measures shall be commercially reasonable and proportionate to the nature of the defect.
+                </li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>공급자는 자신의 계약위반으로 인해 합리적으로 발생하고 입증 가능한 직접손해에 대해서만 책임을 부담한다.</li>
+                <li>어느 당사자도 고의 또는 사기의 경우를 제외하고, 이익손실이나 매출손실을 포함한 간접손해, 결과손해, 추정손해에 대해 책임을 지지 않는다.</li>
+                <li>시정조치는 하자의 성격에 비추어 상업적으로 합리적이고 비례적이어야 한다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-10">
+        <summary>
+          <div class="summary-left">
+            <span class="num">10</span>
+            <span class="ttl">Clause 11. Defect Claim Period (클레임 기간)</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-medium">협의 권장</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>Claims for defects must be made within twenty-four (24) months from the Products’ arrival to the
+                  designated stores.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>지정 매장 도착일로부터 24개월 내 클레임을 해야 한다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Customer shall notify Supplier of latent defects within twelve (12) months from delivery at the
+                  agreed destination, except where a longer mandatory period is required by applicable law.</li>
+                <li>For concealed defects not reasonably discoverable at delivery, the claim period shall run from
+                  discovery, provided Customer notifies Supplier without undue delay.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>고객은 관련 법령상 더 긴 강행 기간이 요구되지 않는 한, 합의된 인도지에서의 인도일로부터 12개월 내 잠재하자를 공급자에게 통지해야 한다.</li>
+                <li>인도 시점에 합리적으로 발견하기 어려운 숨은 하자의 경우, 클레임 기간은 발견 시점부터 기산하되 고객은 지체 없이 통지해야 한다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item" id="clause-11">
+        <summary>
+          <div class="summary-left">
+            <span class="num">11</span>
+            <span class="ttl">Clause 13. Liability for Subcontractors</span>
+          </div>
+          <div class="summary-right">
+            <span class="badge risk-medium">협의 권장</span>
+            <span class="chev" aria-hidden="true"></span>
+          </div>
+        </summary>
+        <div class="acc-body">
+          <div class="grid">
+            <article class="panel">
+              <h3>원문 (English Excerpt)</h3>
+              <ul>
+                <li>If the Supplier needs to change production unit, the Supplier needs to apply for approval from
+                  Customer before any change is made.</li>
+                <li>Any change of production base without Customer knowledge is a non-tolerance issue for Customer.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>원문 한글 번역</h3>
+              <ul>
+                <li>공급자가 생산 유닛을 변경하려면 변경 전에 고객 승인 신청이 필요하다.</li>
+                <li>고객이 모르는 생산기지 변경은 무관용 사안이다.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 (Balanced Revision)</h3>
+              <ul>
+                <li>Supplier shall obtain Customer’s prior written approval before using a new production unit, such
+                  approval not to be unreasonably withheld or delayed.</li>
+                <li>For urgent supply continuity matters, Supplier may request expedited approval, and Customer shall
+                  respond within five (5) business days.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>제안 영문 한글 번역</h3>
+              <ul>
+                <li>공급자는 새로운 생산 유닛을 사용하기 전에 고객의 사전 서면승인을 받아야 하며, 해당 승인은 불합리하게 거절되거나 지연되어서는 안 된다.</li>
+                <li>공급 연속성에 영향을 주는 긴급 사안의 경우 공급자는 신속 승인 절차를 요청할 수 있고, 고객은 5영업일 내 회신한다.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
+
+    </main>
+    <p class="foot">Generated from: General_Agreement_2025_핵심문제조항_원문-수정안_대조표.md</p>
+  </div>
+  <script>
+    (() => {
+      const items = Array.from(document.querySelectorAll('.acc-item'));
+      const btnOpenAll = document.getElementById('btn-open-all');
+      const btnCloseAll = document.getElementById('btn-close-all');
+
+      let singleMode = true;
+      let bulkUpdating = false;
+
+      items.forEach(item => {
+        item.addEventListener('toggle', () => {
+          if (bulkUpdating || !singleMode || !item.open) return;
+          items.forEach(other => {
+            if (other !== item) other.open = false;
+          });
+        });
+
+        item.querySelector('summary')?.addEventListener('click', () => {
+          // If user interacts after "open all", restore single-item behavior.
+          if (!singleMode) singleMode = true;
+        });
+      });
+
+      btnOpenAll?.addEventListener('click', () => {
+        bulkUpdating = true;
+        singleMode = false;
+        items.forEach(i => { i.open = true; });
+        bulkUpdating = false;
+      });
+
+      btnCloseAll?.addEventListener('click', () => {
+        bulkUpdating = true;
+        items.forEach(i => { i.open = false; });
+        singleMode = true;
+        bulkUpdating = false;
+      });
+    })();
+  </script>
+</body>
+
+</html>
