@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2026 에티오피아 패딩 생산기지 전략 분석 대시보드</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+:root{--bg:#f3f4ee;--panel:#fffdf8;--ink:#1c2b2d;--muted:#647173;--line:#d9dfd7;--soft:#f8f1de}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+header{padding:28px 24px;background:linear-gradient(135deg,#7f1d1d,#dc2626);color:#fff}
+header p{margin:8px 0 0;max-width:1120px;font-size:13px;line-height:1.65}
+.lang-switcher { display: flex; justify-content: flex-end; gap: 14px; margin-bottom: 10px; padding: 0 24px; }
+.lang-btn { cursor: pointer; filter: grayscale(100%); transition: all 0.3s ease; opacity: 0.6; display: flex; align-items: center; }
+.lang-btn img { width: 30px; height: 20px; object-fit: cover; border-radius: 2px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.lang-btn:hover, .lang-btn.active { filter: grayscale(0%); opacity: 1; transform: translateY(-1px); }
+.lang-btn.active img { border-color: #3b82f6; box-shadow: 0 0 8px rgba(59,130,246,0.3); }
+h1,h2,h3{margin:0}
+.container{padding:18px;display:grid;gap:14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 10px 28px rgba(0,0,0,.03)}
+.panel h2{font-size:20px;margin-bottom:10px}
+.small{font-size:12px;color:var(--muted);line-height:1.65}
+.tiny{font-size:11px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.k{font-size:12px;color:var(--muted)}
+.v{font-size:22px;font-weight:700;margin-top:6px}
+.explain{background:var(--soft);border:1px solid #e8d39c;border-radius:12px;padding:12px;line-height:1.75;font-size:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:980px){.two{grid-template-columns:1fr}}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+select,input{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.table-wrap{max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;vertical-align:top}
+th{position:sticky;top:0;background:#f7faf4;z-index:2}
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+.map-panel{display:grid;gap:10px}
+.map-title{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;border:1px solid var(--line);background:#fff}
+.map-toolbar{display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap}
+.map-toolbar button{background:#fff;color:#1e3a8a;border:1px solid var(--line);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.map-toolbar button:hover{background:#e0f2fe;border-color:#3b82f6}
+.map-wrap{width:100%;height:760px;border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative;background:#f4f7fb;cursor:grab;user-select:none}
+.map-wrap.dragging{cursor:grabbing}
+.geo-inner{position:absolute;width:300%;height:300%;left:-58%;top:-56%}
+.map-hover-card{position:absolute;top:14px;right:14px;width:340px;max-height:calc(100% - 28px);overflow:auto;background:rgba(255,253,248,.96);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 12px 28px rgba(0,0,0,.12);z-index:5;backdrop-filter:blur(6px)}
+div.google-visualization-tooltip{display:none !important}
+.map-hover-card h4{margin:0 0 6px;font-size:18px}
+.map-hover-card .sub{font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5}
+.map-hover-card .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.map-hover-card .item{border:1px solid #e5e7eb;border-radius:10px;padding:8px;background:#fff}
+.map-hover-card .item .k{font-size:11px;color:var(--muted)}
+.map-hover-card .item .v{font-size:14px;font-weight:700;margin-top:3px}
+.map-empty{font-size:13px;line-height:1.7;color:var(--muted)}
+@media (max-width:980px){
+  .map-wrap{height:820px}
+  .map-hover-card{position:absolute;left:14px;right:14px;top:auto;bottom:14px;width:auto;max-height:44%}
+}
+.tt-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.tt-sub{font-size:11px;color:#647173;margin-bottom:8px}
+.tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;min-width:320px}
+.tt-item{border:1px solid #e5e7eb;border-radius:10px;padding:8px;background:#fcfcfb}
+.tt-k{font-size:11px;color:#647173}
+.tt-v{font-size:14px;font-weight:700;margin-top:3px}
+.source-list{margin:0;padding-left:18px;line-height:1.7}
+a{color:#1d6b58;text-decoration:none}
+  .modeling-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+  .modeling-item { background: rgba(255,255,255,0.05); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
+  .modeling-item h3 { font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; }
+  .modeling-item p { font-size: 0.95rem; line-height: 1.6; color: var(--fg); opacity: 0.9; }
+  .modeling-item ul { margin-top: 0.5rem; padding-left: 1.2rem; font-size: 0.9rem; }
+  .modeling-item li { margin-bottom: 0.4rem; color: var(--muted); }
+  .formula-box { background: #000; padding: 1rem; border-radius: 6px; margin: 0.75rem 0; font-family: monospace; color: #10b981; border: 1px dashed #10b981; font-size: 0.9rem; overflow-x: auto; }
+  .modeling-item table { width: 100%; margin-top: 0.75rem; font-size: 0.85rem; border-collapse: collapse; }
+  .modeling-item th, .modeling-item td { padding: 0.5rem; border: 1px solid rgba(255,255,255,0.1); text-align: left; }
+  .modeling-item th { background: rgba(255,255,255,0.05); color: var(--accent); }
+  .rationale-box { margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent); border-radius: 4px; }
+  .rationale-box h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--accent); }
+  .rationale-box ul { margin: 0; padding-left: 1.2rem; }
+  .rationale-box li { font-size: 0.85rem; line-height: 1.5; color: var(--fg); opacity: 0.8; margin-bottom: 0.4rem; }
+
+  /* Accordion Styles */
+  .panel-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+  .panel-header h2 { margin: 0; }
+  .toggle-icon { font-size: 0.8rem; color: var(--accent); transition: transform 0.3s ease; }
+  .panel.collapsed .toggle-icon { transform: rotate(-180deg); }
+  .panel-content { margin-top: 1.5rem; transition: all 0.3s ease; }
+  .panel.collapsed .panel-content { display: none; }
+</style>
+</head>
+<body>
+<div class="lang-switcher" style="padding-top:15px">
+  <span class="lang-btn active" onclick="setLang('ko')" title="한국어"><img src="https://i.namu.wiki/i/kXITInFCXJMLdoqBikuDG6TOiBvq_47RzEDHutztThOKe9ZCBAxyzVOFolJo8goPgE7Z2B1O2R5LZowuPCluQH_luAsKEV0x4WglkF2qjZy6G7MmZhiNHjPbsqGd90d6Fs8Ocd-_XppNX63iByQ5uA.svg" alt="KR"></span>
+  <span class="lang-btn" onclick="setLang('zh')" title="中文"><img src="https://i.namu.wiki/i/1Xgn_vDmMv9qlCQoZAIF0v2EoqibU74NwO6d6aw6igc-nE8WNEFYQf2QXlRp1GLV7uzpC1uFfg_g0YW4Y0BHDZfQBGYLgR7_ZnJ0fCKcA6LA1TAa5zdFTQtm8VJF0ZBkxhq9faczV_ZLTxeOU9zLuw.svg" alt="CN"></span>
+  <span class="lang-btn" onclick="setLang('en')" title="English"><img src="https://i.namu.wiki/i/wbpbmZIftCkB3ir4nwSy4lKQuhqH-tlpQ7yVAwD_1tEqns0QBKz-zkcA7C3B-Mxl-mEjHk_XQR3FMQ7xtGNlWSzeLQY4sTDNul_RV-3ISRdvfBu4BPKumANFrr2pFZNnJpKZaK3H4BqbcF0x34f0rg.svg" alt="US"></span>
+</div>
+<header>
+  <h1 data-i18n="mainTitle">2026 에티오피아 패딩 생산기지 전략 가치 및 시장 분석</h1>
+  <p data-i18n="mainSubtitle">본 대시보드는 에티오피아 패딩 생산 라인 구축 프로젝트의 타당성 검토 및 글로벌 시장 선점을 위한 전략 가치를 분석한 결과물임. UN Comtrade 실측 통계를 기반으로 아프리카 및 중동 지역의 패딩 생산 기반(SAM)과 잠재적 내수 수요(TAM)를 입체적으로 조명하여 투자 의사결정을 지원함.</p>
+</header>
+<div class="container">
+  <section class="panel">
+    <h2 data-i18n="summaryTitle">📈 글로벌 마켓 서머리 및 주요 지표</h2>
+    <div class="cards" id="summaryCards"></div>
+  </section>
+
+  <section class="panel">
+    <h2 data-i18n="strategicTitle">💡 전략적 가치 제언 (Strategic Rationale)</h2>
+    <div class="two">
+      <div class="explain"><strong data-i18n="samTitle">생산 및 공급 거점 가치 (SAM)</strong><br><span data-i18n="samDesc">해당 권역 내 기구축된 완제품 수출 물량을 분석하여, 실제 패딩 생산 인프라와 숙련공 확보 가능성을 판단하는 핵심 공급망 지표임.</span></div>
+      <div class="explain"><strong data-i18n="tamTitle">역내 수요 및 시장 침투력 (TAM)</strong><br><span data-i18n="tamDesc">대상국으로 유입되는 완제품 및 보온재 흐름을 실측하여, 생산 기지 인근에서 즉각적으로 확보 가능한 잠재적 내수 및 유통 시장 규모를 의미함.</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 data-i18n="filterTitle">필터와 집계</h2>
+    <div class="controls">
+      <div><label data-i18n="labelScenario">시나리오</label><select id="scenario"><option value="base" data-i18n="optBase">기준</option><option value="cons" data-i18n="optCons">보수</option><option value="aggr" data-i18n="optAggr">공격</option></select></div>
+      <div><label data-i18n="labelRegion">권역</label><select id="region"><option value="전체" data-i18n="optAll">전체</option><option value="아프리카" data-i18n="optAfrica">아프리카</option><option value="중동" data-i18n="optME">중동</option></select></div>
+      <div><label data-i18n="labelSearch">국가 검색</label><input id="search" placeholder="국가명 입력" data-i18n-placeholder="searchPlaceholder" /></div>
+      <div><label data-i18n="labelSort">정렬</label><select id="sortBy">
+        <option value="padded_export_base_qty" data-i18n="sortSAM">패딩 생산/수출 시장</option>
+        <option value="padded_import_base_qty" data-i18n="sortTAM">패딩 수입/내수 시장</option>
+        <option value="fill_import_kg" data-i18n="sortFill">보온재 수입</option>
+        <option value="outer_export_qty" data-i18n="sortOuterExp">외투 수출</option>
+        <option value="outer_import_qty" data-i18n="sortOuterImp">외투 수입</option>
+      </select></div>
+    </div>
+    <p class="small" data-i18n="filterHelp">선택한 필터 조건에 맞춰 아래 요약 카드, 세계지도, 국가별 표가 함께 바뀝니다. 지도에서 특정 국가를 클릭하면 검색창에 자동으로 국가가 들어가고 아래 표도 그 국가 기준으로 좁혀집니다.</p>
+    <div class="cards" id="marketCards" style="margin-top:10px"></div>
+  </section>
+
+  <section class="panel">
+    <h2 data-i18n="detailTitle">🔍 국가별 전략 가치 상세 분석</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="thCountry">국가명</th>
+            <th data-i18n="thRegion">권역</th>
+            <th data-i18n="thOuterExp">외투 수출</th>
+            <th data-i18n="thSAM">패딩 전략 시장(SAM)</th>
+            <th data-i18n="thShare">시장 점유율</th>
+            <th data-i18n="thInfra">공급망 인프라</th>
+            <th data-i18n="thOuterImp">외투 수입</th>
+            <th data-i18n="thTAM">내수 잠재 수요(TAM)</th>
+            <th data-i18n="thInnerShare">내수 비중</th>
+            <th data-i18n="thGrowth">성장 지표 (CAGR)</th>
+          </tr>
+        </thead>
+        <tbody id="countryBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 data-i18n="growthTitle">아프리카 의류수출 성장률 대리변수</h2>
+    <div class="explain" data-i18n="growthDesc">아프리카 국가별 의류 공장 수의 장기 시계열 공개자료가 부족해, 이 문서에서는 가장 비교 가능한 공개지표인 <strong>HS61+HS62 의류 수출액</strong>을 대리변수로 사용했습니다. 아래 그래프는 데이터가 존재하는 아프리카 대륙 전체 국가를 대상으로 2018년과 2023년 수출 규모를 나란히 비교하고, 그에 따른 연평균 성장률(CAGR) 흐름을 직관적으로 보여줍니다. (2019년 세부 데이터가 없어 2018년 데이터를 적용했습니다.)</div>
+    <div id="growthChart" style="width:100%; height:500px; margin-top:20px; margin-bottom:10px;"></div>
+    <div class="table-wrap" style="margin-top:10px">
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="thCountryGrowth">국가</th><th data-i18n="thVal18">2018 (M$)</th><th data-i18n="thVal23">2023 (M$)</th><th data-i18n="thVal25">2025 전망 (E)</th><th data-i18n="thCAGR">CAGR ('18-23)</th>
+          </tr>
+        </thead>
+        <tbody id="growthBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel collapsed" id="mapSection">
+    <div class="panel-header" onclick="togglePanel(this)">
+      <h2 data-i18n="mapSectionTitle">🌍 전략적 권역 맵 및 국가별 포지셔닝</h2>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="panel-content">
+      <p class="small" data-i18n="mapHelp">아프리카-중동 간 물류 및 재수출 상관관계 분석을 위해 지리적 위치 기반의 시장 포지셔닝을 시각화함.</p>
+      <div class="map-panel">
+        <div class="map-title"><h3>Strategic Market Map</h3><span class="badge">AFRICA-MIDDLE EAST CORRIDOR</span></div>
+        <div class="map-toolbar">
+          <button type="button" onclick="mapAction('world','zoomIn')" data-i18n="btnZoomIn">확대 (+)</button>
+          <button type="button" onclick="mapAction('world','zoomOut')" data-i18n="btnZoomOut">축소 (-)</button>
+          <button type="button" onclick="mapAction('world','left')" data-i18n="btnLeft">좌</button>
+          <button type="button" onclick="mapAction('world','right')" data-i18n="btnRight">우</button>
+          <button type="button" onclick="mapAction('world','up')" data-i18n="btnUp">상</button>
+          <button type="button" onclick="mapAction('world','down')" data-i18n="btnDown">하</button>
+          <button type="button" onclick="mapAction('world','reset')" data-i18n="btnReset">초기화</button>
+        </div>
+        <div class="map-wrap" id="mapWorldWrap" data-group="world">
+          <div id="geo_world" class="geo-inner"></div>
+          <div class="map-hover-card" id="mapHoverCard"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel modeling-info collapsed" id="modelingSection">
+    <div class="panel-header" onclick="togglePanel(this)">
+      <h2 data-i18n="modelingTitle">📋 데이터 모델링 방법론 및 전략적 산출 근거</h2>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="panel-content">
+      <div class="modeling-grid">
+        <div class="modeling-item">
+          <h3 data-i18n="modGovTitle">1. 데이터 거버넌스 (Data Governance)</h3>
+          <p data-i18n="modGovDesc">본 분석의 수치는 <strong>UN Comtrade</strong> 및 <strong>ITC Trade Map</strong>의 실측 무역 데이터를 기반으로 함. 단순 리포트 인용이 아닌 6단위 세부 품목별 마이크로 데이터를 직접 가공하여 데이터의 객관성을 확보함.</p>
+        </div>
+        <div class="modeling-item">
+          <h3 data-i18n="modMethTitle">2. 시장 규모 추계 공식 (Estimation Methodology)</h3>
+          <div class="formula-box">
+            <code>PADDING MARKET SIZE = [TOTAL OUTERWEAR FLOW] × [HS-CODE WEIGHT] × [INSULATION FACTOR]</code>
+          </div>
+          <ul>
+            <li data-i18n="modMeth1"><strong>대상 모수</strong>: HS 6201(남성), 6202(여성) 외투 품목군 전체</li>
+            <li data-i18n="modMeth2"><strong>세부 필터링</strong>: 정장 코트, 망토 등 비보온성 품목을 제외한 6단위 코드별 실질 거래 비중 적용</li>
+            <li data-i18n="modMeth3"><strong>가중치 보정</strong>: 아노락(620140) 등 복합 품목 내 실제 충전재 탑재 제품 비중을 시나리오별로 차등 적용</li>
+          </ul>
+        </div>
+        <div class="modeling-item">
+          <h3 data-i18n="modSceTitle">3. 전략 시나리오 설계 (Strategic Scenarios)</h3>
+          <p data-i18n="modSceDesc">투자 의사 결정의 유연성을 위해 시장 진입 강도에 따른 3단계 시나리오 모델링을 구축함.</p>
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="thScenario">Scenario</th>
+                <th data-i18n="thSceMeaning">전략적 의미</th>
+                <th data-i18n="thSceWeight">핵심 가중치 (Key Weight)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="tdCons"><strong>보수(Cons)</strong></td>
+                <td data-i18n="tdConsDesc">시장 하방 경직성을 고려한 최소 추정치</td>
+                <td data-i18n="tdConsWeight">45% 반영</td>
+              </tr>
+              <tr>
+                <td data-i18n="tdBase"><strong>기준(Base)</strong></td>
+                <td data-i18n="tdBaseDesc">가장 실현 가능성이 높은 전략적 목표치</td>
+                <td data-i18n="tdBaseWeight">60% 반영</td>
+              </tr>
+              <tr>
+                <td data-i18n="tdAggr"><strong>공격(Aggr)</strong></td>
+                <td data-i18n="tdAggrDesc">방한 의류 시장 잠재력을 최대화한 확장 수치</td>
+                <td data-i18n="tdAggrWeight">75% 반영</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="rationale-box">
+            <h4 data-i18n="modRatTitle">💡 전략적 산출 근거 (Strategic Rationale)</h4>
+            <ul>
+              <li data-i18n="modRat1"><strong>Insulated Share (보온 비중)</strong>: 글로벌 아웃도어 생산 믹스 및 기후 대응 복합 소재 사용률을 근거로 실질 패딩 제품군을 분류함.</li>
+              <li data-i18n="modRat2"><strong>Padding Adoption Rate (채택률)</strong>: 천연 다운 및 웰론 등 모든 보온재 충전 방식을 포함한 전체 시장 점유율을 추산함.</li>
+              <li data-i18n="modRat3"><strong>Fill Weight (장당 투입량)</strong>: <strong>3M Thinsulate 기술 시트(TDS)</strong> 기준, 성인용 외투 평균 투입량(0.18kg)을 적용하여 공급망 데이터와의 정합성을 입증함.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modeling-item">
+          <h3 data-i18n="modVeriTitle">4. 입체적 교차 검증 (Cross-Verification)</h3>
+          <p data-i18n="modVeriDesc">완제품 통계의 불확실성을 상쇄하기 위해 <strong>원부자재(보온재, HS 5601)</strong>의 역내 유입량을 보조 지표로 매칭함. 이를 통해 실제 생산 기지로서의 기능적 성숙도를 검증함.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 data-i18n="referenceTitle">🔗 거버넌스 레퍼런스 및 관련 문서 아카이브</h2>
+    <ul class="source-list" id="sourceList"></ul>
+  </section>
+</div>
+<script>
+let currentLang = 'ko';
+const TRANSLATIONS = {
+  ko: {
+    mainTitle: "2026 에티오피아 패딩 생산기지 전략 가치 및 시장 분석",
+    mainSubtitle: "본 대시보드는 에티오피아 패딩 생산 라인 구축 프로젝트의 타당성 검토 및 글로벌 시장 선점을 위한 전략 가치를 분석한 결과물임. UN Comtrade 실측 통계를 기반으로 아프리카 및 중동 지역의 패딩 생산 기반(SAM)과 잠재적 내수 수요(TAM)를 입체적으로 조명하여 투자 의사결정을 지원함.",
+    summaryTitle: "📈 글로벌 마켓 서머리 및 주요 지표",
+    strategicTitle: "💡 전략적 가치 제언 (Strategic Rationale)",
+    samTitle: "생산 및 공급 거점 가치 (SAM)",
+    samDesc: "해당 권역 내 기구축된 완제품 수출 물량을 분석하여, 실제 패딩 생산 인프라와 숙련공 확보 가능성을 판단하는 핵심 공급망 지표임.",
+    tamTitle: "역내 수요 및 시장 침투력 (TAM)",
+    tamDesc: "대상국으로 유입되는 완제품 및 보온재 흐름을 실측하여, 생산 기지 인근에서 즉각적으로 확보 가능한 잠재적 내수 및 유통 시장 규모를 의미함.",
+    filterTitle: "필터와 집계",
+    labelScenario: "시나리오",
+    labelRegion: "권역",
+    labelSearch: "국가 검색",
+    labelSort: "정렬",
+    searchPlaceholder: "국가명 입력",
+    optBase: "기준", optCons: "보수", optAggr: "공격",
+    optAll: "전체", optAfrica: "아프리카", optME: "중동",
+    sortSAM: "패딩 생산/수출 시장", sortTAM: "패딩 수입/내수 시장", sortFill: "보온재 수입", sortOuterExp: "외투 수출", sortOuterImp: "외투 수입",
+    filterHelp: "선택한 필터 조건에 맞춰 아래 요약 카드, 세계지도, 국가별 표가 함께 바뀝니다.",
+    detailTitle: "🔍 국가별 전략 가치 상세 분석",
+    thCountry: "국가명", thRegion: "권역", thOuterExp: "외투 수출", thSAM: "패딩 전략 시장(SAM)", thShare: "시장 점유율", thInfra: "공급망 인프라", thOuterImp: "외투 수입", thTAM: "내수 잠재 수요(TAM)", thInnerShare: "내수 비중", thGrowth: "성장 지표 (CAGR)",
+    growthTitle: "아프리카 의류수출 성장률 대리변수",
+    growthDesc: "아프리카 국가별 의류 공장 수의 장기 시계열 공개자료가 부족해, 이 문서에서는 가장 비교 가능한 공개지표인 HS61+HS62 의류 수출액을 대리변수로 사용했습니다. (2019년 세부 데이터가 없어 2018년 데이터를 적용했습니다.)",
+    thCountryGrowth: "국가", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 전망 (E)", thCAGR: "CAGR ('18-23)",
+    btnZoomIn: "확대 (+)", btnZoomOut: "축소 (-)", btnLeft: "좌", btnRight: "우", btnUp: "상", btnDown: "하", btnReset: "초기화",
+    modelingTitle: "📋 데이터 모델링 방법론 및 전략적 산출 근거",
+    modGovTitle: "1. 데이터 거버넌스", modGovDesc: "본 분석의 수치는 UN Comtrade 및 ITC Trade Map의 실측 무역 데이터를 기반으로 함.",
+    modMethTitle: "2. 시장 규모 추계 공식", modMeth1: "대상 모수: HS 6201, 6202 외투 품목군 전체", modMeth2: "세부 필터링: 정장 코트 제외, 6단위 코드별 실질 비중 적용", modMeth3: "가중치 보정: 품목별 실제 패딩 비중 차등 적용",
+    modSceTitle: "3. 전략 시나리오 설계", modSceDesc: "투자 의사 결정을 위한 3단계 시나리오 모델링 구축.",
+    thScenario: "시나리오", thSceMeaning: "전략적 의미", thSceWeight: "핵심 가중치",
+    tdCons: "보수(Cons)", tdConsDesc: "시장 하방 경직성을 고려한 최소 추정치", tdConsWeight: "45% 반영",
+    tdBase: "기준(Base)", tdBaseDesc: "가장 실현 가능성이 높은 전략적 목표치", tdBaseWeight: "60% 반영",
+    tdAggr: "공격(Aggr)", tdAggrDesc: "방한 의류 시장 잠재력을 최대화한 확장 수치", tdAggrWeight: "75% 반영",
+    modRatTitle: "💡 전략적 산출 근거", modRat1: "보온 비중: 글로벌 아웃도어 믹스 근거 분류", modRat2: "채택률: 다운 및 웰론 등 모든 보온재 포함", modRat3: "장당 투입량: 3M Thinsulate TDS 기준 0.18kg 적용",
+    modVeriTitle: "4. 입체적 교차 검증", modVeriDesc: "보온재(HS 5601) 유입량을 보조 지표로 매칭하여 검증함.",
+    mapSectionTitle: "🌍 전략적 권역 맵 및 국가별 포지셔닝",
+    mapHelp: "아프리카-중동 간 물류 및 재수출 상관관계 분석을 위한 시각화.",
+    modelingTitle: "📋 데이터 모델링 방법론 및 전략적 산출 근거",
+    referenceTitle: "🔗 거버넌스 레퍼런스 및 관련 문서 아카이브",
+    cardCountries: "집계 국가 수", cardSAM: "패딩 생산/수출 시장", cardTAM: "패딩 수입/내수 시장", cardFill: "보온재 수입", cardSAMShare: "생산/수출 비중", cardTAMShare: "수입/내수 비중", cardScenario: "현재 시나리오",
+    unitQty: "장", unitKg: "kg", unitCount: "개국"
+  },
+  en: {
+    mainTitle: "2026 Ethiopia Padding Production Hub Strategic Value & Market Analysis",
+    mainSubtitle: "This dashboard analyzes the feasibility of establishing a padding production line in Ethiopia and strategic values for global market dominance. Based on UN Comtrade trade statistics, it highlights the Production Base (SAM) and Potential Domestic Demand (TAM) in Africa and the Middle East to support investment decisions.",
+    summaryTitle: "📈 Global Market Summary & Key Indicators",
+    strategicTitle: "💡 Strategic Rationale",
+    samTitle: "Production & Supply Chain Hub Value (SAM)",
+    samDesc: "Analyzes existing finished garment export volumes in the region to determine production infrastructure and skilled labor availability.",
+    tamTitle: "Regional Demand & Market Penetration (TAM)",
+    tamDesc: "Measures finished garment and insulation material inflows to identify immediate potential for domestic and distribution market capture.",
+    filterTitle: "Filters & Aggregation",
+    labelScenario: "Scenario",
+    labelRegion: "Region",
+    labelSearch: "Search Country",
+    labelSort: "Sort By",
+    searchPlaceholder: "Enter country name",
+    optBase: "Base", optCons: "Cons", optAggr: "Aggr",
+    optAll: "All", optAfrica: "Africa", optME: "Middle East",
+    sortSAM: "Padding Production/Export Market", sortTAM: "Padding Import/Domestic Market", sortFill: "Insulation Import", sortOuterExp: "Outerwear Export", sortOuterImp: "Outerwear Import",
+    filterHelp: "Summary cards, world maps, and tables update according to your filter selections.",
+    detailTitle: "🔍 Strategic Value Analysis by Country",
+    thCountry: "Country", thRegion: "Region", thOuterExp: "Outer Export", thSAM: "Padding SAM", thShare: "Mkt Share", thInfra: "SCM Infra", thOuterImp: "Outer Import", thTAM: "Domestic TAM", thInnerShare: "Domestic %", thGrowth: "Growth (CAGR)",
+    growthTitle: "Africa Apparel Export Growth Proxy",
+    growthDesc: "Due to limited long-term time-series data on apparel factories in Africa, we used HS61+HS62 Export Value as a proxy. (2018 data applied due to missing 2019 details.)",
+    thCountryGrowth: "Country", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 Forecast (E)", thCAGR: "CAGR ('18-23)",
+    btnZoomIn: "Zoom In (+)", btnZoomOut: "Zoom Out (-)", btnLeft: "Left", btnRight: "Right", btnUp: "Up", btnDown: "Down", btnReset: "Reset",
+    modelingTitle: "📋 Methodology & Strategic Calculation Basis",
+    modGovTitle: "1. Data Governance", modGovDesc: "Based on UN Comtrade and ITC Trade Map micro-data for objectivity.",
+    modMethTitle: "2. Market Size Estimation", modMeth1: "Target: Total HS 6201, 6202 outerwear population", modMeth2: "Filtering: Excl. formal coats, applying real weight by 6-digit codes", modMeth3: "Calibration: Scenario-based padding adoption rates",
+    modSceTitle: "3. Strategic Scenarios", modSceDesc: "3-tier scenario modeling for flexible decision making.",
+    thScenario: "Scenario", thSceMeaning: "Strategic Meaning", thSceWeight: "Key Weight",
+    tdCons: "Cons", tdConsDesc: "Conservative estimate considering market floor", tdConsWeight: "45% applied",
+    tdBase: "Base", tdBaseDesc: "Most realistic strategic target", tdBaseWeight: "60% applied",
+    tdAggr: "Aggr", tdAggrDesc: "Aggressive expansion for maximum potential", tdAggrWeight: "75% applied",
+    modRatTitle: "💡 Strategic Rationale", modRat1: "Insulated Share: Classified by global outdoor mix", modRat2: "Adoption: All padding types incl. Down/Wellon", modRat3: "Fill Weight: 0.18kg based on 3M Thinsulate TDS",
+    modVeriTitle: "4. Cross-Verification", modVeriDesc: "Verified via regional inflow of insulation materials (HS 5601).",
+    mapSectionTitle: "🌍 Strategic Regional Map & Positioning",
+    mapHelp: "Visualizing logistics and re-export correlations between Africa and Middle East.",
+    modelingTitle: "📋 Methodology & Strategic Calculation Basis",
+    referenceTitle: "🔗 Governance References & Document Archive",
+    cardCountries: "Aggregated Countries", cardSAM: "Padding SAM Market", cardTAM: "Padding TAM Market", cardFill: "Insulation Import", cardSAMShare: "SAM Share", cardTAMShare: "TAM Share", cardScenario: "Current Scenario",
+    unitQty: "pcs", unitKg: "kg", unitCount: "countries"
+  },
+  zh: {
+    mainTitle: "2026年 埃塞俄比亚棉服生产基地战略价值与市场分析",
+    mainSubtitle: "本仪表板分析了在埃塞俄比亚建立棉服生产线的可行性以及抢占全球市场的战略价值。基于联合国商品贸易统计数据，深入剖析非洲和中东地区的棉服生产基础（SAM）和潜在国内需求（TAM），为投资决策提供支持。",
+    summaryTitle: "📈 全球市场摘要与关键指标",
+    strategicTitle: "💡 战略价值建议 (Strategic Rationale)",
+    samTitle: "生产与供应枢纽价值 (SAM)",
+    samDesc: "分析该地区已有的成衣出口量，以判断实际棉服生产基础设施和熟练工人的可用性。",
+    tamTitle: "区域需求与市场渗透力 (TAM)",
+    tamDesc: "实测流入目标国家的成衣和保温材料流量，即在生产基地附近可立即获取的潜在国内及流通市场规模。",
+    filterTitle: "筛选与统计",
+    labelScenario: "情景",
+    labelRegion: "区域",
+    labelSearch: "搜索国家",
+    labelSort: "排序",
+    searchPlaceholder: "输入国家名称",
+    optBase: "基准", optCons: "保守", optAggr: "激进",
+    optAll: "全部", optAfrica: "非洲", optME: "中东",
+    sortSAM: "棉服生产/出口市场", sortTAM: "棉服进口/内需市场", sortFill: "保温材料进口", sortOuterExp: "外套出口", sortOuterImp: "外套进口",
+    filterHelp: "下面的摘要卡、世界地图和各国家表格将根据选择的筛选条件同步更新。",
+    detailTitle: "🔍 各国家战略价值详细分析",
+    thCountry: "国家名", thRegion: "区域", thOuterExp: "外套出口", thSAM: "棉服战略市场 (SAM)", thShare: "市场份额", thInfra: "供应链基础设施", thOuterImp: "外套进口", thTAM: "内需潜在需求 (TAM)", thInnerShare: "内需比重", thGrowth: "增长指标 (CAGR)",
+    growthTitle: "非洲服装出口增长率替代变量",
+    growthDesc: "由于非洲服装工厂缺乏长期时间序列数据，本报告使用 HS61+HS62 出口额作为替代变量。（因缺乏 2019 年数据，采用了 2018 年数据。）",
+    thCountryGrowth: "国家", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 预测 (E)", thCAGR: "CAGR ('18-23)",
+    btnZoomIn: "放大 (+)", btnZoomOut: "缩小 (-)", btnLeft: "左", btnRight: "右", btnUp: "上", btnDown: "下", btnReset: "重置",
+    modelingTitle: "📋 数据建模方法论与战略计算依据",
+    modGovTitle: "1. 数据治理", modGovDesc: "基于联合国商品贸易统计和 ITC 贸易地图微观数据，确保客观性。",
+    modMethTitle: "2. 市场规模推算方法", modMeth1: "目标对象：HS 6201, 6202 外套品类总体", modMeth2: "细分过滤：排除正装大衣，按 6 位代码应用实际比重", modMeth3: "权重修正：根据不同情景应用实际棉服采用率",
+    modSceTitle: "3. 战略情景设计", modSceDesc: "为灵活决策构建三级情景建模。",
+    thScenario: "情景", thSceMeaning: "战略意义", thSceWeight: "核心权重",
+    tdCons: "保守 (Cons)", tdConsDesc: "考虑市场下行风险的最低估算值", tdConsWeight: "应用 45%",
+    tdBase: "基准 (Base)", tdBaseDesc: "最具实现可能性的战略目标值", tdBaseWeight: "应用 60%",
+    tdAggr: "激进 (Aggr)", tdAggrDesc: "最大化市场潜力的扩张数值", tdAggrWeight: "应用 75%",
+    modRatTitle: "💡 战略计算依据", modRat1: "保温比重：基于全球户外产品组合分类", modRat2: "采用率：包括羽绒和 Wellon 等所有保暖填充方式", modRat3: "单件投入量：基于 3M 新雪丽 TDS 应用 0.18kg",
+    modVeriTitle: "4. 立体交叉验证", modVeriDesc: "通过保温材料 (HS 5601) 的区域流入量进行辅助验证。",
+    mapSectionTitle: "🌍 战略区域地图与各国定位",
+    mapHelp: "非洲-中东物流及转口贸易相关性可视化分析。",
+    referenceTitle: "🔗 治理参考资料与相关文档归档",
+    cardCountries: "统计国家数", cardSAM: "棉服生产/出口市场", cardTAM: "棉服进口/内需市场", cardFill: "保温材料进口", cardSAMShare: "生产/出口比重", cardTAMShare: "进口/内需比重", cardScenario: "当前情景",
+    unitQty: "件", unitKg: "kg", unitCount: "个国家"
+  }
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const isTarget = (lang==='ko' && btn.title==='한국어') || (lang==='zh' && btn.title==='中文') || (lang==='en' && btn.title==='English');
+    btn.classList.toggle('active', isTarget);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (TRANSLATIONS[lang][key]) el.innerHTML = TRANSLATIONS[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (TRANSLATIONS[lang][key]) el.placeholder = TRANSLATIONS[lang][key];
+  });
+  drawGrowthChart();
+  renderGrowthTable();
+  renderSources();
+  render();
+}
+const DATA = {"generated_at": "2026-04-24", "totals": {"outer_export_qty": 5756501.843987017, "outer_export_trade_usd": 229161997.16399997, "padded_export_cons_qty": 461722.35827770195, "padded_export_base_qty": 1036904.9895746962, "padded_export_aggr_qty": 1612087.6208716903, "padded_export_base_trade_usd": 42026724.1406, "outer_import_qty": 17914298.69825438, "outer_import_trade_usd": 657878243.9060001, "padded_import_cons_qty": 1827211.5963502205, "padded_import_base_qty": 3584250.3707001465, "padded_import_aggr_qty": 5341289.145050072, "padded_import_base_trade_usd": 132619874.67815, "fill_import_kg": 14845468.029000003, "fill_import_trade_usd": 133446394.739}, "scenario_weights": {"cons": {"direct_mmf_anorak": 0.45, "direct_other_anorak": 0.25, "mixed_mmf_coat_anorak": 0.15, "mixed_other_coat_anorak": 0.05}, "base": {"direct_mmf_anorak": 0.6, "direct_other_anorak": 0.4, "mixed_mmf_coat_anorak": 0.25, "mixed_other_coat_anorak": 0.15}, "aggr": {"direct_mmf_anorak": 0.75, "direct_other_anorak": 0.55, "mixed_mmf_coat_anorak": 0.35, "mixed_other_coat_anorak": 0.25}}, "countries": [{"country_en": "South Africa", "country_ko": "남아프리카공화국", "country_zh": "南非", "region": "Africa", "region_ko": "아프리카", "outer_export_year": "2024", "outer_export_qty": 355343.926644855, "outer_export_trade_usd": 9298973.254, "outer_import_qty": 2629410.10934982, "padded_export_base_qty": 76449.029569527, "padded_import_base_qty": 602094.1311557452}, {"country_en": "Morocco", "country_ko": "모로코", "country_zh": "摩洛哥", "region": "Africa", "region_ko": "아프리카", "outer_export_qty": 2807911.28287769, "padded_export_base_qty": 465002.5769890459, "padded_import_base_qty": 198850.560127472}, {"country_en": "Tunisia", "country_ko": "튀니지", "country_zh": "突尼斯", "region": "Africa", "region_ko": "아프리카", "outer_export_qty": 780046.433361644, "padded_export_base_qty": 128463.3475813852, "padded_import_base_qty": 34191.508656475}, {"country_en": "Ethiopia", "country_ko": "에티오피아", "country_zh": "埃塞俄比亚", "region": "Africa", "region_ko": "아프리카", "outer_export_qty": 9157.6161285717, "padded_export_base_qty": 1845.9436883331, "padded_import_base_qty": 16348.2441359354}, {"country_en": "Kenya", "country_ko": "케냐", "country_zh": "肯尼亚", "region": "Africa", "region_ko": "아프리카", "outer_export_qty": 101189.001420573, "padded_export_base_qty": 24695.9004933488, "padded_import_base_qty": 12884.9670436642}, {"country_en": "United Arab Emirates", "country_ko": "아랍에미리트", "country_zh": "阿联酋", "region": "Middle East", "region_ko": "중동", "outer_export_qty": 1482451.46383489, "padded_export_base_qty": 301654.323270023, "padded_import_base_qty": 1144064.0437559362}, {"country_en": "Israel", "country_ko": "이스라엘", "country_zh": "以色列", "region": "Middle East", "region_ko": "중동", "outer_export_qty": 76693.9791411324, "padded_export_base_qty": 12383.0014652137, "padded_import_base_qty": 510090.1937637024}, {"country_en": "Saudi Arabia", "country_ko": "사우디아라비아", "country_zh": "沙特阿拉伯", "region": "Middle East", "region_ko": "중동", "outer_export_qty": 17555.0835306538, "padded_export_base_qty": 3662.440461467, "padded_import_base_qty": 311127.9930396602}, {"country_en": "Kuwait", "country_ko": "쿠웨이트", "country_zh": "科威特", "region": "Middle East", "region_ko": "중동", "outer_export_qty": 98109.0466498231, "padded_export_base_qty": 18122.4848351664, "padded_import_base_qty": 190117.4310330912}],
+  "africa_growth": [
+  {"country_ko": "이집트", "country_en": "Egypt", "country_zh": "埃及", "export_2018": 950, "export_2023": 4200, "export_2025E": 4600, "cagr": 0.346},
+  {"country_ko": "남아공", "country_en": "South Africa", "country_zh": "南非", "export_2018": 1350, "export_2023": 3800, "export_2025E": 4160, "cagr": 0.230},
+  {"country_ko": "모로코", "country_en": "Morocco", "country_zh": "摩洛哥", "export_2018": 2400, "export_2023": 2900, "export_2025E": 3170, "cagr": 0.039},
+  {"country_ko": "튀니지", "country_en": "Tunisia", "country_zh": "突尼斯", "export_2018": 1600, "export_2023": 1850, "export_2025E": 2020, "cagr": 0.030},
+  {"country_ko": "케냐", "country_en": "Kenya", "country_zh": "肯尼亚", "export_2018": 450, "export_2023": 1500, "export_2025E": 1640, "cagr": 0.272},
+  {"country_ko": "에티오피아", "country_en": "Ethiopia", "country_zh": "埃塞俄比亚", "export_2018": 2000, "export_2023": 1400, "export_2025E": 1530, "cagr": -0.069},
+  {"country_ko": "레소토", "country_en": "Lesotho", "country_zh": "莱索托", "export_2018": 950, "export_2023": 1200, "export_2025E": 1310, "cagr": 0.048},
+  {"country_ko": "마다가스카르", "country_en": "Madagascar", "country_zh": "马达加斯加", "export_2018": 200, "export_2023": 250, "export_2025E": 270, "cagr": 0.046}
+], "sources": [
+  {"name_ko": "UN Comtrade / UNdata", "name_en": "UN Comtrade", "name_zh": "联合国商品贸易统计", "what_ko": "외투(HS 6201, 6202) 및 보온재(HS 5601) 최신 무역 통계", "what_en": "Latest trade stats for outerwear and insulation materials", "what_zh": "外套及保温材料最新贸易统计", "url": "https://comtradeplus.un.org/"},
+  {"name_ko": "UNSD (UN Statistics Division)", "name_en": "UNSD", "name_zh": "联合国统计司", "what_ko": "HS Code 품목 분류 및 아노락/윈드재킷 세부 정의 가이드", "what_en": "HS Code classifications and anorak definitions", "what_zh": "HS编码分类及夹克定义指南", "url": "https://unstats.un.org/unsd/classifications/Econ"},
+  {"name_ko": "3M Thinsulate Insulation", "name_en": "3M Thinsulate", "name_zh": "3M 新雪丽", "what_ko": "제품별 기술 데이터 시트(TDS) - 장당 보온재 투입량 산출 근거", "what_en": "Technical Data Sheets for insulation fill weight per unit", "what_zh": "产品技术参数表 - 单件保暖填充量依据", "url": "https://multimedia.3m.com/mws/media/745359O/3m-thinsulate-insulation-type-m-technical-data-sheet-pdf.pdf"},
+  {"name_ko": "ITC Trade Map", "name_en": "ITC Trade Map", "name_zh": "ITC 贸易地图", "what_ko": "국가별 의류 수출입 트렌드 및 연평균 성장률(CAGR) 분석", "what_en": "National apparel trade trends and CAGR analysis", "what_zh": "各国服装进出口趋势及CAGR分析", "url": "https://www.trademap.org"},
+  {"name_ko": "Statista / AfCFTA Reports", "name_en": "Statista / AfCFTA", "name_zh": "Statista / 非洲自贸区报告", "what_ko": "아프리카/중동 지역별 의류 시장 전망 및 공급망 분석 데이터", "what_en": "Regional market forecasts and SCM analysis data", "what_zh": "区域市场预测及供应链分析数据", "url": "https://www.statista.com"},
+  {"name_ko": "모델링 타당성 교차검증 보고서", "name_en": "Modeling Validation Report", "name_zh": "建模验证报告", "what_ko": "리서처/재무분석가 관점의 모델 타당성 검증 의견", "what_en": "Researcher/Analyst view on model validity", "what_zh": "研究员/分析师视角的模型验证意见", "url": "모델링_타당성_교차검증_보고서.md"}
+]};
+
+const fmt0 = n => (n===null||n===undefined||Number.isNaN(Number(n))) ? '-' : Number(n).toLocaleString('en-US', {maximumFractionDigits:0});
+const pct = n => (n===null||n===undefined||Number.isNaN(Number(n))) ? '-' : (Number(n)*100).toLocaleString('en-US', {maximumFractionDigits:1}) + '%';
+const el = id => document.getElementById(id);
+const sum = (rows,key) => rows.reduce((s,r)=>s+Number(r[key]||0),0);
+const MAP_CONFIG = {
+  world: { 
+    elementId:'geo_world', 
+    countries: ['South Africa','Morocco','Tunisia','Angola','Ethiopia','Kenya','Mozambique','Namibia','United Arab Emirates','Israel','Qatar','Saudi Arabia','Kuwait','Jordan','Lebanon'],
+    zoom:3.2, left:-142, top:-155, defaults:{zoom:3.2,left:-142,top:-155}, 
+    colors: ['#fca5a5', '#86efac', '#93c5fd', '#fcd34d', '#c4b5fd', '#f9a8d4', '#67e8f9', '#fdba74', '#bef264'] 
+  }
+};
+const geo = {};
+let geoReady = false;
+const dragState = { active:false, moved:false, groupKey:null, wrap:null, startX:0, startY:0, startLeft:0, startTop:0 };
+let pinnedCountryEn = null;
+
+function scenarioKey(base) { return base.replace('base', el('scenario').value); }
+
+function currentRows() {
+  const region = el('region').value;
+  const q = el('search').value.trim().toLowerCase();
+  const out = DATA.countries.filter(r => {
+    const regionOk = region === '전체' || r.region_ko === region;
+    const name = (r.country_ko + ' ' + (r.country_en||'')).toLowerCase();
+    const searchOk = !q || name.includes(q);
+    return regionOk && searchOk;
+  });
+  const sortKey = el('sortBy').value;
+  out.sort((a,b)=>Number(b[sortKey]||0)-Number(a[sortKey]||0));
+  return out;
+}
+
+function card(labelKey, value) {
+  const label = TRANSLATIONS[currentLang][labelKey] || labelKey;
+  return `<div class="card"><div class="k">${label}</div><div class="v">${value}</div></div>`;
+}
+
+function renderCards(rows) {
+  const exportQty = sum(rows,'outer_export_qty');
+  const importQty = sum(rows,'outer_import_qty');
+  const fillKg = sum(rows,'fill_import_kg');
+  const eQty = sum(rows, scenarioKey('padded_export_base_qty'));
+  const iQty = sum(rows, scenarioKey('padded_import_base_qty'));
+  
+  el('summaryCards').innerHTML = [
+    card('cardCountries', rows.length + (currentLang==='ko'?'개국':currentLang==='zh'?'个国家':' countries')),
+    card('cardSAM', fmt0(eQty) + (currentLang==='ko'?'장':currentLang==='zh'?'件':' pcs')),
+    card('cardTAM', fmt0(iQty) + (currentLang==='ko'?'장':currentLang==='zh'?'件':' pcs')),
+    card('cardFill', fmt0(fillKg) + 'kg')
+  ].join('');
+  
+  el('marketCards').innerHTML = [
+    card('cardSAMShare', exportQty ? pct(eQty/exportQty) : '-'),
+    card('cardTAMShare', importQty ? pct(iQty/importQty) : '-'),
+    card('cardScenario', TRANSLATIONS[currentLang]['opt' + el('scenario').value.charAt(0).toUpperCase() + el('scenario').value.slice(1)])
+  ].join('');
+}
+
+function renderCountryTable(rows) {
+  const eKey = scenarioKey('padded_export_base_qty');
+  const iKey = scenarioKey('padded_import_base_qty');
+  el('countryBody').innerHTML = rows.map(r => {
+    const name = currentLang === 'ko' ? r.country_ko : currentLang === 'zh' ? (r.country_zh || r.country_en) : r.country_en;
+    const region = currentLang === 'ko' ? r.region_ko : currentLang === 'zh' ? (r.region_zh || r.region) : r.region;
+    return `
+    <tr>
+      <td><strong>${name}</strong><br><span class="tiny">${r.country_en}</span></td>
+      <td>${region}</td>
+      <td>${fmt0(r.outer_export_qty)}</td>
+      <td>${fmt0(r[eKey])}</td>
+      <td>${pct(r[eKey] / (r.outer_export_qty || 1))}</td>
+      <td>${fmt0(r.fill_import_kg)}</td>
+      <td>${fmt0(r.outer_import_qty)}</td>
+      <td>${fmt0(r[iKey])}</td>
+      <td>${pct(r[iKey] / (r.outer_import_qty || 1))}</td>
+      <td>${pct(r.cagr_2018_2023)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderGrowthTable() {
+  el('growthBody').innerHTML = DATA.africa_growth.map(r => {
+    const name = currentLang === 'ko' ? r.country_ko : currentLang === 'zh' ? r.country_zh : r.country_ko; // Use KO as fallback for ZH growth table if missing
+    const val18 = r.export_2018;
+    const val23 = r.export_2023;
+    const val25 = r.export_2025E;
+    return `<tr>
+      <td style="text-align:left; font-weight:700">${name}</td>
+      <td>${fmt0(val18)}</td>
+      <td>${fmt0(val23)}</td>
+      <td>${pct(r.cagr)}</td>
+      <td>${fmt0(val25)}</td>
+      <td style="text-align:left; font-size:11px; color:var(--muted)">${currentLang==='ko'?'전망치 포함':currentLang==='zh'?'包含预测值':'Incl. Forecast'}</td>
+    </tr>`;
+  }).join('');
+}
+
+function getUnifiedCountry(countryEn) {
+  const main = DATA.countries.find(c => c.country_en === countryEn);
+  if (!main) return null;
+  let hash = 0;
+  for (let i = 0; i < countryEn.length; i++) hash = countryEn.charCodeAt(i) + ((hash << 5) - hash);
+  return {
+    country_en: main.country_en,
+    country_ko: main.country_ko,
+    region_ko: main.region_ko,
+    outer_export_qty: main.outer_export_qty || 0,
+    outer_import_qty: main.outer_import_qty || 0,
+    fill_import_kg: main.fill_import_kg || 0,
+    mainData: main,
+    colorValue: Math.abs(hash % 100)
+  };
+}
+
+function geoTooltipHtml(r) {
+  const eQtyKey = scenarioKey('padded_export_base_qty');
+  const iQtyKey = scenarioKey('padded_import_base_qty');
+  const name = currentLang === 'ko' ? r.country_ko : currentLang === 'zh' ? (r.mainData.country_zh || r.country_en) : r.country_en;
+  const region = currentLang === 'ko' ? r.region_ko : currentLang === 'zh' ? (r.mainData.region_zh || r.mainData.region) : r.mainData.region;
+  
+  const labels = {
+    sam: currentLang === 'ko' ? '생산/수출 시장 추정' : currentLang === 'zh' ? '生产/出口市场估计' : 'Estimated Production/Export',
+    tam: currentLang === 'ko' ? '수입/내수 시장 추정' : currentLang === 'zh' ? '进口/内需市场估计' : 'Estimated Import/Domestic',
+    outer: currentLang === 'ko' ? '외투 수출/수입' : currentLang === 'zh' ? '外套 出口/进口' : 'Outerwear Exp/Imp',
+    fill: currentLang === 'ko' ? '보온재 수입' : currentLang === 'zh' ? '保温材料进口' : 'Insulation Import'
+  };
+
+  return `<div class="tt-title">${name}</div>
+    <div class="tt-sub">${r.country_en} / ${region}</div>
+    <div class="tt-grid">
+      <div class="tt-item"><div class="tt-k">${labels.sam}</div><div class="tt-v">${fmt0(r.mainData[eQtyKey])} ${TRANSLATIONS[currentLang].unitQty}</div></div>
+      <div class="tt-item"><div class="tt-k">${labels.tam}</div><div class="tt-v">${fmt0(r.mainData[iQtyKey])} ${TRANSLATIONS[currentLang].unitQty}</div></div>
+      <div class="tt-item"><div class="tt-k">${labels.outer}</div><div class="tt-v">${fmt0(r.outer_export_qty)} / ${fmt0(r.outer_import_qty)} ${TRANSLATIONS[currentLang].unitQty}</div></div>
+      <div class="tt-item"><div class="tt-k">${labels.fill}</div><div class="tt-v">${fmt0(r.fill_import_kg)}kg</div></div>
+    </div>`;
+}
+
+function showMapCard(countryEn, pinned = false) {
+  const row = getUnifiedCountry(countryEn);
+  if (!row) return;
+  const pinText = pinned ? (currentLang==='ko'?'클릭 고정 상태':currentLang==='zh'?'点击固定状态':'Pinned') : (currentLang==='ko'?'호버 상태':currentLang==='zh'?'悬停状态':'Hover');
+  const name = currentLang === 'ko' ? row.country_ko : currentLang === 'zh' ? (row.mainData.country_zh || row.country_en) : row.country_en;
+  const region = currentLang === 'ko' ? row.region_ko : currentLang === 'zh' ? (row.mainData.region_zh || row.mainData.region) : row.mainData.region;
+  
+  el('mapHoverCard').innerHTML = `
+    <h4>${name}</h4>
+    <div class="sub">${row.country_en} / ${region} / ${pinText}</div>
+    ${geoTooltipHtml(row)}`;
+}
+
+function refreshMapCard() {
+  if (pinnedCountryEn) showMapCard(pinnedCountryEn, true);
+  else el('mapHoverCard').innerHTML = `<h4>${currentLang==='ko'?'국가 정보 보기':currentLang==='zh'?'查看国家信息':'View Country Info'}</h4><div class="sub">${currentLang==='ko'?'지도에서 국가를 올려보거나 클릭하세요.':currentLang==='zh'?'请将鼠标悬停在地图上的国家或点击。':'Hover over or click a country on the map.'}</div>`;
+}
+
+function drawGeo(groupKey) {
+  if (!geoReady || !(window.google && google.visualization && google.visualization.GeoChart)) return;
+  const cfg = MAP_CONFIG[groupKey];
+  const dt = new google.visualization.DataTable();
+  dt.addColumn('string', 'Country');
+  dt.addColumn('number', 'Value');
+  dt.addColumn({type:'string', role:'tooltip', p:{html:true}});
+  cfg.countries.forEach(c => {
+    const r = getUnifiedCountry(c);
+    if(r) dt.addRow([r.country_en, r.colorValue, geoTooltipHtml(r)]);
+  });
+
+  const options = {
+    colorAxis: { colors: cfg.colors },
+    backgroundColor: '#f4f7fb',
+    datalessRegionColor: '#e2e8f0',
+    displayMode: 'regions',
+    keepAspectRatio: true,
+    legend: 'none',
+    tooltip: {trigger:'none'}
+  };
+
+  if (!geo[groupKey] || !geo[groupKey].chart) {
+    const chart = new google.visualization.GeoChart(el(cfg.elementId));
+    google.visualization.events.addListener(chart, 'onmouseover', e => { if (!pinnedCountryEn) showMapCard(geo[groupKey].data.getValue(e.row, 0), false); });
+    google.visualization.events.addListener(chart, 'select', () => {
+      const sel = chart.getSelection();
+      if (sel.length) {
+        pinnedCountryEn = geo[groupKey].data.getValue(sel[0].row, 0);
+        el('search').value = getUnifiedCountry(pinnedCountryEn).country_ko;
+        render();
+      }
+    });
+    geo[groupKey] = { chart };
+  }
+  geo[groupKey].data = dt;
+  setMapFrame(groupKey);
+  geo[groupKey].chart.draw(dt, options);
+}
+
+function setMapFrame(groupKey) {
+  const cfg = MAP_CONFIG[groupKey];
+  const target = el(cfg.elementId);
+  target.style.width = (cfg.zoom * 100) + '%';
+  target.style.height = (cfg.zoom * 100) + '%';
+  target.style.left = cfg.left + '%';
+  target.style.top = cfg.top + '%';
+}
+
+function mapAction(groupKey, action) {
+  const cfg = MAP_CONFIG[groupKey];
+  if (action === 'zoomIn') cfg.zoom += 0.5;
+  if (action === 'zoomOut') cfg.zoom = Math.max(1, cfg.zoom - 0.5);
+  if (action === 'left') cfg.left += 10;
+  if (action === 'right') cfg.left -= 10;
+  if (action === 'up') cfg.top += 10;
+  if (action === 'down') cfg.top -= 10;
+  if (action === 'reset') { cfg.zoom = cfg.defaults.zoom; cfg.left = cfg.defaults.left; cfg.top = cfg.defaults.top; }
+  drawGeo(groupKey);
+}
+
+function initMapDrag() {
+  const wrap = el('mapWorldWrap');
+  wrap.addEventListener('mousedown', e => {
+    dragState.active = true;
+    dragState.startX = e.clientX;
+    dragState.startY = e.clientY;
+    dragState.startLeft = MAP_CONFIG.world.left;
+    dragState.startTop = MAP_CONFIG.world.top;
+    wrap.classList.add('dragging');
+  });
+  document.addEventListener('mousemove', e => {
+    if (!dragState.active) return;
+    const dx = ((e.clientX - dragState.startX) / wrap.clientWidth) * 100;
+    const dy = ((e.clientY - dragState.startY) / wrap.clientHeight) * 100;
+    MAP_CONFIG.world.left = dragState.startLeft + dx;
+    MAP_CONFIG.world.top = dragState.startTop + dy;
+    setMapFrame('world');
+  });
+  document.addEventListener('mouseup', () => { dragState.active = false; wrap.classList.remove('dragging'); });
+}
+
+function drawGrowthChart() {
+  const chartDom = el('growthChart');
+  const myChart = echarts.init(chartDom);
+  const countries = DATA.africa_growth.map(d => currentLang === 'ko' ? d.country_ko : currentLang === 'zh' ? d.country_zh : d.country_ko);
+  const data18 = DATA.africa_growth.map(d => d.export_2018);
+  const data23 = DATA.africa_growth.map(d => d.export_2023);
+  const data25 = DATA.africa_growth.map(d => d.export_2025E);
+  const cagrData = DATA.africa_growth.map(d => (d.cagr * 100).toFixed(1));
+
+  const legendNames = {
+    val18: currentLang === 'ko' ? '2018년 실적' : currentLang === 'zh' ? '2018年业绩' : '2018 Performance',
+    val23: currentLang === 'ko' ? '2023년 실적' : currentLang === 'zh' ? '2023年业绩' : '2023 Performance',
+    val25: currentLang === 'ko' ? '2025년 전망' : currentLang === 'zh' ? '2025年预测' : '2025 Forecast',
+    cagr: currentLang === 'ko' ? '연평균 성장률(%)' : currentLang === 'zh' ? '年均增长率(%)' : 'CAGR (%)',
+    yLeft: currentLang === 'ko' ? '수출 규모 (USD M)' : currentLang === 'zh' ? '出口规模 (USD M)' : 'Export Scale (USD M)',
+    yRight: currentLang === 'ko' ? '성장률 (%)' : currentLang === 'zh' ? '增长率 (%)' : 'Growth Rate (%)'
+  };
+
+  const option = {
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { data: [legendNames.val18, legendNames.val23, legendNames.val25, legendNames.cagr], bottom: 0 },
+    grid: { left: '3%', right: '4%', top: '15%', bottom: '15%', containLabel: true },
+    xAxis: { type: 'category', data: countries, axisLabel: { interval: 0, rotate: 30 } },
+    yAxis: [
+      { type: 'value', name: legendNames.yLeft, position: 'left' },
+      { type: 'value', name: legendNames.yRight, position: 'right', axisLabel: { formatter: '{value}%' } }
+    ],
+    series: [
+    { name: legendNames.val18, type: 'bar', data: data18, itemStyle: { color: '#cbd5e1' } },
+    { name: legendNames.val23, type: 'bar', data: data23, itemStyle: { color: '#3b82f6' } },
+    { 
+      name: legendNames.val25, type: 'bar', data: data25, 
+      itemStyle: { color: '#93c5fd', borderType: 'dashed', opacity: 0.7 },
+      label: { show: true, position: 'top', formatter: 'E' }
+    },
+    { name: legendNames.cagr, type: 'line', yAxisIndex: 1, data: cagrData, itemStyle: { color: '#f59e0b' }, symbolSize: 8, lineStyle: { width: 3 } }
+    ]
+  };
+  myChart.setOption(option);
+  window.addEventListener('resize', () => myChart.resize());
+}
+
+function togglePanel(el) {
+  const panel = el.closest('.panel');
+  panel.classList.toggle('collapsed');
+  // 지도가 접혔다 펴질 때 레이아웃 보정
+  if (panel.id === 'mapSection' && !panel.classList.contains('collapsed')) {
+    setTimeout(() => drawGeo('world'), 100);
+  }
+}
+
+function render() {
+  const rows = currentRows();
+  renderCards(rows);
+  renderCountryTable(rows);
+  refreshMapCard();
+  drawGeo('world');
+}
+
+['scenario','region','search','sortBy'].forEach(id => el(id).addEventListener('input', render));
+renderGrowthTable();
+initMapDrag();
+google.charts.load('current', {packages:['corechart', 'geochart']});
+google.charts.setOnLoadCallback(() => {
+  geoReady = true;
+  drawGrowthChart();
+  render();
+});
+function renderSources() {
+  el('sourceList').innerHTML = DATA.sources.map(s => {
+    const name = currentLang === 'ko' ? s.name_ko : currentLang === 'zh' ? s.name_zh : s.name_en;
+    const what = currentLang === 'ko' ? s.what_ko : currentLang === 'zh' ? s.what_zh : s.what_en;
+    return `<li><strong>${name}</strong>: ${what} (<a href="${s.url}" target="_blank">Link</a>)</li>`;
+  }).join('');
+}
+renderSources();
+</script>
+</body>
+</html>
