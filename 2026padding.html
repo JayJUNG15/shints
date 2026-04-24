@@ -90,6 +90,24 @@ a{color:#1d6b58;text-decoration:none}
   .panel.collapsed .toggle-icon { transform: rotate(-180deg); }
   .panel-content { margin-top: 1.5rem; transition: all 0.3s ease; }
   .panel.collapsed .panel-content { display: none; }
+  .report-panel .panel-content { padding: 10px 0; }
+  .report-container { font-size: 14px; line-height: 1.8; color: #334155; }
+  .report-container h3 { font-size: 18px; color: #1e293b; margin: 24px 0 12px; border-left: 4px solid #dc2626; padding-left: 10px; }
+  .report-container p { margin-bottom: 12px; }
+  .report-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; border: 1px solid #e2e8f0; }
+  .report-table th { background: #f8fafc; color: #475569; font-weight: 700; text-align: center; border: 1px solid #e2e8f0; padding: 10px; }
+  .report-table td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; }
+  
+  /* 서론 섹션 전용 프리미엄 스타일 */
+  .intro-panel { background: linear-gradient(to bottom right, #fffdf8, #fcfcfb); border-top: 4px solid #7f1d1d; }
+  .intro-content-wrap { display: grid; gap: 24px; }
+  .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 15px 0; }
+  .h-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+  .h-card .label { font-size: 11px; color: #647173; text-transform: uppercase; letter-spacing: 0.5px; }
+  .h-card .value { font-size: 18px; font-weight: 700; color: #7f1d1d; margin-top: 5px; }
+  .formula-highlight { background: #1c2b2d; color: #f8f1de; padding: 20px; border-radius: 12px; font-family: 'Courier New', monospace; border-left: 5px solid #dc2626; margin: 15px 0; }
+  .method-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-top: 15px; }
+  .method-box h4 { margin-top: 0; color: #1e293b; font-size: 16px; display: flex; align-items: center; gap: 8px; }
 </style>
 </head>
 <body>
@@ -103,6 +121,16 @@ a{color:#1d6b58;text-decoration:none}
   <p data-i18n="mainSubtitle">본 대시보드는 에티오피아 패딩 생산 라인 구축 프로젝트의 타당성 검토 및 글로벌 시장 선점을 위한 전략 가치를 분석한 결과물임. UN Comtrade 실측 통계를 기반으로 아프리카 및 중동 지역의 패딩 생산 기반(SAM)과 잠재적 내수 수요(TAM)를 입체적으로 조명하여 투자 의사결정을 지원함.</p>
 </header>
 <div class="container">
+  <!-- 서론 : 종합 분석에 대한 방법론 설명 섹션 -->
+  <section class="panel intro-panel" id="introSection">
+    <div class="panel-header" onclick="togglePanel(this)">
+      <h2 data-i18n="introTitle">서론 : 종합 분석에 대한 방법론 설명</h2>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div class="panel-content" id="introContent">
+      <!-- 다국어 보고서 전문 삽입 -->
+    </div>
+  </section>
   <section class="panel">
     <h2 data-i18n="summaryTitle">📈 글로벌 마켓 서머리 및 주요 지표</h2>
     <div class="cards" id="summaryCards"></div>
@@ -314,8 +342,100 @@ const TRANSLATIONS = {
     mapHelp: "아프리카-중동 간 물류 및 재수출 상관관계 분석을 위한 시각화.",
     modelingTitle: "📋 데이터 모델링 방법론 및 전략적 산출 근거",
     referenceTitle: "🔗 거버넌스 레퍼런스 및 관련 문서 아카이브",
-    cardCountries: "집계 국가 수", cardSAM: "패딩 생산/수출 시장", cardTAM: "패딩 수입/내수 시장", cardFill: "보온재 수입", cardSAMShare: "생산/수출 비중", cardTAMShare: "수입/내수 비중", cardScenario: "현재 시나리오",
-    unitQty: "장", unitKg: "kg", unitCount: "개국"
+    unitQty: "장", unitKg: "kg", unitCount: "개국",
+    introTitle: "서론 : 종합 분석에 대한 방법론 설명",
+    introBody: `
+      <div class="report-container">
+        <!-- 1. 시장규모 추산 방법 -->
+        <h3>1. 시장규모 추산 방법 (Methodology)</h3>
+        <p><strong>1.1. 데이터 소스의 공신력 및 객관성 확보</strong><br>본 분석은 세계 무역 통계의 표준인 <strong>UN Comtrade</strong>의 최신 실측 데이터를 기반으로 설계되었습니다. 원천 데이터를 직접 추출하여 분석함으로써 데이터의 정합성과 신뢰성을 최우선으로 확보하였습니다.</p>
+        
+        <div class="method-box">
+          <h4>💡 품목 분류 및 정교한 필터링 로직</h4>
+          <ul>
+            <li><strong>분석 대상</strong>: HS 4단위 코드 6201(남성), 6202(여성) 외투 전체 물량 확보.</li>
+            <li><strong>세부 정제</strong>: 6단위 코드 레벨에서 비보온성 품목(정장 코트 등)을 엄격히 제외.</li>
+            <li><strong>가중치 모델링</strong>: 실제 충전재가 삽입되는 '진성 패딩' 비중을 시나리오별로 차등 적용.</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:15px"><strong>1.2. 전략적 국가 선별 기준 (Targeting)</strong><br>무역 실적이 미비하거나 기후적 특성상 겨울이 존재하지 않아 보온 의류 수요가 없는 국가들을 배제하고, 아프리카 및 중동 내 전략적 가치가 높은 <strong>핵심 15개국</strong>을 최종 선정하였습니다.</p>
+
+        <!-- 2. 시장 분석 정의 -->
+        <h3>2. 핵심 유효 시장(SAM) 및 전체 잠재 시장(TAM) 분석</h3>
+        <div class="two">
+          <div class="h-card">
+            <div class="label">핵심 유효 시장 (Serviceable Addressable Market, SAM)</div>
+            <div class="value">실질적 생산 대응 시장</div>
+            <p style="margin-top:12px; font-size:13px; color:#475569;">SAM은 <strong>'생산 거점으로서 즉각적인 대응이 가능한 실질적 타겟 시장'</strong>을 의미합니다.</p>
+            <ul class="tiny" style="margin-top:10px; padding-left:18px;">
+              <li><strong>추산 방식</strong>: 해당 권역 내에서 이미 생산되어 글로벌 시장으로 공급되고 있는 <strong>완제품 수출 실적</strong>을 1차 모수로 설정하였습니다.</li>
+              <li><strong>공급망 검증</strong>: 완제품 수치에만 의존하지 않고, <strong>충전재 및 보온재(Wadding) 원부자재의 역내 수입량</strong>을 교차 분석하였습니다.</li>
+              <li><strong>분석 효과</strong>: 이를 통해 실제 패딩 생산 인프라와 공급망 생태계가 작동하고 있는 '살아있는 유효 시장'만을 선별하여 분석의 정밀도를 높였습니다.</li>
+            </ul>
+          </div>
+          <div class="h-card">
+            <div class="label">전체 잠재 시장 (Total Addressable Market, TAM)</div>
+            <div class="value">역내 전체 수요 시장</div>
+            <p style="margin-top:12px; font-size:13px; color:#475569;">TAM은 <strong>'생산 기지 설립 시 역내 수요를 통해 확보 가능한 전체 잠재 수요 시장'</strong>을 의미합니다.</p>
+            <ul class="tiny" style="margin-top:10px; padding-left:18px;">
+              <li><strong>추산 방식</strong>: 대상 국가들 내부로 유입되는 <strong>외투 완제품의 전체 수입 물량</strong>을 기반으로 분석하였습니다.</li>
+              <li><strong>분석 가치</strong>: 이는 생산 거점 인근에서 즉각적으로 시장 점유율을 확보할 수 있는 자체 내수 및 인접 국가 유통 시장의 전체 규모를 파악하는 핵심 지표로 활용됩니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. 시나리오별 시뮬레이션 결과 -->
+        <h3>3. 시나리오별 시장 시뮬레이션 결과</h3>
+        <div class="formula-highlight">
+          기준 시나리오(Base) 적용 시: 패딩 수출 시장(SAM) 약 103만 장 확보 가능
+        </div>
+        
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>시장 구분</th>
+              <th>보수적 (Cons.)</th>
+              <th><strong>기준 (Base)</strong></th>
+              <th>공격적 (Aggr.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>핵심 유효 시장 (SAM)</strong></td>
+              <td>461,722 장</td>
+              <td><strong>1,036,905 장</strong></td>
+              <td>1,612,088 장</td>
+            </tr>
+            <tr>
+              <td><strong>전체 잠재 시장 (TAM)</strong></td>
+              <td>1,827,212 장</td>
+              <td><strong>3,584,250 장</strong></td>
+              <td>5,341,289 장</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-grid" style="margin-top:15px">
+          <div class="h-card">
+            <div class="label">수출 거점(SAM) 거래 규모</div>
+            <div class="value">US$ 42,026,724</div>
+          </div>
+          <div class="h-card">
+            <div class="label">자체 시장(TAM) 거래 규모</div>
+            <div class="value">US$ 132,619,875</div>
+          </div>
+        </div>
+
+        <div class="method-box" style="margin-top:15px">
+          <h4>📌 시나리오별 전략적 의미 및 실행 기준</h4>
+          <p><strong>• 보수적 시나리오</strong>: 하방 경직성을 고려한 <strong>'최소 확보 물량'</strong>으로, 초기 생산 라인의 안정적인 가동률(Capacity) 유지를 위한 핵심 기준입니다.</p>
+          <p><strong>• 기준 시나리오</strong>: 본 프로젝트가 지향하는 <strong>'표준 전략 목표'</strong>입니다. 역내 공급망과 완제품 흐름의 가장 현실적인 접점입니다.</p>
+          <p><strong>• 공격적 시나리오</strong>: 시장 침투력을 극대화하고 신규 바이어를 적극 발굴했을 때 도달 가능한 <strong>'최대 성장 포텐셜'</strong>을 의미합니다.</p>
+        </div>
+        
+        <p class="tiny" style="color:#7f1d1d; font-weight:700; margin-top:10px">※ 본 수치는 내부 전략기획팀의 시나리오 모델링 결과로 실제 시장 상황과 차이가 있을 수 있습니다.</p>
+      </div>`,
   },
   en: {
     mainTitle: "2026 Ethiopia Padding Production Hub Strategic Value & Market Analysis",
@@ -354,10 +474,122 @@ const TRANSLATIONS = {
     modVeriTitle: "4. Cross-Verification", modVeriDesc: "Verified via regional inflow of insulation materials (HS 5601).",
     mapSectionTitle: "🌍 Strategic Regional Map & Positioning",
     mapHelp: "Visualizing logistics and re-export correlations between Africa and Middle East.",
-    modelingTitle: "📋 Methodology & Strategic Calculation Basis",
     referenceTitle: "🔗 Governance References & Document Archive",
     cardCountries: "Aggregated Countries", cardSAM: "Padding SAM Market", cardTAM: "Padding TAM Market", cardFill: "Insulation Import", cardSAMShare: "SAM Share", cardTAMShare: "TAM Share", cardScenario: "Current Scenario",
-    unitQty: "pcs", unitKg: "kg", unitCount: "countries"
+    unitQty: "pcs", unitKg: "kg", unitCount: "countries",
+    introTitle: "Introduction: Comprehensive Analysis Methodology",
+    introBody: `
+      <div class="report-container">
+        <!-- 1. Methodology -->
+        <h3>1. Market Size Estimation Methodology</h3>
+        <p><strong>1.1. Data Integrity and Objectivity</strong><br>This analysis is built upon the latest empirical data from <strong>UN Comtrade</strong>, the global standard for trade statistics. By extracting and analyzing raw data directly, we have ensured the highest level of data consistency and reliability.</p>
+        
+        <div class="method-box">
+          <h4>💡 Product Classification & Filtering Logic</h4>
+          <ul>
+            <li><strong>Target Population</strong>: Full datasets for HS 4-digit codes 6201 (Men's) and 6202 (Women's) Outerwear.</li>
+            <li><strong>Micro-Filtering</strong>: Strictly excluded non-insulated items such as formal coats, capes, and non-padded jackets at the 6-digit code level.</li>
+            <li><strong>Weight Modeling</strong>: Applied differentiated weights by scenario for 'True Padding' items where actual insulation material is utilized.</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:15px"><strong>1.2. Strategic Country Targeting</strong><br>Excluded countries with negligible trade records or tropical climates (lacking winter demand). Finalized <strong>15 core countries</strong> in Africa and the Middle East based on strategic value and business feasibility.</p>
+
+        <!-- 2. SAM & TAM Analysis -->
+        <h3>2. Serviceable (SAM) & Total (TAM) Addressable Market Analysis</h3>
+        <div class="two">
+          <div class="h-card">
+            <div class="label">Serviceable Addressable Market (SAM)</div>
+            <div class="value">Active Production Hub Value</div>
+            <p style="margin-top:12px; font-size:13px; color:#475569;">SAM represents the <strong>'immediately addressable target market'</strong> as a manufacturing base.</p>
+            <ul class="tiny" style="margin-top:10px; padding-left:18px;">
+              <li><strong>Estimation</strong>: Used **finished garment export records** as the primary population for the region.</li>
+              <li><strong>SCM Verification</strong>: Cross-analyzed regional **Wadding/Insulation material imports** to verify active supply chains.</li>
+              <li><strong>Effect</strong>: Identified 'Live Markets' where production infrastructure and ecosystems are functionally operating.</li>
+            </ul>
+          </div>
+          <div class="h-card">
+            <div class="label">Total Addressable Market (TAM)</div>
+            <div class="value">Regional Demand Potential</div>
+            <p style="margin-top:12px; font-size:13px; color:#475569;">TAM represents the <strong>'total potential demand market'</strong> accessible through regional supply.</p>
+            <ul class="tiny" style="margin-top:10px; padding-left:18px;">
+              <li><strong>Estimation</strong>: Analyzed **total import volumes of finished outerwear** into the target countries.</li>
+              <li><strong>Strategic Value</strong>: Key indicator for immediate market share capture within domestic and adjacent distribution markets.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. Scenario-based Simulation Results -->
+        <h3>3. Market Simulation Results by Scenario</h3>
+        <div class="formula-highlight">
+          Base Scenario: Potential capture of approx. 1.03M units in Padding Export Market (SAM)
+        </div>
+        
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>Market Category</th>
+              <th>Conservative</th>
+              <th><strong>Base</strong></th>
+              <th>Aggressive</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Padding SAM Market</strong></td>
+              <td>461,722 pcs</td>
+              <td><strong>1,036,905 pcs</strong></td>
+              <td>1,612,088 pcs</td>
+            </tr>
+            <tr>
+              <td><strong>Padding TAM Market</strong></td>
+              <td>1,827,212 pcs</td>
+              <td><strong>3,584,250 pcs</strong></td>
+              <td>5,341,289 pcs</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-grid" style="margin-top:15px">
+          <div class="h-card">
+            <div class="label">SAM Transaction Value</div>
+            <div class="value">US$ 42,026,724</div>
+          </div>
+          <div class="h-card">
+            <div class="label">TAM Transaction Value</div>
+            <div class="value">US$ 132,619,875</div>
+          </div>
+        </div>
+
+        <div class="method-box" style="margin-top:15px">
+          <h4>📌 Strategic Meaning & Execution Criteria</h4>
+          <p><strong>• Conservative</strong>: The <strong>'Minimum Guaranteed Volume'</strong> for initial capacity utilization and floor protection.</p>
+          <p><strong>• Base</strong>: The <strong>'Standard Strategic Target'</strong>. Represents the most realistic intersection of supply chain and finished goods flow.</p>
+          <p><strong>• Aggressive</strong>: The <strong>'Maximum Growth Potential'</strong> achievable through aggressive market penetration and new buyer sourcing.</p>
+        </div>
+        
+        <p class="tiny" style="color:#7f1d1d; font-weight:700; margin-top:10px">※ These figures are results of internal simulation and may differ from actual market conditions.</p>
+      </div>`,
+    reportBody: `
+      <div class="report-container">
+        <h3>1. Executive Summary</h3>
+        <p><strong>1.1. Strategic Feasibility</strong><br>The padding/insulated outerwear export market in Africa and the Middle East is analyzed at <strong>approx. 1.03M units (US$ 42M)</strong> under the Base Scenario, strongly supporting Ethiopia's potential as a high-value manufacturing hub.</p>
+        <p><strong>1.2. Supply Chain & Market Scalability</strong><br>Beyond exports, a regional import market of <strong>3.58M units</strong> exists. Raw material (insulation) imports exceeding <strong>US$ 133M</strong> indicate a robust existing supply chain and potential for domestic market capture.</p>
+        
+        <h3>2. Market Estimation & Scenarios</h3>
+        <table class="report-table">
+          <thead><tr><th>Category</th><th>Export Market (SAM)</th><th>Domestic Market (TAM)</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Conservative</td><td>461,722 pcs</td><td>1,827,212 pcs</td><td>Core codes only</td></tr>
+            <tr><td><strong>Base</strong></td><td><strong>1,036,905 pcs</strong></td><td><strong>3,584,250 pcs</strong></td><td><strong>Standard Target</strong></td></tr>
+            <tr><td>Aggressive</td><td>1,612,088 pcs</td><td>5,341,289 pcs</td><td>Potential demand</td></tr>
+          </tbody>
+        </table>
+        
+        <h3>3. Strategic Recommendations</h3>
+        <p><strong>3.1. Ethiopia's Role</strong><br>Ethiopia is positioned to serve as a <strong>core cost-saving production hub</strong> for regional padding manufacturing, with expected profitability improvements post-2025.</p>
+        <p><strong>3.2. Future Direction</strong><br>Implement a <strong>Dual-Track strategy</strong>: utilize regional insulation infrastructure to shorten lead times while simultaneously targeting both EU (via Morocco/Tunisia) and US (via Kenya) markets.</p>
+      </div>`
   },
   zh: {
     mainTitle: "2026年 埃塞俄比亚棉服生产基地战略价值与市场分析",
@@ -398,7 +630,120 @@ const TRANSLATIONS = {
     mapHelp: "非洲-中东物流及转口贸易相关性可视化分析。",
     referenceTitle: "🔗 治理参考资料与相关文档归档",
     cardCountries: "统计国家数", cardSAM: "棉服生产/出口市场", cardTAM: "棉服进口/内需市场", cardFill: "保温材料进口", cardSAMShare: "生产/出口比重", cardTAMShare: "进口/内需比重", cardScenario: "当前情景",
-    unitQty: "件", unitKg: "kg", unitCount: "个国家"
+    unitQty: "件", unitKg: "kg", unitCount: "个国家",
+    introTitle: "引言：综合分析方法论说明",
+    introBody: `
+      <div class="report-container">
+        <!-- 1. 市场规模推算方法 -->
+        <h3>1. 市场规模推算方法 (Methodology)</h3>
+        <p><strong>1.1. 数据来源的公信力与客观性</strong><br>本分析基于全球贸易统计标准 <strong>UN Comtrade</strong> 的最新实测数据。通过直接提取原始数据进行分析，从源头上确保了数据的准确性和可靠性。</p>
+        
+        <div class="method-box">
+          <h4>💡 品类划分与精细化过滤逻辑</h4>
+          <ul>
+            <li><strong>分析对象</strong>: 获取 HS 4位代码 6201（男装）和 6202（女装）外套的全部数据。</li>
+            <li><strong>精细筛选</strong>: 在 6位代码级别严格排除了正装大衣、斗篷及非保暖夹克等 with 棉服生产无关的品类。</li>
+            <li><strong>权重建模</strong>: 针对实际填充保暖材料的“真棉服”品类，根据不同情景应用了差分权重，以保守估算市场规模。</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:15px"><strong>1.2. 战略目标国家筛选标准 (Targeting)</strong><br>排除了贸易记录微不足道或因气候原因（无冬季）而无保暖服装需求的国家。最终根据战略价值和业务可行性，选定了非洲和中东地区的 <strong>15个核心国家</strong> 进行精密模拟。</p>
+
+        <!-- 2. 市场分析定义 -->
+        <h3>2. 核心有效市场(SAM) 及 整体潜在市场(TAM) 分析</h3>
+        <div class="two">
+          <div class="h-card">
+            <div class="label">核心有效市场 (Serviceable Addressable Market, SAM)</div>
+            <div class="value">实际生产对应市场</div>
+            <p style="margin-top:12px; font-size:13px; color:#475569;">SAM 指作为生产基地可以立即响应的 <strong>“实际目标市场”</strong>。</p>
+            <ul class="tiny" style="margin-top:10px; padding-left:18px;">
+              <li><strong>推算方式</strong>: 以该区域内已生产并供应全球市场的 <strong>成衣出口业绩</strong> 为第一基数。</li>
+              <li><strong>供应链验证</strong>: 不仅依赖成衣数据，还交叉分析了区域内 <strong>填充物及保温材料 (Wadding)</strong> 的进口量。</li>
+              <li><strong>分析效果</strong>: 由此筛选出生产基础设施和供应链生态系统正实际运行的“活跃有效市场”。</li>
+            </ul>
+          </div>
+          <div class="h-card">
+            <div class="label">整体潜在市场 (Total Addressable Market, TAM)</div>
+            <div class="value">区域整体需求市场</div>
+            <p style="margin-top:12px; font-size:13px; color:#475569;">TAM 指建立生产基地后，通过区域内需求可获取的 <strong>“整体潜在需求市场”</strong>。</p>
+            <ul class="tiny" style="margin-top:10px; padding-left:18px;">
+              <li><strong>推算方式</strong>: 基于流入目标国家内部的 <strong>外套成衣整体进口量</strong> 进行分析。</li>
+              <li><strong>战略价值</strong>: 这是衡量在生产基地附近可立即抢占的内需及邻国流通市场规模的核心指标。</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. 不同情景下的市场模拟结果 -->
+        <h3>3. 不同情景下的市场模拟结果</h3>
+        <div class="formula-highlight">
+          基准情景 (Base) 下：棉服出口市场 (SAM) 可确保约 103万件
+        </div>
+        
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>市场分类</th>
+              <th>保守 (Cons.)</th>
+              <th><strong>基准 (Base)</strong></th>
+              <th>激进 (Aggr.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>棉服战略市场 (SAM)</strong></td>
+              <td>461,722 件</td>
+              <td><strong>1,036,905 件</strong></td>
+              <td>1,612,088 件</td>
+            </tr>
+            <tr>
+              <td><strong>内需潜在市场 (TAM)</strong></td>
+              <td>1,827,212 件</td>
+              <td><strong>3,584,250 件</strong></td>
+              <td>5,341,289 件</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-grid" style="margin-top:15px">
+          <div class="h-card">
+            <div class="label">出口基地 (SAM) 交易规模</div>
+            <div class="value">US$ 42,026,724</div>
+          </div>
+          <div class="h-card">
+            <div class="label">自有市场 (TAM) 交易规模</div>
+            <div class="value">US$ 132,619,875</div>
+          </div>
+        </div>
+
+        <div class="method-box" style="margin-top:15px">
+          <h4>📌 不同情景的战略意义及执行标准</h4>
+          <p><strong>• 保守情景</strong>: 考虑市场下行风险的 <strong>“最低确保量”</strong>，是维持初期生产线稳定稼动率的核心基准。</p>
+          <p><strong>• 基准情景</strong>: 本项目的 <strong>“标准战略目标”</strong>。是区域供应链与成衣流动最现实的交汇点。</p>
+          <p><strong>• 激进情景</strong>: 指通过最大化市场渗透和积极开发新买家所能达到的 <strong>“最大增长潜力”</strong>。</p>
+        </div>
+        
+        <p class="tiny" style="color:#7f1d1d; font-weight:700; margin-top:10px">※ 本数值为内部战略规划部门的情景建模结果，可能与实际市场情况存在差异。</p>
+      </div>`,
+    reportBody: `
+      <div class="report-container">
+        <h3>1. 执行摘要 (Executive Summary)</h3>
+        <p><strong>1.1. 战略可行性确认</strong><br>在基准情景下，非洲和中东地区的棉服出口市场规模约为 <strong>103万件 (约4,202万美元)</strong>，这有力地支持了埃塞俄比亚作为高附加值服装制造基地的潜力。</p>
+        <p><strong>1.2. 供应链与内需扩展性</strong><br>除出口外，该地区还存在约 <strong>358万件的区域内进口(自有市场)</strong> 需求。保温材料原材料进口额超过 <strong>1.33亿美元</strong>，表明已存在稳定的供应链基础和向内需市场扩展的可能性。</p>
+        
+        <h3>2. 市场规模推算与情景分析</h3>
+        <table class="report-table">
+          <thead><tr><th>分类</th><th>出口市场 (SAM)</th><th>自有市场 (TAM)</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><td>保守 (Cons.)</td><td>461,722 件</td><td>1,827,212 件</td><td>仅核心代码</td></tr>
+            <tr><td><strong>基准 (Base)</strong></td><td><strong>1,036,905 件</strong></td><td><strong>3,584,250 件</strong></td><td><strong>标准目标规模</strong></td></tr>
+            <tr><td>激进 (Aggr.)</td><td>1,612,088 件</td><td>5,341,289 件</td><td>包含潜在需求</td></tr>
+          </tbody>
+        </table>
+        
+        <h3>3. 结论与战略建议</h3>
+        <p><strong>3.1. 埃塞俄比亚的角色</strong><br>预计2025年后，埃塞俄比亚将通过提高盈利能力和市场多元化，成为区域棉服生产的<strong>核心成本削减基地</strong>。</p>
+        <p><strong>3.2. 未来推进方向</strong><br>利用已建立的区域内保温材料基础设施缩短交货期，同时实施瞄准欧洲(通过摩洛哥/突尼斯)和美国(通过肯尼亚)市场的<strong>“双轨制(Dual-Track)”战略</strong>。</p>
+      </div>`
   }
 };
 
@@ -416,6 +761,7 @@ function setLang(lang) {
     const key = el.getAttribute('data-i18n-placeholder');
     if (TRANSLATIONS[lang][key]) el.placeholder = TRANSLATIONS[lang][key];
   });
+  if (el('introContent')) el('introContent').innerHTML = TRANSLATIONS[lang].introBody;
   drawGrowthChart();
   renderGrowthTable();
   renderSources();
@@ -779,7 +1125,7 @@ google.charts.load('current', {packages:['corechart', 'geochart']});
 google.charts.setOnLoadCallback(() => {
   geoReady = true;
   drawGrowthChart();
-  render();
+  setLang(currentLang); // 초기 언어 설정과 함께 서론 내용 주입
 });
 function renderSources() {
   el('sourceList').innerHTML = DATA.sources.map(s => {
