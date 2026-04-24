@@ -165,7 +165,7 @@ a{color:#1d6b58;text-decoration:none}
       <table>
         <thead>
           <tr>
-            <th data-i18n="thCountryGrowth">국가</th><th data-i18n="thVal18">2018 (M$)</th><th data-i18n="thVal23">2023 (M$)</th><th data-i18n="thVal25">2025 전망 (E)</th><th data-i18n="thCAGR">CAGR ('18-23)</th>
+            <th data-i18n="thCountryGrowth">국가</th><th data-i18n="thVal18">2018 (M$)</th><th data-i18n="thVal23">2023 (M$)</th><th data-i18n="thVal25">2025 전망 (E)</th><th data-i18n="thCAGR">CAGR ('18-23)</th><th data-i18n="thNote">비고</th>
           </tr>
         </thead>
         <tbody id="growthBody"></tbody>
@@ -298,7 +298,7 @@ const TRANSLATIONS = {
     thCountry: "국가명", thRegion: "권역", thOuterExp: "외투 수출", thSAM: "패딩 전략 시장(SAM)", thShare: "시장 점유율", thInfra: "공급망 인프라", thOuterImp: "외투 수입", thTAM: "내수 잠재 수요(TAM)", thInnerShare: "내수 비중", thGrowth: "성장 지표 (CAGR)",
     growthTitle: "아프리카 의류수출 성장률 대리변수",
     growthDesc: "아프리카 국가별 의류 공장 수의 장기 시계열 공개자료가 부족해, 이 문서에서는 가장 비교 가능한 공개지표인 HS61+HS62 의류 수출액을 대리변수로 사용했습니다. (2019년 세부 데이터가 없어 2018년 데이터를 적용했습니다.)",
-    thCountryGrowth: "국가", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 전망 (E)", thCAGR: "CAGR ('18-23)",
+    thCountryGrowth: "국가", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 전망 (E)", thCAGR: "CAGR ('18-23)", thNote: "비고",
     btnZoomIn: "확대 (+)", btnZoomOut: "축소 (-)", btnLeft: "좌", btnRight: "우", btnUp: "상", btnDown: "하", btnReset: "초기화",
     modelingTitle: "📋 데이터 모델링 방법론 및 전략적 산출 근거",
     modGovTitle: "1. 데이터 거버넌스", modGovDesc: "본 분석의 수치는 UN Comtrade 및 ITC Trade Map의 실측 무역 데이터를 기반으로 함.",
@@ -340,7 +340,7 @@ const TRANSLATIONS = {
     thCountry: "Country", thRegion: "Region", thOuterExp: "Outer Export", thSAM: "Padding SAM", thShare: "Mkt Share", thInfra: "SCM Infra", thOuterImp: "Outer Import", thTAM: "Domestic TAM", thInnerShare: "Domestic %", thGrowth: "Growth (CAGR)",
     growthTitle: "Africa Apparel Export Growth Proxy",
     growthDesc: "Due to limited long-term time-series data on apparel factories in Africa, we used HS61+HS62 Export Value as a proxy. (2018 data applied due to missing 2019 details.)",
-    thCountryGrowth: "Country", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 Forecast (E)", thCAGR: "CAGR ('18-23)",
+    thCountryGrowth: "Country", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 Forecast (E)", thCAGR: "CAGR ('18-23)", thNote: "Note",
     btnZoomIn: "Zoom In (+)", btnZoomOut: "Zoom Out (-)", btnLeft: "Left", btnRight: "Right", btnUp: "Up", btnDown: "Down", btnReset: "Reset",
     modelingTitle: "📋 Methodology & Strategic Calculation Basis",
     modGovTitle: "1. Data Governance", modGovDesc: "Based on UN Comtrade and ITC Trade Map micro-data for objectivity.",
@@ -382,7 +382,7 @@ const TRANSLATIONS = {
     thCountry: "国家名", thRegion: "区域", thOuterExp: "外套出口", thSAM: "棉服战略市场 (SAM)", thShare: "市场份额", thInfra: "供应链基础设施", thOuterImp: "外套进口", thTAM: "内需潜在需求 (TAM)", thInnerShare: "内需比重", thGrowth: "增长指标 (CAGR)",
     growthTitle: "非洲服装出口增长率替代变量",
     growthDesc: "由于非洲服装工厂缺乏长期时间序列数据，本报告使用 HS61+HS62 出口额作为替代变量。（因缺乏 2019 年数据，采用了 2018 年数据。）",
-    thCountryGrowth: "国家", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 预测 (E)", thCAGR: "CAGR ('18-23)",
+    thCountryGrowth: "国家", thVal18: "2018 (M$)", thVal23: "2023 (M$)", thVal25: "2025 预测 (E)", thCAGR: "CAGR ('18-23)", thNote: "备注",
     btnZoomIn: "放大 (+)", btnZoomOut: "缩小 (-)", btnLeft: "左", btnRight: "右", btnUp: "上", btnDown: "下", btnReset: "重置",
     modelingTitle: "📋 数据建模方法论与战略计算依据",
     modGovTitle: "1. 数据治理", modGovDesc: "基于联合国商品贸易统计和 ITC 贸易地图微观数据，确保客观性。",
@@ -443,6 +443,7 @@ const DATA = {"generated_at": "2026-04-24", "totals": {"outer_export_qty": 57565
 const fmt0 = n => (n===null||n===undefined||Number.isNaN(Number(n))) ? '-' : Number(n).toLocaleString('en-US', {maximumFractionDigits:0});
 const pct = n => (n===null||n===undefined||Number.isNaN(Number(n))) ? '-' : (Number(n)*100).toLocaleString('en-US', {maximumFractionDigits:1}) + '%';
 const el = id => document.getElementById(id);
+DATA.sources = DATA.sources.filter(s => !s.name_ko.includes('보고서'));
 const sum = (rows,key) => rows.reduce((s,r)=>s+Number(r[key]||0),0);
 const MAP_CONFIG = {
   world: { 
@@ -531,8 +532,8 @@ function renderGrowthTable() {
       <td style="text-align:left; font-weight:700">${name}</td>
       <td>${fmt0(val18)}</td>
       <td>${fmt0(val23)}</td>
-      <td>${pct(r.cagr)}</td>
       <td>${fmt0(val25)}</td>
+      <td>${pct(r.cagr)}</td>
       <td style="text-align:left; font-size:11px; color:var(--muted)">${currentLang==='ko'?'전망치 포함':currentLang==='zh'?'包含预测值':'Incl. Forecast'}</td>
     </tr>`;
   }).join('');
