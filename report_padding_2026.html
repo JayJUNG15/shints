@@ -811,7 +811,7 @@
 
     .placeholder h4 {
       margin: 0 0 10px;
-      font-size: 22px;
+      font-size: 20px;
       letter-spacing: -0.03em;
       white-space: nowrap;
     }
@@ -1676,7 +1676,7 @@
           <a href="#flow">Key Findings</a>
           <a href="#databoard">Databoard</a>
           <a href="#dashboard">Dashboard</a>
-          <a href="#scenario">Scenario</a>
+          <a href="#africa">Africa</a>
         </nav>
         <div class="flag-switch" aria-label="Language/Market Flag Toggle">
           <button class="flag-btn is-active" type="button" data-flag="kr" title="Korea">
@@ -1943,7 +1943,7 @@
       </div>
     </section>
 
-    <section class="section" id="scenario">
+    <section class="section" id="africa">
       <div class="section-head">
         <div>
           <div class="section-kicker">AFRICA TEXTILE INDUSTRY</div>
@@ -2004,7 +2004,7 @@
 
     const I18N = {
       ko: {
-        nav: ["Overview", "Key Findings", "Databoard", "Dashboard", "Scenario"],
+        nav: ["Overview", "Key Findings", "Databoard", "Dashboard", "Africa"],
         heroSub: `<strong>본 리포트는 UN Comtrade 및 World Bank 의 공식 데이터를 기반으로,<br>MEA 지역의 패딩 관련 생산 구조의 재구성 및 국가별 역량과 기회를 비교하기 위해 설계 되었습니다. <br><br></strong>단일 지표가 아닌 데이터 구조와 시나리오를 함께 분석함으로써, <br><strong>현재 생산 수준과 확장 가능성</strong> 을 동시 이해할 수 있도록 구성했습니다.`,
         heroCards: [
           `<br>- UN Comtrade 국제무역 통계 데이터베이스<br>- World Bank WITS 무역 데이터 플랫폼<br>- UN Comtrade API 기반 데이터 수집 및 처리<br>- 주요 국제기구 및 산업 보고서 참고`,
@@ -2052,7 +2052,7 @@
         level: "수준"
       },
       zh: {
-        nav: ["概览", "核心结论", "数据板", "仪表板", "情景"],
+        nav: ["概览", "核心结论", "数据板", "仪表板", "非洲"],
         heroSub: `<strong>本报告基于 UN Comtrade 和 World Bank 的官方数据，<br>用于重构 MEA 地区羽绒相关生产结构，并比较各国能力与机会。<br><br></strong>我们把数据结构和情景一起分析，<br>帮助快速理解 <strong>当前生产水平与扩展空间</strong>。`,
         heroCards: [
           `<br>- UN Comtrade 国际贸易数据库<br>- World Bank WITS 贸易平台<br>- 基于 UN Comtrade API 的数据采集与处理<br>- 参考主要国际机构与行业报告`,
@@ -2100,7 +2100,7 @@
         level: "水平"
       },
       en: {
-        nav: ["Overview", "Key Findings", "Databoard", "Dashboard", "Scenario"],
+        nav: ["Overview", "Key Findings", "Databoard", "Dashboard", "Africa"],
         heroSub: `<strong>This report uses official data from UN Comtrade and the World Bank.<br>It is designed to rebuild the MEA padding-related production structure and compare country opportunities.<br><br></strong>We combine data structure and scenarios, so readers can understand <strong>current production level and expansion potential</strong> at the same time.`,
         heroCards: [
           `<br>- UN Comtrade trade statistics database<br>- World Bank WITS trade platform<br>- Data collection and processing through UN Comtrade API<br>- Reference from major global institutions and market reports`,
@@ -2110,7 +2110,7 @@
         ],
         flowTitle: "Annual Padding Production Opportunity - Scenario Results",
         flowDesc: `<br>From 60+ candidate countries in the Middle East and Africa, <span class="hl-yellow">production/export signal, data availability, and cross-country comparability</span> were used to select <span class="hl-yellow">14 countries</span>.<br>Total Outwear production scale for selected countries is about <span class="hl-yellow">$430M and 12.5M+ pcs</span>.<br>Padding-friendly baskets such as <span class="hl-yellow">anorak, ski jackets, windwear, and synthetic outerwear</span> were reclassified, then scenario conversion rates were applied.<br>The reclassified core scale is about <span class="hl-yellow">$135M and 2.8M pcs</span>, and the final opportunity is shown in three scenario levels.`,
-        storyTitles: ["Conservative - 40%", "Aggressive - 85%", "Base Scenario - 60%"],
+        storyTitles: ["Conservative - 40%", "Aggressive - 85%", "Base - 60%"],
         storyDescs: [
           "A conservative estimate of how much can convert into real padding opportunity.",
           "An upper-bound estimate reflecting conversion upside potential.",
@@ -2243,17 +2243,17 @@
         if (firstNode && firstNode.nodeType === 3) firstNode.nodeValue = `${prefix} `;
       });
 
-      const afH2 = document.querySelector("#scenario .section-head h2");
-      const afP = document.querySelector("#scenario .section-head p");
+      const afH2 = document.querySelector("#africa .section-head h2");
+      const afP = document.querySelector("#africa .section-head p");
       if (afH2) afH2.textContent = t("africaTitle");
       if (afP) afP.innerHTML = t("africaDesc");
 
-      const afKpiSpans = document.querySelectorAll("#scenario .af-kpi-item span");
+      const afKpiSpans = document.querySelectorAll("#africa .af-kpi-item span");
       afKpiSpans.forEach((sp, i) => {
         if (t("africaKpiDesc")[i]) sp.textContent = t("africaKpiDesc")[i];
       });
 
-      const listSub = document.querySelectorAll("#scenario .af-card .af-chart-head span");
+      const listSub = document.querySelectorAll("#africa .af-card .af-chart-head span");
       if (listSub[1]) listSub[1].textContent = t("listSub");
 
       const tipStrong = document.querySelector(".floating-tip strong");
