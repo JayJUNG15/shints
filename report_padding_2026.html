@@ -1,0 +1,2743 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHINTS Padding Opportunity Presentation Mockup V1 Dark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08111d;
+      --ink: #ecf3ff;
+      --muted: #97a9cb;
+      --line: rgba(150, 176, 255, 0.16);
+      --card: rgba(14, 24, 41, 0.86);
+      --card-strong: rgba(19, 34, 56, 0.96);
+      --navy: #7ca5ff;
+      --teal: #83e5db;
+      --sand: #12213a;
+      --rust: #f0b16f;
+      --gold: #8bd39d;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1440px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 16%, rgba(124, 165, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 86% 14%, rgba(131, 229, 219, 0.12), transparent 20%),
+        radial-gradient(circle at 50% 100%, rgba(240, 177, 111, 0.1), transparent 28%),
+        linear-gradient(180deg, #07101a 0%, #08111d 28%, #0a1421 100%);
+      font-family: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 88%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(calc(100vw - 32px), var(--max));
+      margin: 0 auto;
+      padding: 24px 0 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(16px);
+      background: rgba(9, 18, 31, 0.72);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #ff5a5f 0%, #d7263d 55%, #8b0000 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.28);
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-copy span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .topnav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .topnav a:hover {
+      background: rgba(124, 165, 255, 0.08);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .flag-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(124, 165, 255, 0.2);
+      background: rgba(7, 16, 29, 0.55);
+      flex-shrink: 0;
+    }
+
+    .flag-btn {
+      width: 34px;
+      height: 24px;
+      border: 1px solid rgba(200, 220, 255, 0.28);
+      border-radius: 6px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, opacity 180ms ease;
+      opacity: 0.58;
+    }
+
+    .flag-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(220, 236, 255, 0.5);
+      opacity: 0.82;
+    }
+
+    .flag-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) saturate(0.7);
+      transition: filter 180ms ease;
+    }
+
+    .flag-btn.is-active {
+      opacity: 1;
+      border-color: rgba(131,229,219,0.85);
+      box-shadow: 0 0 0 2px rgba(131,229,219,0.18);
+    }
+
+    .flag-btn.is-active img {
+      filter: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      padding: 44px;
+      background:
+        linear-gradient(135deg, rgba(124, 165, 255, 0.08), rgba(131, 229, 219, 0.07)),
+        rgba(8, 17, 29, 0.9);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: -160px;
+      background: radial-gradient(circle, rgba(124, 165, 255, 0.16), transparent 70%);
+    }
+
+    .hero::after {
+      width: 360px;
+      height: 360px;
+      left: -120px;
+      bottom: -220px;
+      background: radial-gradient(circle, rgba(240, 177, 111, 0.14), transparent 70%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(131, 229, 219, 0.1);
+      color: var(--teal);
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 6px rgba(131, 229, 219, 0.14);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      margin-top: 18px;
+      max-width: 980px;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: clamp(32px, 4.8vw, 64px);
+      line-height: 1.1;
+      word-break: keep-all;
+    }
+
+    .hero-sub {
+      margin-top: 18px;
+      max-width: 760px;
+      font-size: 18px;
+      color: #d3e0fb;
+    }
+
+    .hero-sub strong {
+      color: var(--accent-3);
+      font-weight: 700;
+    }
+
+    .hero-sub strong.hl-yellow {
+      color: #ffd84d;
+    }
+
+    .hl-yellow {
+      color: #ffd84d !important;
+      font-weight: 700;
+    }
+
+    #flow .section-head > div > h2:not(.flow-title-clean),
+    #flow .section-head > div > p:not(.flow-desc-clean) {
+      display: none;
+    }
+
+    .flow-title-clean {
+      margin-top: 0;
+    }
+
+    .flow-desc-clean {
+      margin: 14px 0 0;
+      color: #d3e0fb;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .hero-grid {
+      margin-top: 30px;
+    }
+
+    .glass-card {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(14, 24, 41, 0.72);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-notes {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .signal-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px 14px 14px 12px;
+      border-radius: 18px;
+      background: rgba(124, 165, 255, 0.08);
+      border: 1px solid rgba(124, 165, 255, 0.12);
+    }
+
+    .signal-no {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(131, 229, 219, 0.14);
+      font-family: "Noto Sans KR", sans-serif;
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .signal-item strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .signal-item span {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .hero-panel {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      align-content: start;
+    }
+
+    .hero-mini-card {
+      min-height: 150px;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(124, 165, 255, 0.18);
+      background: linear-gradient(180deg, rgba(19, 34, 56, 0.92), rgba(14, 24, 41, 0.86));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .hero-mini-card strong {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(131,229,219,0.12);
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-mini-card h4 {
+      margin: 14px 0 8px;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #eaf2ff;
+    }
+
+    .hero-mini-card p {
+      margin: 0;
+      color: #c2d2f0;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 30px;
+      border-radius: 34px;
+      background: rgba(14, 24, 41, 0.72);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      scroll-margin-top: 110px;
+    }
+
+    #databoard {
+      overflow-x: clip;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-head > div {
+      width: 100%;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      max-width: none;
+      color: #d3e0fb;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .section-kicker {
+      color: var(--rust);
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: clamp(26px, 3vw, 44px);
+      line-height: 1.04;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .story-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(12, 27, 46, 0.96), rgba(11, 23, 40, 0.92));
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-strong);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    .story-card strong {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(131,229,219,0.1);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .story-card h3 {
+      font-size: 34px;
+      line-height: 1.12;
+      margin-bottom: 12px;
+      color: #eaf2ff;
+    }
+
+    .story-card p {
+      margin: 0;
+      color: #c7d7f4;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .story-band-list {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .story-band {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(150,176,255,0.12);
+      color: #d7e6ff;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .story-watermark {
+      position: absolute;
+      right: 14px;
+      bottom: 8px;
+      font-size: 78px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+
+    .wireframe {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 18px;
+      min-height: 680px;
+    }
+
+    .wireframe-nav {
+      padding: 18px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(19, 36, 52, 0.98), rgba(15, 29, 43, 0.98));
+      color: #eaf1ff;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .wireframe-nav h3 {
+      margin-bottom: 6px;
+      font-size: 18px;
+      font-family: "Noto Sans KR", sans-serif;
+    }
+
+    .nav-pill {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .nav-pill:hover,
+    .nav-pill.is-active {
+      transform: translateX(3px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .nav-pill small {
+      color: rgba(255,255,255,0.52);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-pill strong {
+      display: block;
+      font-size: 15px;
+      margin-top: 3px;
+    }
+
+    .nav-pill span {
+      font-family: "Noto Sans KR", sans-serif;
+      color: rgba(255,255,255,0.48);
+    }
+
+    .country-pill-list {
+      display: grid;
+      gap: 10px;
+      max-height: 620px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .country-pill {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      text-align: left;
+      width: 100%;
+    }
+
+    .country-pill:hover,
+    .country-pill.is-active {
+      transform: translateX(3px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .country-pill small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .country-pill small.region-africa {
+      color: #8be9ff;
+    }
+
+    .country-pill small.region-middleeast {
+      color: #ffd084;
+    }
+
+    .country-pill strong {
+      display: block;
+      font-size: 15px;
+      color: #eaf2ff;
+    }
+
+    .country-pill .pill-rank {
+      color: rgba(255,255,255,0.48);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .wireframe-stage {
+      padding: 20px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(19, 34, 56, 0.96), rgba(14, 24, 41, 0.9));
+      display: grid;
+    }
+
+    .stage-panel {
+      display: none;
+      animation: stageFade 280ms ease;
+      min-height: 100%;
+    }
+
+    .stage-panel.is-active {
+      display: grid;
+      gap: 16px;
+    }
+
+    @keyframes stageFade {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stage-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .stage-title small {
+      color: var(--rust);
+      font-family: "Noto Sans KR", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .stage-title small .region-africa {
+      color: #8be9ff;
+      font-weight: 800;
+    }
+
+    .stage-title small .region-middleeast {
+      color: #ffd084;
+      font-weight: 800;
+    }
+
+    .stage-title small .region-total {
+      color: #b8c8e6;
+      font-weight: 800;
+    }
+
+    .stage-title h3 {
+      margin-top: 6px;
+      font-size: 30px;
+      font-family: "Noto Sans KR", sans-serif;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      background: rgba(255,255,255,0.04);
+      color: #c9d7f3;
+    }
+
+    .frame-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .frame-grid.cols-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .frame-grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .frame-grid.cols-main {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .placeholder {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px dashed rgba(124, 165, 255, 0.24);
+      background:
+        linear-gradient(180deg, rgba(19, 34, 56, 0.9), rgba(14, 24, 41, 0.84));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .placeholder::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -35% auto;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(124,165,255,0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .placeholder strong {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(131,229,219,0.08);
+      color: var(--teal);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: "Noto Sans KR", sans-serif;
+      margin-bottom: 14px;
+    }
+
+    .placeholder h4 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .placeholder p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .metric-ghost {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .metric-line {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .metric-line span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(124,165,255,0.85), rgba(131,229,219,0.85));
+    }
+
+    .map-frame {
+      min-height: 320px;
+      display: grid;
+      place-items: center;
+    }
+
+    .map-silhouette {
+      width: min(100%, 560px);
+      aspect-ratio: 1.55;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 68% 32%, rgba(131,229,219,0.14), transparent 12%),
+        radial-gradient(circle at 45% 58%, rgba(240,177,111,0.16), transparent 10%),
+        linear-gradient(180deg, rgba(124,165,255,0.14), rgba(124,165,255,0.06));
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(124,165,255,0.1);
+    }
+
+    .map-silhouette::before {
+      content: "";
+      position: absolute;
+      inset: 12% 16%;
+      border-radius: 44% 52% 48% 56% / 48% 38% 62% 52%;
+      border: 1px dashed rgba(124,165,255,0.26);
+      transform: rotate(-8deg);
+    }
+
+    .map-silhouette::after {
+      content: "";
+      position: absolute;
+      inset: 22% 26%;
+      border-radius: 52% 40% 46% 54% / 42% 52% 48% 58%;
+      background:
+        radial-gradient(circle at 70% 34%, rgba(131,229,219,0.14), transparent 12%),
+        radial-gradient(circle at 34% 62%, rgba(240,177,111,0.14), transparent 10%);
+      opacity: 0.9;
+      transform: rotate(-8deg);
+    }
+
+    .map-tag {
+      position: absolute;
+      padding: 9px 12px;
+      border-radius: 14px;
+      background: rgba(19, 34, 56, 0.92);
+      border: 1px solid rgba(124,165,255,0.14);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      font-size: 12px;
+      color: var(--ink);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .map-tag:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.24);
+    }
+
+    .map-tag strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 13px;
+      color: var(--navy);
+    }
+
+    .map-tag small {
+      color: var(--muted);
+    }
+
+    .tag-morocco { top: 22%; left: 20%; }
+    .tag-egypt { top: 28%; left: 52%; }
+    .tag-uae { top: 34%; right: 18%; }
+    .tag-ethiopia { top: 54%; left: 54%; }
+    .tag-kenya { top: 63%; left: 58%; }
+    .tag-southafrica { bottom: 12%; left: 42%; }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .scenario-card {
+      padding: 22px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(19, 34, 56, 0.94), rgba(14, 24, 41, 0.88));
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .scenario-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.26);
+    }
+
+    .scenario-card.low { border-color: rgba(45, 143, 133, 0.16); }
+    .scenario-card.base { border-color: rgba(185, 147, 47, 0.18); }
+    .scenario-card.high { border-color: rgba(184, 100, 50, 0.18); }
+
+    .scenario-card small {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      background: rgba(131,229,219,0.08);
+      color: var(--teal);
+    }
+
+    .scenario-card h3 {
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .scenario-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .scenario-bars {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .scenario-inline-bands {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .scenario-inline-band {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(150,176,255,0.12);
+      color: #d7e6ff;
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .metric-sample-value {
+      margin-top: 10px;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.1;
+      color: #eaf2ff;
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .metric-sample-value .unit-mini {
+      font-size: 0.48em;
+      color: #9fb4d8;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-left: 6px;
+      vertical-align: baseline;
+    }
+
+    .scenario-bar {
+      display: grid;
+      gap: 5px;
+    }
+
+    .scenario-bar label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .scenario-track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(22,58,95,0.08);
+      overflow: hidden;
+    }
+
+    .scenario-track span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .scenario-card.low .scenario-track span { width: 40%; background: linear-gradient(90deg, #4c9f95, #7dc7be); }
+    .scenario-card.base .scenario-track span { width: 60%; background: linear-gradient(90deg, #c4a54f, #e4c878); }
+    .scenario-card.high .scenario-track span { width: 85%; background: linear-gradient(90deg, #c26c38, #df9b6d); }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+
+    .takeaway {
+      padding: 28px;
+      border-radius: 32px;
+      color: #f1f6ff;
+      background: linear-gradient(135deg, #183958, #21466b 52%, #28685f 100%);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .takeaway::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -100px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 70%);
+    }
+
+    .takeaway small {
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .takeaway h2 {
+      margin-top: 10px;
+      color: #fff;
+      max-width: 620px;
+    }
+
+    .takeaway p {
+      margin: 14px 0 0;
+      max-width: 640px;
+      color: rgba(241,246,255,0.74);
+      font-size: 15px;
+    }
+
+    .note-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .note-card {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+
+    .note-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .note-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .message-table-layout {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .message-table-layout > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .message-table-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .message-table-head > div:first-child {
+      min-width: 0;
+    }
+
+    .message-table-head h3 {
+      font-size: clamp(24px, 2.6vw, 34px);
+      line-height: 1.1;
+      margin: 8px 0 0;
+    }
+
+    .message-table-head p {
+      margin: 8px 0 0;
+      color: #d3e0fb;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: none;
+    }
+
+    .message-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      width: 100%;
+      max-width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .message-chip {
+      appearance: none;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(131,229,219,0.2);
+      background: rgba(131,229,219,0.08);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .message-chip:hover {
+      transform: translateY(-1px);
+      background: rgba(131,229,219,0.14);
+      border-color: rgba(131,229,219,0.34);
+    }
+
+    .message-chip.is-active {
+      background: linear-gradient(135deg, rgba(131,229,219,0.22), rgba(124,165,255,0.2));
+      border-color: rgba(131,229,219,0.44);
+      color: #eaf8ff;
+    }
+
+    .message-chip:focus-visible {
+      outline: 2px solid rgba(131,229,219,0.65);
+      outline-offset: 2px;
+    }
+
+    .message-table-shell {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(19, 34, 56, 0.9), rgba(14, 24, 41, 0.84));
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .databoard-accordion {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(8, 17, 29, 0.35);
+      padding: 4px 10px;
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .databoard-accordion > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 4px;
+      font-size: 13px;
+      color: #c9d7f3;
+      user-select: none;
+    }
+
+    .databoard-accordion > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .databoard-accordion > summary::after {
+      content: "▼";
+      color: var(--teal);
+      font-size: 11px;
+      transition: transform 180ms ease;
+    }
+
+    .databoard-accordion[open] > summary::after {
+      transform: rotate(180deg);
+    }
+
+    .message-table-toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      background: rgba(8, 17, 29, 0.45);
+    }
+
+    .message-table-wrap {
+      overflow-x: auto;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .message-table {
+      width: 100%;
+      min-width: 1560px;
+      border-collapse: collapse;
+    }
+
+    .message-table thead th {
+      text-align: left;
+      padding: 14px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #b7caee;
+      background: rgba(124,165,255,0.08);
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    .message-table tbody td {
+      padding: 15px 14px;
+      font-size: 14px;
+      color: #d7e5ff;
+      border-bottom: 1px solid rgba(150,176,255,0.08);
+      white-space: nowrap;
+    }
+
+    .message-table tbody tr:hover td {
+      background: rgba(131,229,219,0.04);
+    }
+
+    .message-table tbody tr.total-row td {
+      background: rgba(124,165,255,0.12);
+      color: #eef4ff;
+      font-weight: 800;
+      border-bottom: 1px solid rgba(150,176,255,0.22);
+    }
+
+    .message-table tbody tr.total-row:hover td {
+      background: rgba(124,165,255,0.12);
+    }
+
+    .message-table td.estimated-cell {
+      background: rgba(255, 105, 180, 0.18);
+      color: #ffd6ea;
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px rgba(255, 105, 180, 0.24);
+    }
+
+    .placeholder-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(131,229,219,0.22);
+      color: #b8caea;
+      background: rgba(131,229,219,0.08);
+      font-size: 12px;
+    }
+
+    .af-growth-layout {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+    }
+
+    .af-card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(19, 34, 56, 0.92), rgba(14, 24, 41, 0.86));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      padding: 18px;
+      min-width: 0;
+    }
+
+    .af-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .af-kpi-item {
+      border: 1px dashed rgba(124,165,255,0.24);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .af-kpi-item small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .af-kpi-item strong {
+      display: block;
+      font-size: 30px;
+      line-height: 1.1;
+      margin-bottom: 4px;
+      color: #eff5ff;
+    }
+
+    .af-kpi-item span {
+      font-size: 12px;
+      color: #a8bce0;
+    }
+
+    .af-chart-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .af-chart-head h4 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .af-chart-head span {
+      font-size: 12px;
+      color: #a8bce0;
+    }
+
+    .af-line-chart {
+      border: 1px solid rgba(124,165,255,0.14);
+      border-radius: 16px;
+      background: rgba(8,17,29,0.42);
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .af-clean-bars {
+      display: grid;
+      gap: 14px;
+      padding: 4px 2px 2px;
+    }
+
+    .af-growth-chip {
+      justify-self: end;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(131,229,219,0.42);
+      background: rgba(29,53,86,0.9);
+      color: #cde9ff;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .af-growth-chip.decline {
+      border-color: rgba(255,150,180,0.46);
+      background: rgba(85,35,54,0.88);
+      color: #ffd6e4;
+    }
+
+    .af-clean-row {
+      display: grid;
+      gap: 8px;
+    }
+
+    .af-clean-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .af-clean-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: #eaf2ff;
+      line-height: 1.1;
+    }
+
+    .af-clean-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: #d7e6ff;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .af-clean-track {
+      width: 100%;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(124,165,255,0.14);
+      overflow: hidden;
+    }
+
+    .af-clean-track span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #83e5db 0%, #7ca5ff 100%);
+      box-shadow: 0 0 0 1px rgba(131,229,219,0.12) inset;
+      transition: width 260ms ease;
+    }
+
+    .af-country-list {
+      display: grid;
+      gap: 10px;
+      max-height: 420px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .af-country-item {
+      border: 1px solid rgba(124,165,255,0.14);
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+      transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+    }
+
+    .af-country-item:hover {
+      border-color: rgba(131,229,219,0.38);
+      background: rgba(131,229,219,0.08);
+      transform: translateY(-1px);
+    }
+
+    .af-country-item.is-active {
+      border-color: rgba(131,229,219,0.52);
+      background: rgba(131,229,219,0.11);
+      box-shadow: inset 0 0 0 1px rgba(131,229,219,0.24);
+    }
+
+    .af-country-item .row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .af-country-item .name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #eaf2ff;
+    }
+
+    .af-country-item .trend {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #c5d7f6;
+    }
+
+    .af-country-item .trend.growth {
+      color: #9ef0c1;
+      border-color: rgba(100,220,150,0.32);
+      background: rgba(100,220,150,0.08);
+    }
+
+    .af-country-item .trend.decline {
+      color: #ffb3c7;
+      border-color: rgba(255,120,160,0.34);
+      background: rgba(255,120,160,0.08);
+    }
+
+    .af-country-item .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .af-country-item .meta div {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 8px;
+      font-size: 12px;
+      color: #c4d4f1;
+    }
+
+    .af-country-item .meta b {
+      display: block;
+      font-size: 13px;
+      color: #eef5ff;
+      margin-bottom: 2px;
+    }
+
+    .floating-tip {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 9;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(124,165,255,0.16);
+      background: rgba(19, 34, 56, 0.92);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.24);
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 240px;
+    }
+
+    .floating-tip strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1120px) {
+      .wireframe,
+      .frame-grid.cols-main,
+      .foot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .af-growth-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .frame-grid.cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-grid,
+      .scenario-grid,
+      .frame-grid.cols-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(calc(100vw - 20px), var(--max));
+        padding-top: 12px;
+      }
+
+      .hero-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar,
+      .hero,
+      .section,
+      .takeaway {
+        border-radius: 24px;
+      }
+
+      .hero,
+      .section {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .topbar-right {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .frame-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .af-kpi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .af-country-item .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-tip {
+        position: static;
+        margin-top: 16px;
+        max-width: none;
+      }
+
+      .message-table {
+        min-width: 1180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">Shin</div>
+        <div class="brand-copy">
+          <strong>SHINTS Analysis Report</strong>
+          <span>MEA Padding Opportunity Report / Official Data / Scenario-Based Decision View</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <nav class="topnav">
+          <a href="#overview">Overview</a>
+          <a href="#flow">Key Findings</a>
+          <a href="#databoard">Databoard</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#scenario">Scenario</a>
+        </nav>
+        <div class="flag-switch" aria-label="Language/Market Flag Toggle">
+          <button class="flag-btn is-active" type="button" data-flag="kr" title="Korea">
+            <img src="https://i.namu.wiki/i/kXITInFCXJMLdoqBikuDG6TOiBvq_47RzEDHutztThOKe9ZCBAxyzVOFolJo8goPgE7Z2B1O2R5LZowuPCluQH_luAsKEV0x4WglkF2qjZy6G7MmZhiNHjPbsqGd90d6Fs8Ocd-_XppNX63iByQ5uA.svg" alt="Korea flag">
+          </button>
+          <button class="flag-btn" type="button" data-flag="cn" title="China">
+            <img src="https://i.namu.wiki/i/1Xgn_vDmMv9qlCQoZAIF0v2EoqibU74NwO6d6aw6igc-nE8WNEFYQf2QXlRp1GLV7uzpC1uFfg_g0YW4Y0BHDZfQBGYLgR7_ZnJ0fCKcA6LA1TAa5zdFTQtm8VJF0ZBkxhq9faczV_ZLTxeOU9zLuw.svg" alt="China flag">
+          </button>
+          <button class="flag-btn" type="button" data-flag="us" title="United States">
+            <img src="https://i.namu.wiki/i/wbpbmZIftCkB3ir4nwSy4lKQuhqH-tlpQ7yVAwD_1tEqns0QBKz-zkcA7C3B-Mxl-mEjHk_XQR3FMQ7xtGNlWSzeLQY4sTDNul_RV-3ISRdvfBu4BPKumANFrr2pFZNnJpKZaK3H4BqbcF0x34f0rg.svg" alt="United States flag">
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" id="overview">
+      <div class="eyebrow">MEA Padding Production Gap Analysis</div>
+      <h1>MEA Padding Production Gap Analysis Report</h1>
+      <p class="hero-sub">
+        <strong>본 리포트는 UN Comtrade 및 World Bank 의 공식 데이터를 기반으로,<br>
+        MEA 지역의 패딩 관련 생산 구조의 재구성 및 국가별 역량과 기회를 비교하기 위해 설계 되었습니다. <br><br></strong>
+        단일 지표가 아닌 데이터 구조와 시나리오를 함께 분석함으로써, <br>
+        <strong>현재 생산 수준과 확장 가능성</strong> 을 동시 이해할 수 있도록 구성했습니다.
+
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-panel">
+          <article class="hero-mini-card">
+            <strong>DATA SOURCE</strong>
+            <h4>Data Sources & Systems</h4>
+            <p><br>- UN Comtrade 국제무역 통계 데이터베이스<br>
+            - World Bank WITS 무역 데이터 플랫폼<br>
+            - UN Comtrade API 기반 데이터 수집 및 처리<br>
+            - 주요 국제기구 및 산업 보고서 참고</p>
+          </article>
+          <article class="hero-mini-card">
+            <strong>METHOD</strong>
+            <h4>Structured Filtering Logic</h4>
+            <p><br>전체 아웃웨어의 규모를 모수로 두고, <br>
+              패딩이 포함될 가능성이 높은 제품군으로 <br>
+              단계적으로 좁히는 방식을 사용,<br>
+            이후 단일 값이 아닌 가능 범위로 해석</p>
+          </article>
+          <article class="hero-mini-card">
+            <strong>ANALYTICS</strong>
+            <h4>Python & Time Series</h4>
+            <p><br>HS 코드 기반의 데이터를 구조화 하소 
+              Python 기반 데이터 전처리 및 정규화와<br>
+              시계열 성장률 분석을 통해 국가별 구조 비교,<br>
+              최종 분석의 결론을 도출
+            </p>
+          </article>
+          <article class="hero-mini-card">
+            <strong>ADJUSTMENT</strong>
+            <h4>Consistency Adjustment</h4>
+            <p><br>2024년 데이터를 기준으로 분석하되<br>
+            일부 국가의 데이터 누락을 보완하기 위해<br>
+            2023 및 이전 연도 데이터를 함께 반영하여<br>
+            전체 비교의 일관성을 유지.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Key Findings</div>
+          <h2 class="flow-title-clean">연간 패딩 생산 시장 추정 -  시나리오 별 결과</h2>
+          <p class="flow-desc-clean">
+            <br>60여개 중동·아프리카 후보 국가군 중
+            <span class="hl-yellow">생산·수출 실적, 데이터 가용성, 국가 간 비교 가능성</span>
+            기준으로 <span class="hl-yellow">14개 국가</span>를 선별하였음.
+            <br>
+            선별 국가 기준 Outwear 전체 생산 시장 규모는
+            <span class="hl-yellow">$430M, 12.5M pcs 이상</span>
+            으로 확인하였으며, 이 중 패딩 가능성이 높은 핵심 영역인
+            <br>
+            <span class="hl-yellow">아노락, 스키재킷, 윈드 계열 및 인조섬유 외투군</span>
+            을 기준으로  패딩이 포함될 가능성이 높은 영역들을 재분류 후 시나리오 전환율을 적용함.
+            <br>
+            재분류 결과 해당 규모는 <span class="hl-yellow">$135M, 2.8M pcs 수준</span>
+            으로 집계 되었고, 보수적, 공격적, 기준적 의 각각 시나리오 전환율을 적용하여 
+            <br>
+            최종 패딩 생산의 기회 시장규모를 아래와 같이 3단계로 산정하였음.
+            <br>
+           --
+          </p>
+          
+        </div>
+      </div>
+
+      <div class="story-grid">
+        <article class="story-card">
+          <strong>Low Case</strong>
+          <h3>보수적 시나리오 - 40%</h3>
+          <p>패딩 포함 영역군 중 실제 패딩의 기회로 전환 가능한 <br>범위를 보수적 관점에서 산정한 시나리오.</p>
+          <div class="story-band-list">
+            <div class="story-band">시장 규모 : <span class="hl-yellow">$54M 수준</span></div>
+            <div class="story-band">수량 규모 : <span class="hl-yellow">약 1.1M pcs</span></div>
+            <div class="story-band">결론 해석 : <span class="hl-yellow">아프리카 및 중동의 날씨 변수 적용</span></div>
+          </div>
+          <div class="story-watermark">01</div>
+        </article>
+        <article class="story-card">
+          <strong>High Case</strong>
+          <h3>공격적 시나리오 - 85%</h3>
+          <p>패딩 포함 영역군의 전환 잠재력을 상방 기준으로 <br>반영한 시나리오</p>
+          <div class="story-band-list">
+            <div class="story-band">시장 규모 : <span class="hl-yellow">$114M 수준</span></div>
+            <div class="story-band">수량 규모 : <span class="hl-yellow">약 2.4M pcs</span></div>
+            <div class="story-band">결론 해석 : <span class="hl-yellow">확장 잠재력 적용</span></div>
+          </div>
+          <div class="story-watermark">02</div>
+        </article>
+        <article class="story-card">
+          <strong>Base Case</strong>
+          <h3>기준 시나리오 - 60%</h3>
+          <p>보수적 관점과 공격적 관점의 중위값을 기준으로 <br> 의사 결정에 주요 사용하는 시나리오.</p>
+          <div class="story-band-list">
+            <div class="story-band">시장 규모 : <span class="hl-yellow">$80M 수준</span></div>
+            <div class="story-band">수량 규모 : <span class="hl-yellow">약 1.7M pcs</span></div>
+            <div class="story-band">결론 해석 : <span class="hl-yellow">실무 의사결정에 사용되는 중위값 적용</span></div>
+          </div>
+          <div class="story-watermark">03</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="databoard">
+      <div class="message-table-layout">
+        <div class="message-table-head">
+          <div>
+            <div class="section-kicker">Data Board</div>
+            <h3>분석 기준 통합 데이터 구조</h3>
+            <p><br>국가 별 Outwear 모수, 패딩 전환 구조, 시나리오 결과를 통합한 본 리포트의 판단 기준이 되는 데이터 구조</p>
+          </div>
+          <div class="message-chip-row">
+            <button class="message-chip is-active" type="button" data-sort="outerQty">Outwear 수량</button>
+            <button class="message-chip" type="button" data-sort="outerValue">Outwear 금액</button>
+            <button class="message-chip" type="button" data-sort="coreQty">핵심 수량</button>
+            <button class="message-chip" type="button" data-sort="coreValue">핵심 금액</button>
+            <button class="message-chip" type="button" data-filter="중동">중동</button>
+            <button class="message-chip" type="button" data-filter="아프리카">아프리카</button>
+            <button class="message-chip" type="button" data-action="reset">초기화</button>
+          </div>
+        </div>
+
+        <details class="databoard-accordion">
+          <summary>
+            <span>Databoard</span>
+      
+          </summary>
+          <div class="message-table-shell">
+            <div class="message-table-toolbar">
+              <span>RED MARK 데이터는 공식데이터에 없어 모델링으로 추산한 값</span>
+              <span>출처 : UN Comtrade API,  WITS 무역 데이터</span>
+            </div>
+            <div class="message-table-wrap">
+              <table class="message-table">
+                <thead>
+                  <tr>
+                    <th>지역</th>
+                    <th>국가</th>
+                    <th>Outwear 수량</th>
+                    <th>Outwear 금액</th>
+                    <th>핵심 영역 수량</th>
+                    <th>핵심 영역 금액</th>
+                    <th>수량비중(%)</th>
+                    <th>금액비중(%)</th>
+                    <th>Low-수량</th>
+                    <th>Low-금액</th>
+                    <th>High-수량</th>
+                    <th>High-금액</th>
+                    <th>Base-수량</th>
+                    <th>Base-금액</th>
+                  </tr>
+                </thead>
+                <tbody id="databoard-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="dashboard">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">DASHBOARD</div>
+          <h2>국가 별 주요 데이터 대시보드</h2>
+          <p>--</p>
+        </div>
+      </div>
+
+      <div class="wireframe">
+        <aside class="wireframe-nav">
+          <h3>Scene Selector</h3>
+          <div class="country-pill-list" id="country-pill-list"></div>
+        </aside>
+
+        <div class="wireframe-stage">
+          <section class="stage-panel is-active" id="scene-2">
+            <div class="stage-top">
+              <div class="stage-title">
+                <small id="country-region-label"><span class="region-total">TOTAL</span></small>
+                <h3 id="country-dashboard-title">Country Dashboard</h3>
+              </div>
+            </div>
+
+            <div class="frame-grid cols-4">
+              <div class="placeholder">
+                <strong>Metric</strong>
+                <h4>외투 전체 수량</h4>
+                <div class="metric-sample-value" id="kpi-outer-qty">-</div>
+              </div>
+              <div class="placeholder">
+                <strong>Metric</strong>
+                <h4>외투 전체 금액</h4>
+                <div class="metric-sample-value" id="kpi-outer-value">-</div>
+              </div>
+              <div class="placeholder">
+                <strong>Metric</strong>
+                <h4>핵심 전체 수량</h4>
+                <div class="metric-sample-value" id="kpi-core-qty">-</div>
+              </div>
+              <div class="placeholder">
+                <strong>Metric</strong>
+                <h4>핵심 전체 금액</h4>
+                <div class="metric-sample-value" id="kpi-core-value">-</div>
+              </div>
+            </div>
+
+            <div class="scenario-grid">
+              <article class="scenario-card low">
+                <small>Low Case</small>
+                <h3>보수적 시나리오 - 40%</h3>
+                <div class="scenario-inline-bands">
+                  <div class="scenario-inline-band">시장 규모: <span class="hl-yellow" id="low-value-text">-</span></div>
+                  <div class="scenario-inline-band">수량 규모: <span class="hl-yellow" id="low-qty-text">-</span></div>
+                </div>
+              </article>
+              <article class="scenario-card high">
+                <small>High Case</small>
+                <h3>공격적 시나리오 - 85%</h3>
+                <div class="scenario-inline-bands">
+                  <div class="scenario-inline-band">시장 규모: <span class="hl-yellow" id="high-value-text">-</span></div>
+                  <div class="scenario-inline-band">수량 규모: <span class="hl-yellow" id="high-qty-text">-</span></div>
+                </div>
+              </article>
+              <article class="scenario-card base">
+                <small>Base Case</small>
+                <h3>기준 시나리오 - 60%</h3>
+                <div class="scenario-inline-bands">
+                  <div class="scenario-inline-band">시장 규모: <span class="hl-yellow" id="base-value-text">-</span></div>
+                  <div class="scenario-inline-band">수량 규모: <span class="hl-yellow" id="base-qty-text">-</span></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scenario">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">AFRICA TEXTILE INDUSTRY</div>
+          <h2>아프리카 주요국가들의 의류 제조산업 성장율</h2>
+          <p><br>아프리카 주요 11개국의 2018년도부터 2025년(e) 까지의 의류 제조산업 성장율</p>
+        </div>
+      </div>
+
+      <div class="af-growth-layout">
+        <div class="af-card">
+          <div class="af-kpi-grid">
+            <div class="af-kpi-item">
+              <small>Export 2018</small>
+              <strong id="af-kpi-2018">$0.00B</strong>
+              <span>기준년도 수출액</span>
+            </div>
+            <div class="af-kpi-item">
+              <small>Export 2023</small>
+              <strong id="af-kpi-2023">$0.00B</strong>
+              <span>2018 대비 변화 확인</span>
+            </div>
+            <div class="af-kpi-item">
+              <small>Export 2025E</small>
+              <strong id="af-kpi-2025">$0.00B</strong>
+              <span>CAGR 기반 추정</span>
+            </div>
+          </div>
+
+          <div class="af-chart-head">
+            <h4>Selected Country Yearly Export</h4>
+            <span>2018 / 2023 / 2025E + Cumulative Growth</span>
+          </div>
+          <div class="af-line-chart">
+            <div class="af-clean-bars" id="af-clean-bars"></div>
+          </div>
+        </div>
+
+        <div class="af-card">
+          <div class="af-chart-head">
+            <h4>Country Growth List</h4>
+            <span>Top growth / decline snapshot</span>
+          </div>
+          <div class="af-country-list" id="af-country-list">
+            <!-- sample rows will be injected by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  <script>
+    const navButtons = document.querySelectorAll(".nav-pill");
+    const panels = document.querySelectorAll(".stage-panel");
+    const flagButtons = document.querySelectorAll(".flag-btn");
+    const topNavLinks = document.querySelectorAll(".topnav a");
+    let currentLang = "ko";
+
+    const I18N = {
+      ko: {
+        nav: ["Overview", "Key Findings", "Databoard", "Dashboard", "Scenario"],
+        heroSub: `<strong>본 리포트는 UN Comtrade 및 World Bank 의 공식 데이터를 기반으로,<br>MEA 지역의 패딩 관련 생산 구조의 재구성 및 국가별 역량과 기회를 비교하기 위해 설계 되었습니다. <br><br></strong>단일 지표가 아닌 데이터 구조와 시나리오를 함께 분석함으로써, <br><strong>현재 생산 수준과 확장 가능성</strong> 을 동시 이해할 수 있도록 구성했습니다.`,
+        heroCards: [
+          `<br>- UN Comtrade 국제무역 통계 데이터베이스<br>- World Bank WITS 무역 데이터 플랫폼<br>- UN Comtrade API 기반 데이터 수집 및 처리<br>- 주요 국제기구 및 산업 보고서 참고`,
+          `<br>전체 아웃웨어의 규모를 모수로 두고, <br>패딩이 포함될 가능성이 높은 제품군으로 <br>단계적으로 좁히는 방식을 사용,<br>이후 단일 값이 아닌 가능 범위로 해석`,
+          `<br>HS 코드 기반의 데이터를 구조화 하고<br>Python 기반 데이터 전처리 및 정규화와<br>시계열 성장률 분석을 통해 국가별 구조 비교,<br>최종 분석의 결론을 도출`,
+          `<br>2024년 데이터를 기준으로 분석하되<br>일부 국가의 데이터 누락을 보완하기 위해<br>2023 및 이전 연도 데이터를 함께 반영하여<br>전체 비교의 일관성을 유지.`
+        ],
+        flowTitle: "연간 패딩 생산 시장 추정 - 시나리오 별 결과",
+        flowDesc: `<br>60여개 중동·아프리카 후보 국가군 중 <span class="hl-yellow">생산·수출 실적, 데이터 가용성, 국가 간 비교 가능성</span> 기준으로 <span class="hl-yellow">14개 국가</span>를 선별하였음.<br>선별 국가 기준 Outwear 전체 생산 시장 규모는 <span class="hl-yellow">$430M, 12.5M pcs 이상</span>으로 확인하였으며, 이 중 패딩 가능성이 높은 핵심 영역인 <br><span class="hl-yellow">아노락, 스키재킷, 윈드 계열 및 인조섬유 외투군</span>을 기준으로 패딩이 포함될 가능성이 높은 영역들을 재분류 후 시나리오 전환율을 적용함.<br>재분류 결과 해당 규모는 <span class="hl-yellow">$135M, 2.8M pcs 수준</span>으로 집계 되었고, 보수적/공격적/기준 시나리오를 적용하여 최종 기회 시장규모를 3단계로 산정하였음.`,
+        storyTitles: ["보수적 시나리오 - 40%", "공격적 시나리오 - 85%", "기준 시나리오 - 60%"],
+        storyDescs: [
+          "패딩 포함 영역군 중 실제 패딩의 기회로 전환 가능한 범위를 보수적 관점에서 산정한 시나리오.",
+          "패딩 포함 영역군의 전환 잠재력을 상방 기준으로 반영한 시나리오.",
+          "보수적 관점과 공격적 관점의 중위값을 기준으로 의사결정에 활용하는 시나리오."
+        ],
+        storyBands: [
+          ["시장 규모 : ", "수량 규모 : ", "결론 해석 : "],
+          ["시장 규모 : ", "수량 규모 : ", "결론 해석 : "],
+          ["시장 규모 : ", "수량 규모 : ", "결론 해석 : "]
+        ],
+        storyHighlight: [
+          ["$54M 수준", "약 1.1M pcs", "아프리카 및 중동의 날씨 변수 적용"],
+          ["$114M 수준", "약 2.4M pcs", "확장 잠재력 적용"],
+          ["$80M 수준", "약 1.7M pcs", "실무 의사결정에 사용되는 중위값 적용"]
+        ],
+        databoardTitle: "분석 기준 통합 데이터 구조",
+        databoardDesc: "<br>국가 별 Outwear 모수, 패딩 전환 구조, 시나리오 결과를 통합한 본 리포트의 판단 기준이 되는 데이터 구조",
+        chips: ["Outwear 수량", "Outwear 금액", "핵심 수량", "핵심 금액", "중동", "아프리카", "초기화"],
+        toolbar: ["RED MARK 데이터는 공식데이터에 없어 모델링으로 추산한 값", "출처 : UN Comtrade API, WITS 무역 데이터"],
+        th: ["지역", "국가", "Outwear 수량", "Outwear 금액", "핵심 영역 수량", "핵심 영역 금액", "수량비중(%)", "금액비중(%)", "Low-수량", "Low-금액", "High-수량", "High-금액", "Base-수량", "Base-금액"],
+        dashboardTitle: "국가 별 주요 데이터 대시보드",
+        kpiLabels: ["외투 전체 수량", "외투 전체 금액", "핵심 전체 수량", "핵심 전체 금액"],
+        scenarioTitles: ["보수적 시나리오 - 40%", "공격적 시나리오 - 85%", "기준 시나리오 - 60%"],
+        bandPrefixes: ["시장 규모:", "수량 규모:"],
+        africaTitle: "아프리카 주요국가들의 의류 제조산업 성장율",
+        africaDesc: "<br>아프리카 주요 11개국의 2018년도부터 2025년(e) 까지의 의류 제조산업 성장율",
+        africaKpiDesc: ["기준년도 수출액", "2018 대비 변화 확인", "CAGR 기반 추정"],
+        listSub: "Top growth / decline snapshot",
+        trendGrowth: "성장",
+        trendDecline: "감소",
+        totalCountries: "전체 국가",
+        totalLabel: "합계",
+        region: { middleEast: "중동", africa: "아프리카", total: "TOTAL" },
+        approx: "약",
+        level: "수준"
+      },
+      zh: {
+        nav: ["概览", "核心结论", "数据板", "仪表板", "情景"],
+        heroSub: `<strong>本报告基于 UN Comtrade 和 World Bank 的官方数据，<br>用于重构 MEA 地区羽绒相关生产结构，并比较各国能力与机会。<br><br></strong>我们把数据结构和情景一起分析，<br>帮助快速理解 <strong>当前生产水平与扩展空间</strong>。`,
+        heroCards: [
+          `<br>- UN Comtrade 国际贸易数据库<br>- World Bank WITS 贸易平台<br>- 基于 UN Comtrade API 的数据采集与处理<br>- 参考主要国际机构与行业报告`,
+          `<br>先用外套总量做母体，<br>再逐步聚焦到更可能包含羽绒的产品组，<br>最后用区间结果来解释，<br>不是只给一个单点值。`,
+          `<br>按 HS 编码整理数据，<br>使用 Python 做清洗与标准化，<br>再做时间序列增长分析，<br>比较各国结构并给出结论。`,
+          `<br>以 2024 年数据为主，<br>对缺失国家用 2023 或更早年份补齐，<br>保证整体比较口径一致。`
+        ],
+        flowTitle: "年度羽绒生产市场估算 - 情景结果",
+        flowDesc: `<br>在 60+ 个中东与非洲候选国家中，按 <span class="hl-yellow">生产/出口表现、数据可用性、国家间可比性</span> 选出 <span class="hl-yellow">14个国家</span>。<br>这些国家的 Outwear 总生产规模约为 <span class="hl-yellow">$430M, 12.5M pcs+</span>。<br>并以 <span class="hl-yellow">anorak、ski jacket、wind 系列、化纤外套</span> 等羽绒友好品类为核心，应用情景转化率。<br>重分类后核心规模约 <span class="hl-yellow">$135M, 2.8M pcs</span>，最终形成三档机会情景。`,
+        storyTitles: ["保守情景 - 40%", "积极情景 - 85%", "基准情景 - 60%"],
+        storyDescs: [
+          "从保守角度估算可转化为真实羽绒机会的范围。",
+          "按上限潜力估算羽绒机会转化范围。",
+          "采用保守与积极之间的中位值，便于实际决策。"
+        ],
+        storyBands: [
+          ["市场规模 : ", "数量规模 : ", "结论说明 : "],
+          ["市场规模 : ", "数量规模 : ", "结论说明 : "],
+          ["市场规模 : ", "数量规模 : ", "结论说明 : "]
+        ],
+        storyHighlight: [
+          ["约 $54M", "约 1.1M pcs", "考虑非洲与中东气候因素"],
+          ["约 $114M", "约 2.4M pcs", "采用上行扩展潜力"],
+          ["约 $80M", "约 1.7M pcs", "采用实务决策中位值"]
+        ],
+        databoardTitle: "统一分析数据结构",
+        databoardDesc: "<br>整合国家 Outwear 母体、羽绒转化结构与情景结果，作为本报告判断基础。",
+        chips: ["Outwear 数量", "Outwear 金额", "核心数量", "核心金额", "中东", "非洲", "重置"],
+        toolbar: ["红色标记数据为模型推算值（官方无完整值）", "来源：UN Comtrade API, WITS 贸易数据"],
+        th: ["区域", "国家", "Outwear 数量", "Outwear 金额", "核心数量", "核心金额", "数量占比(%)", "金额占比(%)", "Low-数量", "Low-金额", "High-数量", "High-金额", "Base-数量", "Base-金额"],
+        dashboardTitle: "国家核心数据仪表板",
+        kpiLabels: ["外套总数量", "外套总金额", "核心总数量", "核心总金额"],
+        scenarioTitles: ["保守情景 - 40%", "积极情景 - 85%", "基准情景 - 60%"],
+        bandPrefixes: ["市场规模:", "数量规模:"],
+        africaTitle: "非洲重点国家服装制造增长率",
+        africaDesc: "<br>展示非洲11个重点国家 2018 到 2025(e) 的服装制造增长。",
+        africaKpiDesc: ["基准年出口额", "相对2018变化", "基于 CAGR 估算"],
+        listSub: "增长 / 下降 快照",
+        trendGrowth: "增长",
+        trendDecline: "下降",
+        totalCountries: "全部国家",
+        totalLabel: "合计",
+        region: { middleEast: "中东", africa: "非洲", total: "TOTAL" },
+        approx: "约",
+        level: "水平"
+      },
+      en: {
+        nav: ["Overview", "Key Findings", "Databoard", "Dashboard", "Scenario"],
+        heroSub: `<strong>This report uses official data from UN Comtrade and the World Bank.<br>It is designed to rebuild the MEA padding-related production structure and compare country opportunities.<br><br></strong>We combine data structure and scenarios, so readers can understand <strong>current production level and expansion potential</strong> at the same time.`,
+        heroCards: [
+          `<br>- UN Comtrade trade statistics database<br>- World Bank WITS trade platform<br>- Data collection and processing through UN Comtrade API<br>- Reference from major global institutions and market reports`,
+          `<br>Use total outerwear as the base first.<br>Then narrow to product groups that are more likely to include padding.<br>Interpret with a range, not only one fixed number.`,
+          `<br>Structure data by HS code,<br>clean and normalize with Python,<br>run time-series growth analysis,<br>and compare country structures for final conclusions.`,
+          `<br>Use 2024 as the main year.<br>When data is missing, apply 2023 or earlier fallback years<br>to keep comparison logic consistent.`
+        ],
+        flowTitle: "Annual Padding Production Opportunity - Scenario Results",
+        flowDesc: `<br>From 60+ candidate countries in the Middle East and Africa, <span class="hl-yellow">production/export signal, data availability, and cross-country comparability</span> were used to select <span class="hl-yellow">14 countries</span>.<br>Total Outwear production scale for selected countries is about <span class="hl-yellow">$430M and 12.5M+ pcs</span>.<br>Padding-friendly baskets such as <span class="hl-yellow">anorak, ski jackets, windwear, and synthetic outerwear</span> were reclassified, then scenario conversion rates were applied.<br>The reclassified core scale is about <span class="hl-yellow">$135M and 2.8M pcs</span>, and the final opportunity is shown in three scenario levels.`,
+        storyTitles: ["Conservative - 40%", "Aggressive - 85%", "Base Scenario - 60%"],
+        storyDescs: [
+          "A conservative estimate of how much can convert into real padding opportunity.",
+          "An upper-bound estimate reflecting conversion upside potential.",
+          "A middle-point scenario used for practical decisions."
+        ],
+        storyBands: [
+          ["Market size : ", "Volume : ", "Interpretation : "],
+          ["Market size : ", "Volume : ", "Interpretation : "],
+          ["Market size : ", "Volume : ", "Interpretation : "]
+        ],
+        storyHighlight: [
+          ["about $54M", "about 1.1M pcs", "weather factor applied for Africa and Middle East"],
+          ["about $114M", "about 2.4M pcs", "upside expansion potential applied"],
+          ["about $80M", "about 1.7M pcs", "mid-point level used for practical decisions"]
+        ],
+        databoardTitle: "Integrated Decision Data Structure",
+        databoardDesc: "<br>A unified structure combining country outerwear base, padding conversion logic, and scenario outcomes.",
+        chips: ["Outwear Qty", "Outwear Value", "Core Qty", "Core Value", "Middle East", "Africa", "Reset"],
+        toolbar: ["Red-marked values are model estimates where official values are missing.", "Source: UN Comtrade API, WITS Trade Data"],
+        th: ["Region", "Country", "Outwear Qty", "Outwear Value", "Core Qty", "Core Value", "Qty Share(%)", "Value Share(%)", "Low-Qty", "Low-Value", "High-Qty", "High-Value", "Base-Qty", "Base-Value"],
+        dashboardTitle: "Country Data Dashboard",
+        kpiLabels: ["Total Outerwear Qty", "Outerwear Value", "Total Core Qty", "Total Core Value"],
+        scenarioTitles: ["Conservative - 40%", "Aggressive - 85%", "Base - 60%"],
+        bandPrefixes: ["Market size:", "Volume:"],
+        africaTitle: "African Apparel Manufacturing Growth",
+        africaDesc: "<br>Growth path of 11 key African countries from 2018 to 2025(e).",
+        africaKpiDesc: ["Export in base year", "Change vs 2018", "CAGR-based estimate"],
+        listSub: "Top growth / decline snapshot",
+        trendGrowth: "Growth",
+        trendDecline: "Decline",
+        totalCountries: "All Countries",
+        totalLabel: "Total",
+        region: { middleEast: "Middle East", africa: "Africa", total: "TOTAL" },
+        approx: "about",
+        level: "level"
+      }
+    };
+
+    function t(path) {
+      const parts = path.split(".");
+      let cur = I18N[currentLang];
+      for (const p of parts) cur = cur?.[p];
+      return cur ?? path;
+    }
+
+    function applyLanguage() {
+      if (topNavLinks.length >= 5) {
+        const labels = t("nav");
+        topNavLinks.forEach((a, i) => (a.textContent = labels[i] || a.textContent));
+      }
+
+      const heroSub = document.querySelector(".hero-sub");
+      if (heroSub) heroSub.innerHTML = t("heroSub");
+
+      const heroCardPs = document.querySelectorAll(".hero-mini-card p");
+      const heroTexts = t("heroCards");
+      heroCardPs.forEach((p, i) => {
+        if (heroTexts[i]) p.innerHTML = heroTexts[i];
+      });
+
+      const flowTitle = document.querySelector(".flow-title-clean");
+      const flowDesc = document.querySelector(".flow-desc-clean");
+      if (flowTitle) flowTitle.textContent = t("flowTitle");
+      if (flowDesc) flowDesc.innerHTML = t("flowDesc");
+
+      const storyCards = document.querySelectorAll(".story-card");
+      storyCards.forEach((card, idx) => {
+        const h3 = card.querySelector("h3");
+        const p = card.querySelector("p");
+        const bands = card.querySelectorAll(".story-band");
+        const highlights = card.querySelectorAll(".story-band .hl-yellow");
+        if (h3) h3.textContent = t("storyTitles")[idx] || h3.textContent;
+        if (p) p.textContent = t("storyDescs")[idx] || p.textContent;
+        bands.forEach((band, bIdx) => {
+          const firstNode = band.childNodes[0];
+          const prefix = t("storyBands")[idx]?.[bIdx];
+          if (firstNode && firstNode.nodeType === 3 && prefix) firstNode.nodeValue = prefix;
+        });
+        highlights.forEach((hl, hIdx) => {
+          const txt = t("storyHighlight")[idx]?.[hIdx];
+          if (txt) hl.textContent = txt;
+        });
+      });
+
+      const dbTitle = document.querySelector("#databoard .message-table-head h3");
+      const dbDesc = document.querySelector("#databoard .message-table-head p");
+      if (dbTitle) dbTitle.textContent = t("databoardTitle");
+      if (dbDesc) dbDesc.innerHTML = t("databoardDesc");
+
+      const chipMap = [
+        ".message-chip[data-sort='outerQty']",
+        ".message-chip[data-sort='outerValue']",
+        ".message-chip[data-sort='coreQty']",
+        ".message-chip[data-sort='coreValue']",
+        ".message-chip[data-filter='중동']",
+        ".message-chip[data-filter='아프리카']",
+        ".message-chip[data-action='reset']"
+      ];
+      chipMap.forEach((sel, i) => {
+        const el = document.querySelector(sel);
+        if (el) el.textContent = t("chips")[i];
+      });
+
+      const toolbar = document.querySelectorAll("#databoard .message-table-toolbar span");
+      if (toolbar[0]) toolbar[0].textContent = t("toolbar")[0];
+      if (toolbar[1]) toolbar[1].textContent = t("toolbar")[1];
+
+      const ths = document.querySelectorAll("#databoard thead th");
+      ths.forEach((th, i) => {
+        if (t("th")[i]) th.textContent = t("th")[i];
+      });
+
+      const dashH2 = document.querySelector("#dashboard .section-head h2");
+      if (dashH2) dashH2.textContent = t("dashboardTitle");
+
+      const kpiH4s = document.querySelectorAll("#dashboard .frame-grid.cols-4 .placeholder h4");
+      kpiH4s.forEach((h4, i) => {
+        if (t("kpiLabels")[i]) h4.textContent = t("kpiLabels")[i];
+      });
+
+      const scenarioH3s = document.querySelectorAll("#dashboard .scenario-grid .scenario-card h3");
+      scenarioH3s.forEach((h3, i) => {
+        if (t("scenarioTitles")[i]) h3.textContent = t("scenarioTitles")[i];
+      });
+
+      const inlineBands = document.querySelectorAll("#dashboard .scenario-inline-band");
+      inlineBands.forEach((band, i) => {
+        const firstNode = band.childNodes[0];
+        const prefix = i % 2 === 0 ? t("bandPrefixes")[0] : t("bandPrefixes")[1];
+        if (firstNode && firstNode.nodeType === 3) firstNode.nodeValue = `${prefix} `;
+      });
+
+      const afH2 = document.querySelector("#scenario .section-head h2");
+      const afP = document.querySelector("#scenario .section-head p");
+      if (afH2) afH2.textContent = t("africaTitle");
+      if (afP) afP.innerHTML = t("africaDesc");
+
+      const afKpiSpans = document.querySelectorAll("#scenario .af-kpi-item span");
+      afKpiSpans.forEach((sp, i) => {
+        if (t("africaKpiDesc")[i]) sp.textContent = t("africaKpiDesc")[i];
+      });
+
+      const listSub = document.querySelectorAll("#scenario .af-card .af-chart-head span");
+      if (listSub[1]) listSub[1].textContent = t("listSub");
+
+      const tipStrong = document.querySelector(".floating-tip strong");
+      const tipText = document.querySelector(".floating-tip");
+      if (tipStrong) tipStrong.textContent = currentLang === "zh" ? "工作说明" : currentLang === "en" ? "Working Note" : "작업 메모";
+      if (tipText) {
+        const textNode = Array.from(tipText.childNodes).find((n) => n.nodeType === 3);
+        const msg =
+          currentLang === "zh"
+            ? " 现在页面是 data-light mockup。先确认结构和表达，再填入最终数字。"
+            : currentLang === "en"
+              ? " This page is a data-light mockup. We align structure and message first, then fill final numbers."
+              : " 지금 페이지는 data-light mockup입니다. 숫자를 넣기 전에 구조와 톤부터 먼저 합의하는 용도로 사용합니다.";
+        if (textNode) textNode.nodeValue = msg;
+      }
+    }
+
+    navButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.scene;
+
+        navButtons.forEach((item) => item.classList.remove("is-active"));
+        panels.forEach((panel) => panel.classList.remove("is-active"));
+
+        button.classList.add("is-active");
+        document.getElementById(target).classList.add("is-active");
+      });
+    });
+
+    flagButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        flagButtons.forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        currentLang = btn.dataset.flag === "cn" ? "zh" : btn.dataset.flag === "us" ? "en" : "ko";
+        applyLanguage();
+        renderDataboard();
+        renderCountrySelector();
+        renderAfricaGrowthSample();
+      });
+    });
+
+    const databoardRows = [
+      { region: "아프리카", country: "Morocco", outerQty: 6572390, outerValue: 154070650, coreQty: 824195, coreValue: 18309890, qtyEstimated: false },
+      { region: "중동", country: "United Arab Emirates", outerQty: 602563, outerValue: 79926640, coreQty: 322371, coreValue: 42747520, qtyEstimated: true },
+      { region: "중동", country: "Saudi Arabia", outerQty: 1393656, outerValue: 54364105, coreQty: 720520, coreValue: 28122030, qtyEstimated: true },
+      { region: "중동", country: "Kuwait", outerQty: 837407, outerValue: 32557898, coreQty: 380183, coreValue: 14786810, qtyEstimated: true },
+      { region: "아프리카", country: "Tunisia", outerQty: 1489655, outerValue: 51982690, coreQty: 45119, coreValue: 11412920, qtyEstimated: false },
+      { region: "아프리카", country: "Egypt", outerQty: 330796, outerValue: 23567650, coreQty: 56454, coreValue: 4022080, qtyEstimated: false },
+      { region: "아프리카", country: "Madagascar", outerQty: 618724, outerValue: 12469490, coreQty: 23518, coreValue: 1802980, qtyEstimated: false },
+      { region: "아프리카", country: "South Africa", outerQty: 96224, outerValue: 9293310, coreQty: 62681, coreValue: 6053750, qtyEstimated: false },
+      { region: "아프리카", country: "Kenya", outerQty: 330717, outerValue: 5083310, coreQty: 280166, coreValue: 4586360, qtyEstimated: false },
+      { region: "아프리카", country: "Eswatini", outerQty: 10167, outerValue: 2501470, coreQty: 3050, coreValue: 866060, qtyEstimated: true },
+      { region: "아프리카", country: "Lesotho", outerQty: 41446, outerValue: 1418530, coreQty: 19057, coreValue: 924450, qtyEstimated: false },
+      { region: "아프리카", country: "Mauritius", outerQty: 66340, outerValue: 1418500, coreQty: 18799, coreValue: 506570, qtyEstimated: false },
+      { region: "중동", country: "Jordan", outerQty: 13723, outerValue: 572930, coreQty: 5587, coreValue: 233260, qtyEstimated: false },
+      { region: "아프리카", country: "Ethiopia", outerQty: 11895, outerValue: 478340, coreQty: 5317, coreValue: 246710, qtyEstimated: true }
+    ];
+
+    const SCENARIO = { low: 0.4, high: 0.85, base: 0.6 };
+    let currentSortKey = "outerQty";
+    let currentFilter = null;
+
+    const databoardBody = document.getElementById("databoard-body");
+    const sortChips = document.querySelectorAll(".message-chip[data-sort]");
+    const filterChips = document.querySelectorAll(".message-chip[data-filter]");
+    const resetChip = document.querySelector(".message-chip[data-action='reset']");
+    const countryPillList = document.getElementById("country-pill-list");
+    const countryRegionLabel = document.getElementById("country-region-label");
+    const countryTitle = document.getElementById("country-dashboard-title");
+    const kpiOuterQty = document.getElementById("kpi-outer-qty");
+    const kpiOuterValue = document.getElementById("kpi-outer-value");
+    const kpiCoreQty = document.getElementById("kpi-core-qty");
+    const kpiCoreValue = document.getElementById("kpi-core-value");
+    const lowValueText = document.getElementById("low-value-text");
+    const lowQtyText = document.getElementById("low-qty-text");
+    const highValueText = document.getElementById("high-value-text");
+    const highQtyText = document.getElementById("high-qty-text");
+    const baseValueText = document.getElementById("base-value-text");
+    const baseQtyText = document.getElementById("base-qty-text");
+
+    function formatInt(v) {
+      if (v === null || v === undefined) return "-";
+      return Number(v).toLocaleString("en-US");
+    }
+
+    function formatPct(v) {
+      if (v === null || v === undefined || Number.isNaN(v)) return "-";
+      const rounded = Math.round(v * 10) / 10;
+      return `${rounded.toFixed(1)}%`;
+    }
+
+    function formatMillion(value, unit) {
+      if (value === null || value === undefined) return "-";
+      const n = Number(value);
+      if (unit === "usd") return `$${(n / 1000000).toFixed(1)}M`;
+      return `${(n / 1000000).toFixed(2)}M pcs`;
+    }
+
+    function formatQtyWithUnit(value) {
+      if (value === null || value === undefined) return "-";
+      return `${formatInt(value)}<span class="unit-mini">pcs</span>`;
+    }
+
+    function formatBillions(value) {
+      if (value === null || value === undefined) return "-";
+      return `$${(Number(value) / 1000000).toFixed(1)}M`;
+    }
+
+    function formatByScope(value, isTotal) {
+      if (value === null || value === undefined) return "-";
+      if (isTotal) return `$${(Number(value) / 1000000000).toFixed(2)}B`;
+      return `$${(Number(value) / 1000000).toFixed(1)}M`;
+    }
+
+    function formatUsdSmart(value) {
+      if (value === null || value === undefined) return "-";
+      if (value >= 1000000000) return `$${(value / 1000000000).toFixed(2)}B`;
+      return `$${(value / 1000000).toFixed(1)}M`;
+    }
+
+    function calcShare(part, whole) {
+      if (part === null || whole === null || whole === 0) return null;
+      return (part / whole) * 100;
+    }
+
+    function withScenario(row) {
+      const lowQty = Math.round(row.coreQty * SCENARIO.low);
+      const lowValue = Math.round(row.coreValue * SCENARIO.low);
+      const highQty = Math.round(row.coreQty * SCENARIO.high);
+      const highValue = Math.round(row.coreValue * SCENARIO.high);
+      const baseQty = Math.round(row.coreQty * SCENARIO.base);
+      const baseValue = Math.round(row.coreValue * SCENARIO.base);
+
+      return {
+        ...row,
+        qtyShare: calcShare(row.coreQty, row.outerQty),
+        valueShare: calcShare(row.coreValue, row.outerValue),
+        lowQty,
+        lowValue,
+        highQty,
+        highValue,
+        baseQty,
+        baseValue
+      };
+    }
+
+    function getSortValue(row, key) {
+      const value = row[key];
+      return value === null || value === undefined ? -1 : value;
+    }
+
+    function buildTotalRow(rows) {
+      const total = rows.reduce(
+        (acc, row) => {
+          acc.outerQty += row.outerQty ?? 0;
+          acc.outerValue += row.outerValue ?? 0;
+          acc.coreQty += row.coreQty ?? 0;
+          acc.coreValue += row.coreValue ?? 0;
+          acc.lowQty += row.lowQty ?? 0;
+          acc.lowValue += row.lowValue ?? 0;
+          acc.highQty += row.highQty ?? 0;
+          acc.highValue += row.highValue ?? 0;
+          acc.baseQty += row.baseQty ?? 0;
+          acc.baseValue += row.baseValue ?? 0;
+          return acc;
+        },
+        {
+          outerQty: 0,
+          outerValue: 0,
+          coreQty: 0,
+          coreValue: 0,
+          lowQty: 0,
+          lowValue: 0,
+          highQty: 0,
+          highValue: 0,
+          baseQty: 0,
+          baseValue: 0
+        }
+      );
+
+      total.qtyShare = calcShare(total.coreQty, total.outerQty);
+      total.valueShare = calcShare(total.coreValue, total.outerValue);
+      return total;
+    }
+
+    const africaGrowthSample = [
+      { key: "ET", country: "Ethiopia", y2018: 47382127.56, y2023: 94205642.71, y2025e: 124011471.43, cagr: 14.73, growthPct: 98.82 },
+      { key: "EG", country: "Egypt", y2018: 1605458951.99, y2023: 2421934811.83, y2025e: 2854879269.47, cagr: 8.57, growthPct: 50.86 },
+      { key: "MA", country: "Morocco", y2018: 3363850661.36, y2023: 3796777766.84, y2025e: 3985167372.97, cagr: 2.45, growthPct: 12.87 },
+      { key: "TN", country: "Tunisia", y2018: 2433961704.65, y2023: 2642377169.58, y2025e: 2730657527.23, cagr: 1.66, growthPct: 8.56 },
+      { key: "MG", country: "Madagascar", y2018: 494596031.55, y2023: 502730214.54, y2025e: 506021222.54, cagr: 0.33, growthPct: 1.64 },
+      { key: "SZ", country: "Eswatini", y2018: 193856579.41, y2023: 194833440.52, y2025e: 195225561.87, cagr: 0.1, growthPct: 0.5 },
+      { key: "ZA", country: "South Africa", y2018: 429964172.53, y2023: 389797727.58, y2025e: 374802187.23, cagr: -1.94, growthPct: -9.34 },
+      { key: "KE", country: "Kenya", y2018: 339318448.18, y2023: 321322871, y2025e: 314394764.52, cagr: -1.08, growthPct: -5.3 },
+      { key: "LS", country: "Lesotho", y2018: 478772419.87, y2023: 310405895.35, y2025e: 261005882.52, cagr: -8.3, growthPct: -35.17 },
+      { key: "MU", country: "Mauritius", y2018: 615653899.53, y2023: 339849245.49, y2025e: 267957662.27, cagr: -11.2, growthPct: -44.8 },
+      { key: "GH", country: "Ghana", y2018: 22668547.65, y2023: 37335827.324, y2025e: 44335285.36, cagr: 10.48, growthPct: 64.72 }
+    ];
+
+    let africaActiveKey = "__TOTAL__";
+
+    function getTrendClass(value) {
+      return value >= 0 ? "growth" : "decline";
+    }
+
+    function buildAfricaTotalRow() {
+      const y2018 = africaGrowthSample.reduce((sum, r) => sum + r.y2018, 0);
+      const y2023 = africaGrowthSample.reduce((sum, r) => sum + r.y2023, 0);
+      const y2025e = africaGrowthSample.reduce((sum, r) => sum + r.y2025e, 0);
+      const growthPct = y2018 === 0 ? 0 : ((y2023 - y2018) / y2018) * 100;
+      const cagr = y2018 === 0 ? 0 : ((Math.pow(y2023 / y2018, 1 / 5) - 1) * 100);
+      return {
+        key: "__TOTAL__",
+        country: "TOTAL",
+        y2018,
+        y2023,
+        y2025e,
+        growthPct,
+        cagr
+      };
+    }
+
+    function renderAfricaCleanBars(activeRow, isTotal) {
+      const container = document.getElementById("af-clean-bars");
+      if (!container || !activeRow) return;
+
+      const yearlyRows = [
+        { label: "2018", value: activeRow.y2018 },
+        { label: "2023", value: activeRow.y2023 },
+        { label: "2025E", value: activeRow.y2025e }
+      ];
+      const maxValue = Math.max(...yearlyRows.map((r) => r.value), 1);
+      const cumulativeGrowth = activeRow.y2018 === 0 ? 0 : ((activeRow.y2025e / activeRow.y2018) - 1) * 100;
+      const trendClass = cumulativeGrowth >= 0 ? "growth" : "decline";
+      const trendLabel = cumulativeGrowth >= 0 ? t("trendGrowth") : t("trendDecline");
+
+      container.innerHTML =
+        `<div class="af-growth-chip ${trendClass}">${trendLabel} ${Math.abs(cumulativeGrowth).toFixed(1)}%</div>` +
+        yearlyRows
+          .map((row) => {
+            const widthPct = Math.max(8, (row.value / maxValue) * 100);
+            return `
+              <div class="af-clean-row">
+                <div class="af-clean-head">
+                  <span class="af-clean-label">${row.label}</span>
+                  <span class="af-clean-value">${formatByScope(row.value, isTotal)}</span>
+                </div>
+                <div class="af-clean-track"><span style="width:${widthPct.toFixed(1)}%"></span></div>
+              </div>
+            `;
+          })
+          .join("");
+    }
+
+    function renderAfricaGrowthSample() {
+      const kpi2018 = document.getElementById("af-kpi-2018");
+      const kpi2023 = document.getElementById("af-kpi-2023");
+      const kpi2025 = document.getElementById("af-kpi-2025");
+      const listEl = document.getElementById("af-country-list");
+
+      if (!kpi2018 || !kpi2023 || !kpi2025 || !listEl) return;
+
+      const totalRow = buildAfricaTotalRow();
+      const countryRows = [...africaGrowthSample].sort((a, b) => b.growthPct - a.growthPct);
+      const rows = [totalRow, ...countryRows];
+      const activeRow = rows.find((r) => r.key === africaActiveKey) ?? totalRow;
+
+      const isTotalActive = activeRow.key === "__TOTAL__";
+      kpi2018.textContent = formatByScope(activeRow.y2018, isTotalActive);
+      kpi2023.textContent = formatByScope(activeRow.y2023, isTotalActive);
+      kpi2025.textContent = formatByScope(activeRow.y2025e, isTotalActive);
+      renderAfricaCleanBars(activeRow, isTotalActive);
+
+      listEl.innerHTML = rows
+        .map((r) => {
+          const trendClass = getTrendClass(r.growthPct);
+          const trendLabel = trendClass === "growth" ? t("trendGrowth") : t("trendDecline");
+          const isTotalRow = r.key === "__TOTAL__";
+          return `
+            <article class="af-country-item ${r.key === africaActiveKey ? "is-active" : ""}" data-key="${r.key}">
+              <div class="row-top">
+                <div class="name">${r.country}</div>
+                <div class="trend ${trendClass}">${trendLabel} ${r.growthPct.toFixed(1)}%</div>
+              </div>
+              <div class="meta">
+                <div><b>2018</b>${formatByScope(r.y2018, isTotalRow)}</div>
+                <div><b>2023</b>${formatByScope(r.y2023, isTotalRow)}</div>
+                <div><b>2025E</b>${formatByScope(r.y2025e, isTotalRow)}</div>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      listEl.querySelectorAll(".af-country-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          africaActiveKey = item.dataset.key || "__TOTAL__";
+          renderAfricaGrowthSample();
+        });
+      });
+    }
+
+    function regionLabelClass(region) {
+      if (region === "중동") return "region-middleeast";
+      if (region === "TOTAL") return "region-total";
+      return "region-africa";
+    }
+
+    function regionText(region) {
+      if (region === "중동") return t("region.middleEast");
+      if (region === "TOTAL") return t("region.total");
+      return t("region.africa");
+    }
+
+    function buildCountryTotalRow() {
+      const total = databoardRows.reduce(
+        (acc, row) => {
+          acc.outerQty += row.outerQty ?? 0;
+          acc.outerValue += row.outerValue ?? 0;
+          acc.coreQty += row.coreQty ?? 0;
+          acc.coreValue += row.coreValue ?? 0;
+          return acc;
+        },
+        { outerQty: 0, outerValue: 0, coreQty: 0, coreValue: 0 }
+      );
+      return {
+        region: "TOTAL",
+        country: "TOTAL",
+        outerQty: total.outerQty,
+        outerValue: total.outerValue,
+        coreQty: total.coreQty,
+        coreValue: total.coreValue,
+        qtyEstimated: false
+      };
+    }
+
+    function renderCountrySelector() {
+      if (!countryPillList) return;
+      const sorted = [...databoardRows].sort((a, b) => (b.coreQty ?? 0) - (a.coreQty ?? 0));
+      countryPillList.innerHTML =
+        `
+            <button class="country-pill is-active" type="button" data-country="__TOTAL__">
+            <div>
+              <small class="region-total">TOTAL</small>
+              <strong>${t("totalLabel")}</strong>
+            </div>
+            <span class="pill-rank">#0</span>
+          </button>
+        ` +
+        sorted
+        .map(
+          (row, i) => `
+            <button class="country-pill" type="button" data-country="${row.country}">
+              <div>
+                <small class="${regionLabelClass(row.region)}">${regionText(row.region)}</small>
+                <strong>${row.country}</strong>
+              </div>
+              <span class="pill-rank">#${i + 1}</span>
+            </button>
+          `
+        )
+        .join("");
+
+      const pills = countryPillList.querySelectorAll(".country-pill");
+      pills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          pills.forEach((p) => p.classList.remove("is-active"));
+          pill.classList.add("is-active");
+          const row =
+            pill.dataset.country === "__TOTAL__"
+              ? buildCountryTotalRow()
+              : databoardRows.find((d) => d.country === pill.dataset.country);
+          if (row) fillCountryDashboard(row);
+        });
+      });
+
+      fillCountryDashboard(buildCountryTotalRow());
+    }
+
+    function fillCountryDashboard(row) {
+      if (!row) return;
+      const lowQty = Math.round(row.coreQty * SCENARIO.low);
+      const lowValue = Math.round(row.coreValue * SCENARIO.low);
+      const highQty = Math.round(row.coreQty * SCENARIO.high);
+      const highValue = Math.round(row.coreValue * SCENARIO.high);
+      const baseQty = Math.round(row.coreQty * SCENARIO.base);
+      const baseValue = Math.round(row.coreValue * SCENARIO.base);
+
+      if (countryTitle) countryTitle.textContent = row.country;
+      if (countryRegionLabel) {
+        const regionClass = row.region === "중동" ? "region-middleeast" : "region-africa";
+        const regionText = row.region === "중동" ? "MIDDLE EAST" : "AFRICA";
+        const finalRegionClass = row.region === "TOTAL" ? "region-total" : regionClass;
+        const finalRegionText = row.region === "TOTAL" ? "TOTAL" : regionText;
+        countryRegionLabel.innerHTML = `<span class="${finalRegionClass}">${finalRegionText}</span>`;
+      }
+      if (kpiOuterQty) kpiOuterQty.innerHTML = formatQtyWithUnit(row.outerQty);
+      if (kpiOuterValue) kpiOuterValue.textContent = formatMillion(row.outerValue, "usd");
+      if (kpiCoreQty) kpiCoreQty.innerHTML = formatQtyWithUnit(row.coreQty);
+      if (kpiCoreValue) kpiCoreValue.textContent = formatMillion(row.coreValue, "usd");
+
+      if (lowValueText) lowValueText.textContent = `${formatMillion(lowValue, "usd")} ${t("level")}`;
+      if (lowQtyText) lowQtyText.textContent = `${t("approx")} ${formatMillion(lowQty, "qty")}`;
+      if (highValueText) highValueText.textContent = `${formatMillion(highValue, "usd")} ${t("level")}`;
+      if (highQtyText) highQtyText.textContent = `${t("approx")} ${formatMillion(highQty, "qty")}`;
+      if (baseValueText) baseValueText.textContent = `${formatMillion(baseValue, "usd")} ${t("level")}`;
+      if (baseQtyText) baseQtyText.textContent = `${t("approx")} ${formatMillion(baseQty, "qty")}`;
+    }
+
+    function rowHtml(row, isTotal = false) {
+      const labelRegion = isTotal ? t("region.total") : regionText(row.region);
+      const labelCountry = isTotal ? t("totalCountries") : row.country;
+      const rowClasses = [];
+      if (isTotal) rowClasses.push("total-row");
+      const estimatedQtyClass = !isTotal && row.qtyEstimated ? "estimated-cell" : "";
+      const estimatedShareClass = !isTotal && row.qtyEstimated ? "estimated-cell" : "";
+      return `
+        <tr class="${rowClasses.join(" ")}">
+          <td>${labelRegion}</td>
+          <td>${labelCountry}</td>
+          <td class="${estimatedQtyClass}">${formatInt(row.outerQty)}</td>
+          <td>${formatInt(row.outerValue)}</td>
+          <td>${formatInt(row.coreQty)}</td>
+          <td>${formatInt(row.coreValue)}</td>
+          <td class="${estimatedShareClass}">${formatPct(row.qtyShare)}</td>
+          <td>${formatPct(row.valueShare)}</td>
+          <td>${formatInt(row.lowQty)}</td>
+          <td>${formatInt(row.lowValue)}</td>
+          <td>${formatInt(row.highQty)}</td>
+          <td>${formatInt(row.highValue)}</td>
+          <td>${formatInt(row.baseQty)}</td>
+          <td>${formatInt(row.baseValue)}</td>
+        </tr>
+      `;
+    }
+
+    function setChipState() {
+      sortChips.forEach((chip) => {
+        chip.classList.toggle("is-active", chip.dataset.sort === currentSortKey);
+      });
+      filterChips.forEach((chip) => {
+        chip.classList.toggle("is-active", chip.dataset.filter === currentFilter);
+      });
+    }
+
+    function renderDataboard() {
+      const enriched = databoardRows.map(withScenario);
+      const filtered = currentFilter ? enriched.filter((row) => row.region === currentFilter) : enriched;
+      const sorted = [...filtered].sort((a, b) => getSortValue(b, currentSortKey) - getSortValue(a, currentSortKey));
+
+      const total = buildTotalRow(sorted);
+      databoardBody.innerHTML = rowHtml(total, true) + sorted.map((row) => rowHtml(row)).join("");
+    }
+
+    sortChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        currentSortKey = chip.dataset.sort;
+        setChipState();
+        renderDataboard();
+      });
+    });
+
+    filterChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        currentFilter = currentFilter === chip.dataset.filter ? null : chip.dataset.filter;
+        setChipState();
+        renderDataboard();
+      });
+    });
+
+    if (resetChip) {
+      resetChip.addEventListener("click", () => {
+        currentSortKey = "outerQty";
+        currentFilter = null;
+        setChipState();
+        renderDataboard();
+      });
+    }
+
+    applyLanguage();
+    setChipState();
+    renderDataboard();
+    renderCountrySelector();
+    renderAfricaGrowthSample();
+  </script>
+</body>
+</html>
