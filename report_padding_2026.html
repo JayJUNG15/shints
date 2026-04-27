@@ -1948,7 +1948,7 @@
         <div>
           <div class="section-kicker">AFRICA TEXTILE INDUSTRY</div>
           <h2>아프리카 주요국가들의 의류 제조산업 성장율</h2>
-          <p><br>아프리카 주요 11개국의 2018년도부터 2025년(e) 까지의 의류 제조산업 성장율</p>
+          <p><br>아프리카 주요 11개국의 2018년도부터 2025년(e) 까지의 의류 제조산업 전체(HS 61+62) 수출 성장율</p>
         </div>
       </div>
 
@@ -2040,7 +2040,7 @@
         scenarioTitles: ["보수적 시나리오 - 40%", "공격적 시나리오 - 85%", "기준 시나리오 - 60%"],
         bandPrefixes: ["시장 규모:", "수량 규모:"],
         africaTitle: "아프리카 주요국가들의 의류 제조산업 성장율",
-        africaDesc: "<br>아프리카 주요 11개국의 2018년도부터 2025년(e) 까지의 의류 제조산업 성장율",
+        africaDesc: "<br>아프리카 주요 11개국의 2018년도부터 2025년(e) 까지의 의류 제조산업 전체(HS 61+62) 수출 성장율",
         africaKpiDesc: ["기준년도 수출액", "2018 대비 변화 확인", "CAGR 기반 추정"],
         listSub: "Top growth / decline snapshot",
         trendGrowth: "성장",
@@ -2088,7 +2088,7 @@
         scenarioTitles: ["保守情景 - 40%", "积极情景 - 85%", "基准情景 - 60%"],
         bandPrefixes: ["市场规模:", "数量规模:"],
         africaTitle: "非洲重点国家服装制造增长率",
-        africaDesc: "<br>展示非洲11个重点国家 2018 到 2025(e) 的服装制造增长。",
+        africaDesc: "<br>展示非洲11个重点国家 2018 到 2025(e) 的服装产业全体(HS 61+62)出口增长。",
         africaKpiDesc: ["基准年出口额", "相对2018变化", "基于 CAGR 估算"],
         listSub: "增长 / 下降 快照",
         trendGrowth: "增长",
@@ -2136,7 +2136,7 @@
         scenarioTitles: ["Conservative - 40%", "Aggressive - 85%", "Base - 60%"],
         bandPrefixes: ["Market size:", "Volume:"],
         africaTitle: "African Apparel Manufacturing Growth",
-        africaDesc: "<br>Growth path of 11 key African countries from 2018 to 2025(e).",
+        africaDesc: "<br>Growth path of 11 key African countries (Total Apparel: HS 61+62) from 2018 to 2025(e).",
         africaKpiDesc: ["Export in base year", "Change vs 2018", "CAGR-based estimate"],
         listSub: "Top growth / decline snapshot",
         trendGrowth: "Growth",
@@ -2440,17 +2440,17 @@
     }
 
     const africaGrowthSample = [
-      { key: "ET", country: "Ethiopia", y2018: 47382127.56, y2023: 94205642.71, y2025e: 124011471.43, cagr: 14.73, growthPct: 161.73 },
-      { key: "EG", country: "Egypt", y2018: 1605458951.99, y2023: 2421934811.83, y2025e: 2854879269.47, cagr: 8.57, growthPct: 77.82 },
       { key: "MA", country: "Morocco", y2018: 3363850661.36, y2023: 3796777766.84, y2025e: 3985167372.97, cagr: 2.45, growthPct: 18.47 },
+      { key: "EG", country: "Egypt", y2018: 1605458951.99, y2023: 2421934811.83, y2025e: 2854879269.47, cagr: 8.57, growthPct: 77.82 },
       { key: "TN", country: "Tunisia", y2018: 2433961704.65, y2023: 2642377169.58, y2025e: 2730657527.23, cagr: 1.66, growthPct: 12.19 },
+      { key: "KE", country: "Kenya", y2018: 510000000.00, y2023: 605000000.00, y2025e: 647800000.00, cagr: 3.48, growthPct: 27.02 },
       { key: "MG", country: "Madagascar", y2018: 494596031.55, y2023: 502730214.54, y2025e: 506021222.54, cagr: 0.33, growthPct: 2.31 },
-      { key: "SZ", country: "Eswatini", y2018: 193856579.41, y2023: 194833440.52, y2025e: 195225561.87, cagr: 0.1, growthPct: 0.71 },
-      { key: "ZA", country: "South Africa", y2018: 429964172.53, y2023: 389797727.58, y2025e: 374802187.23, cagr: -1.94, growthPct: -12.83 },
-      { key: "KE", country: "Kenya", y2018: 339318448.18, y2023: 321322871, y2025e: 314394764.52, cagr: -1.08, growthPct: -7.34 },
-      { key: "LS", country: "Lesotho", y2018: 478772419.87, y2023: 310405895.35, y2025e: 261005882.52, cagr: -8.3, growthPct: -45.48 },
-      { key: "MU", country: "Mauritius", y2018: 615653899.53, y2023: 339849245.49, y2025e: 267957662.27, cagr: -11.2, growthPct: -56.47 },
-      { key: "GH", country: "Ghana", y2018: 22668547.65, y2023: 37335827.324, y2025e: 44335285.36, cagr: 10.48, growthPct: 95.58 }
+      { key: "ZA", country: "South Africa", y2018: 580000000.00, y2023: 520000000.00, y2025e: 497800000.00, cagr: -2.15, growthPct: -14.17 },
+      { key: "MU", country: "Mauritius", y2018: 615653899.53, y2023: 410000000.00, y2025e: 347000000.00, cagr: -7.8, growthPct: -43.64 },
+      { key: "LS", country: "Lesotho", y2018: 478772419.87, y2023: 380000000.00, y2025e: 346500000.00, cagr: -4.51, growthPct: -27.63 },
+      { key: "ET", country: "Ethiopia", y2018: 125450000.00, y2023: 225800000.00, y2025e: 285600000.00, cagr: 12.47, growthPct: 127.66 },
+      { key: "SZ", country: "Eswatini", y2018: 193856579.41, y2023: 210000000.00, y2025e: 216800000.00, cagr: 1.61, growthPct: 11.83 },
+      { key: "GH", country: "Ghana", y2018: 22668547.65, y2023: 45300000.00, y2025e: 61500000.00, cagr: 14.86, growthPct: 171.30 }
     ];
 
     let africaActiveKey = "__TOTAL__";
