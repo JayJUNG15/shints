@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -2440,17 +2440,17 @@
     }
 
     const africaGrowthSample = [
-      { key: "ET", country: "Ethiopia", y2018: 47382127.56, y2023: 94205642.71, y2025e: 124011471.43, cagr: 14.73, growthPct: 98.82 },
-      { key: "EG", country: "Egypt", y2018: 1605458951.99, y2023: 2421934811.83, y2025e: 2854879269.47, cagr: 8.57, growthPct: 50.86 },
-      { key: "MA", country: "Morocco", y2018: 3363850661.36, y2023: 3796777766.84, y2025e: 3985167372.97, cagr: 2.45, growthPct: 12.87 },
-      { key: "TN", country: "Tunisia", y2018: 2433961704.65, y2023: 2642377169.58, y2025e: 2730657527.23, cagr: 1.66, growthPct: 8.56 },
-      { key: "MG", country: "Madagascar", y2018: 494596031.55, y2023: 502730214.54, y2025e: 506021222.54, cagr: 0.33, growthPct: 1.64 },
-      { key: "SZ", country: "Eswatini", y2018: 193856579.41, y2023: 194833440.52, y2025e: 195225561.87, cagr: 0.1, growthPct: 0.5 },
-      { key: "ZA", country: "South Africa", y2018: 429964172.53, y2023: 389797727.58, y2025e: 374802187.23, cagr: -1.94, growthPct: -9.34 },
-      { key: "KE", country: "Kenya", y2018: 339318448.18, y2023: 321322871, y2025e: 314394764.52, cagr: -1.08, growthPct: -5.3 },
-      { key: "LS", country: "Lesotho", y2018: 478772419.87, y2023: 310405895.35, y2025e: 261005882.52, cagr: -8.3, growthPct: -35.17 },
-      { key: "MU", country: "Mauritius", y2018: 615653899.53, y2023: 339849245.49, y2025e: 267957662.27, cagr: -11.2, growthPct: -44.8 },
-      { key: "GH", country: "Ghana", y2018: 22668547.65, y2023: 37335827.324, y2025e: 44335285.36, cagr: 10.48, growthPct: 64.72 }
+      { key: "ET", country: "Ethiopia", y2018: 47382127.56, y2023: 94205642.71, y2025e: 124011471.43, cagr: 14.73, growthPct: 161.73 },
+      { key: "EG", country: "Egypt", y2018: 1605458951.99, y2023: 2421934811.83, y2025e: 2854879269.47, cagr: 8.57, growthPct: 77.82 },
+      { key: "MA", country: "Morocco", y2018: 3363850661.36, y2023: 3796777766.84, y2025e: 3985167372.97, cagr: 2.45, growthPct: 18.47 },
+      { key: "TN", country: "Tunisia", y2018: 2433961704.65, y2023: 2642377169.58, y2025e: 2730657527.23, cagr: 1.66, growthPct: 12.19 },
+      { key: "MG", country: "Madagascar", y2018: 494596031.55, y2023: 502730214.54, y2025e: 506021222.54, cagr: 0.33, growthPct: 2.31 },
+      { key: "SZ", country: "Eswatini", y2018: 193856579.41, y2023: 194833440.52, y2025e: 195225561.87, cagr: 0.1, growthPct: 0.71 },
+      { key: "ZA", country: "South Africa", y2018: 429964172.53, y2023: 389797727.58, y2025e: 374802187.23, cagr: -1.94, growthPct: -12.83 },
+      { key: "KE", country: "Kenya", y2018: 339318448.18, y2023: 321322871, y2025e: 314394764.52, cagr: -1.08, growthPct: -7.34 },
+      { key: "LS", country: "Lesotho", y2018: 478772419.87, y2023: 310405895.35, y2025e: 261005882.52, cagr: -8.3, growthPct: -45.48 },
+      { key: "MU", country: "Mauritius", y2018: 615653899.53, y2023: 339849245.49, y2025e: 267957662.27, cagr: -11.2, growthPct: -56.47 },
+      { key: "GH", country: "Ghana", y2018: 22668547.65, y2023: 37335827.324, y2025e: 44335285.36, cagr: 10.48, growthPct: 95.58 }
     ];
 
     let africaActiveKey = "__TOTAL__";
@@ -2463,7 +2463,7 @@
       const y2018 = africaGrowthSample.reduce((sum, r) => sum + r.y2018, 0);
       const y2023 = africaGrowthSample.reduce((sum, r) => sum + r.y2023, 0);
       const y2025e = africaGrowthSample.reduce((sum, r) => sum + r.y2025e, 0);
-      const growthPct = y2018 === 0 ? 0 : ((y2023 - y2018) / y2018) * 100;
+      const growthPct = y2018 === 0 ? 0 : ((y2025e - y2018) / y2018) * 100;
       const cagr = y2018 === 0 ? 0 : ((Math.pow(y2023 / y2018, 1 / 5) - 1) * 100);
       return {
         key: "__TOTAL__",
@@ -2486,7 +2486,7 @@
         { label: "2025E", value: activeRow.y2025e }
       ];
       const maxValue = Math.max(...yearlyRows.map((r) => r.value), 1);
-      const cumulativeGrowth = activeRow.y2018 === 0 ? 0 : ((activeRow.y2025e / activeRow.y2018) - 1) * 100;
+      const cumulativeGrowth = activeRow.growthPct;
       const trendClass = cumulativeGrowth >= 0 ? "growth" : "decline";
       const trendLabel = cumulativeGrowth >= 0 ? t("trendGrowth") : t("trendDecline");
 
