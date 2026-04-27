@@ -1973,7 +1973,7 @@
           </div>
 
           <div class="af-chart-head">
-            <h4>Selected Country Yearly Export</h4>
+            <h4 id="af-chart-title">Selected Country Yearly Export</h4>
             <span>2018 / 2023 / 2025E + Cumulative Growth</span>
           </div>
           <div class="af-line-chart">
@@ -2348,8 +2348,8 @@
     function formatMillion(value, unit) {
       if (value === null || value === undefined) return "-";
       const n = Number(value);
-      if (unit === "usd") return `$${(n / 1000000).toFixed(1)}M`;
-      return `${(n / 1000000).toFixed(2)}M pcs`;
+      if (unit === "usd") return `$${(Math.round(n / 100000) / 10).toLocaleString("en-US", {minimumFractionDigits: 1})}M`;
+      return `${(n / 1000000).toLocaleString("en-US", {minimumFractionDigits: 2})}M pcs`;
     }
 
     function formatQtyWithUnit(value) {
@@ -2364,8 +2364,10 @@
 
     function formatByScope(value, isTotal) {
       if (value === null || value === undefined) return "-";
-      if (isTotal) return `$${(Number(value) / 1000000000).toFixed(2)}B`;
-      return `$${(Number(value) / 1000000).toFixed(1)}M`;
+      const n = Number(value);
+      if (isTotal) return `$${(n / 1000000000).toFixed(2)}B`;
+      if (n >= 1000000) return `$${(Math.round(n / 100000) / 10).toLocaleString("en-US", {minimumFractionDigits: 1})}M`;
+      return `$${n.toLocaleString("en-US")}`;
     }
 
     function formatUsdSmart(value) {
@@ -2522,6 +2524,9 @@
       const activeRow = rows.find((r) => r.key === africaActiveKey) ?? totalRow;
 
       const isTotalActive = activeRow.key === "__TOTAL__";
+      const chartTitle = document.getElementById("af-chart-title");
+      if (chartTitle) chartTitle.textContent = `${activeRow.country} Yearly Export`;
+
       kpi2018.textContent = formatByScope(activeRow.y2018, isTotalActive);
       kpi2023.textContent = formatByScope(activeRow.y2023, isTotalActive);
       kpi2025.textContent = formatByScope(activeRow.y2025e, isTotalActive);
