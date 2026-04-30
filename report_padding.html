@@ -2113,20 +2113,20 @@
         },
         en: {
           nav: ["Overview", "Key Findings", "Databoard", "Dashboard", "Africa"],
-          heroSub: `<strong>This report is based on official trade data from UN Comtrade and the World Bank.<br>It compares MEA countries to understand their padding-related production and export opportunity.<br><br></strong>Instead of relying on one number, the report combines data structure, mirror trade checks, and scenarios to show <strong>current scale and future opportunity</strong> together.`,
+          heroSub: `<strong>This report uses official data from UN Comtrade and the World Bank to compare padding production potential across the MEA region.<br><br></strong>By combining trade data and market scenarios, we provide a clear view of <strong>both current capacity and future opportunities</strong>.`,
           heroCards: [
-            `<br>- UN Comtrade international trade data<br>- World Bank WITS trade platform<br>- Mirror import cross-check by partner countries<br>- Reference from public trade data and industry context`,
-            `<br>We check both the country's own export data and the import data reported by all partner countries.<br>This helps identify possible gaps in direct export reporting.`,
-            `<br>Data is structured by HS code and country.<br>Then values are cleaned, compared, and converted into a practical decision view.`,
-            `<br>2024 is used first where available.<br>If 2024 data is incomplete, 2023 is used as a fallback to keep the comparison consistent.`
+            `<br>- UN Comtrade Trade Database<br>- World Bank WITS Platform<br>- Cross-checking with global import records<br>- Key industry reports & market context`,
+            `<br>We compare a country's official export data with what the rest of the world actually imported from them.<br>This uncovers any hidden gaps in local reporting.`,
+            `<br>We organize the data by HS codes and countries.<br>Then, we clean and standardize the numbers to give you a clear view for business decisions.`,
+            `<br>We use 2024 data whenever possible.<br>For countries missing recent data, we use 2023 figures to keep the comparison fair and accurate.`
           ],
           flowTitle: "Padding Opportunity Estimate - Scenario Results",
-          flowDesc: `<br>From more than 60 candidate countries in the Middle East and Africa, <span class="hl-yellow">14 countries</span> were selected based on production/export signals, data availability, and comparability.<br>The analysis uses not only each country's own export declaration, but also <span class="hl-yellow">mirror import data reported by all importing countries</span>.<br>For padding opportunity sizing, the focus is narrowed to outerwear categories with higher padding potential, such as <span class="hl-yellow">anoraks, ski jackets, windwear, and man-made fibre outerwear</span>.<br>The mirror-based outerwear proxy is about <span class="hl-yellow">$296M and 10.4M pcs</span>. Because this HS scope is not padding-only, three conversion cases are applied to estimate the practical padding opportunity.`,
+          flowDesc: `<br>Out of 60+ candidate countries in the Middle East and Africa, <span class="hl-yellow">14 countries</span> were selected based on export volume and data reliability.<br>To ensure accuracy, we cross-checked their official export numbers with <span class="hl-yellow">global import records (how much other countries actually received from them)</span>.<br>To estimate the padding market, we focused on relevant outerwear categories like <span class="hl-yellow">anoraks, ski jackets, windbreakers, and synthetic coats</span>.<br>The estimated outerwear scale is around <span class="hl-yellow">$296M and 10.4M pcs</span>. Since these items are not 100% padding, we applied three different scenarios to find the realistic padding opportunity.`,
           storyTitles: ["Core Case - 25%", "Base Case - 35%", "Expanded Case - 45%"],
           storyDescs: [
-            "Includes only the product area with the highest chance of becoming padding items.",
-            "Includes the normal conversion range for padding-friendly outerwear.",
-            "Includes a wider area where material or product planning can shift toward padding."
+            "Focuses only on product categories highly likely to be padding items.",
+            "Includes the normal expected range of padding-friendly outerwear.",
+            "Includes a broader range where materials or designs can shift toward padding."
           ],
           storyBands: [
             ["Africa 10 countries : ", "Middle East 4 countries : ", "Total 14 countries : "],
@@ -2138,25 +2138,25 @@
             ["USD 90M / 3.0M pcs ", "USD 14M / 0.6M pcs", "USD 103M / 3.6M pcs"],
             ["USD 115M / 4.0M pcs ", "USD 18M / 0.7M pcs", "USD 133M / 4.7M pcs"]
           ],
-          databoardTitle: "Final CSV-Based Data Board",
-          databoardDesc: "<br>This board follows the final CSV structure: World Import, W/I pcs, top importing partners, and re-export risk.",
-          chips: ["Default Order", "World Import", "W/I pcs", "Middle East", "Africa", "Reset"],
-          toolbar: ["Final CSV-based data. World Import means values reported by importing countries.", "Source: UN Comtrade / WITS Mirror Import Cross-Check"],
-          th: ["Group", "country", "year_used", "World Import", "W/I pcs", "top_partner_1", "top_partner_2", "top_partner_3", "Re-export Risk"],
+          databoardTitle: "Unified Data Board",
+          databoardDesc: "<br>This board shows the finalized data, including total world imports, top partner countries, and re-export risks.",
+          chips: ["Default Order", "World Import (Value)", "World Import (Qty)", "Middle East", "Africa", "Reset"],
+          toolbar: ["World Import refers to the total volume reported by global buyers.", "Source: UN Comtrade & WITS Database"],
+          th: ["Region", "Country", "Year", "World Import (Value)", "World Import (Qty)", "Top Buyer 1", "Top Buyer 2", "Top Buyer 3", "Re-export Risk"],
           dashboardTitle: "Country Data Dashboard",
-          kpiLabels: ["W/I pcs", "World Import", "top_partner_1", "Re-export Risk"],
+          kpiLabels: ["World Import (Qty)", "World Import (Value)", "Top Buyer", "Re-export Risk"],
           scenarioTitles: ["Core Case - 25%", "Expanded Case - 45%", "Base Case - 35%"],
-          bandPrefixes: ["Market size:", "Volume:"],
+          bandPrefixes: ["Market Size:", "Volume:"],
           africaTitle: "African Apparel Manufacturing Growth",
-          africaDesc: "<br>Export growth of 11 key African apparel countries from 2018 to 2025(e), based on total apparel HS 61+62.",
-          africaKpiDesc: ["Export in base year", "Change vs 2018", "CAGR-based estimate"],
-          listSub: "Top growth / decline snapshot",
+          africaDesc: "<br>Export growth of 11 key African apparel countries from 2018 to 2025(e), based on total apparel (HS 61+62).",
+          africaKpiDesc: ["Base Year Export", "Change vs 2018", "CAGR-based Estimate"],
+          listSub: "Top Growth / Decline Snapshot",
           trendGrowth: "Growth",
           trendDecline: "Decline",
           totalCountries: "All Countries",
           totalLabel: "Total",
           region: { middleEast: "Middle East", africa: "Africa", total: "TOTAL" },
-          approx: "about",
+          approx: "approx",
           level: "level"
         }
       };
