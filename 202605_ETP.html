@@ -1,0 +1,1231 @@
+﻿<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ETP 보고용 문서</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fff;
+        --ink: #111827;
+        --line: #e5e7eb;
+        --muted: #6b7280;
+        --panel: #f8fafc;
+        --accent: #1d4ed8;
+        --accent-soft: #eff6ff;
+        --warn: #b45309;
+        --food: #0f766e;
+        --life: #7c3aed;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 22px;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 30px;
+        font-weight: 800;
+      }
+      .desc {
+        margin: 0 0 16px;
+        font-size: 15px;
+        color: var(--muted);
+      }
+      .tabs {
+        display: flex;
+        격차: 8px;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
+      }
+      .tab {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 8px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .tab.active {
+        border-color: #94a3b8;
+        background: #f8fafc;
+      }
+      .panel {
+        display: none;
+      }
+      .panel.active {
+        display: block;
+      }
+      .doc {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px;
+        background: #fff;
+      }
+      .doc h1,
+      .doc h2,
+      .doc h3,
+      .doc h4 {
+        margin: 18px 0 10px;
+        line-height: 1.35;
+      }
+      .doc h1 {
+        font-size: 30px;
+      }
+      .doc h2 {
+        font-size: 24px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 6px;
+      }
+      .doc h3 {
+        font-size: 20px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 10px 12px;
+      }
+      .doc h4 {
+        font-size: 17px;
+        font-weight: 800;
+        color: #1f2937;
+        padding-left: 2px;
+      }
+      .doc p,
+      .doc li {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+      .doc ul {
+        margin: 8px 0 8px 20px;
+        padding-left: 18px;
+      }
+      .doc li.lvl1 {
+        margin-left: 0;
+      }
+      .doc li.lvl2 {
+        margin-left: 20px;
+        list-style-type: circle;
+      }
+      .doc li.lvl3 {
+        margin-left: 40px;
+        list-style-type: square;
+      }
+      .doc li.lvl4 {
+        margin-left: 60px;
+        list-style-type: disc;
+      }
+      .doc blockquote {
+        margin: 12px 0;
+        border: 1px solid #c7d2fe;
+        border-left: 5px solid var(--accent);
+        background: var(--accent-soft);
+        border-radius: 10px;
+        padding: 12px 14px;
+      }
+      .doc table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0 14px;
+        font-size: 14px;
+      }
+      .doc th,
+      .doc td {
+        border: 1px solid var(--line);
+        padding: 9px 10px;
+        vertical-align: top;
+      }
+      .doc th {
+        background: #f8fafc;
+        font-weight: 800;
+        text-align: left;
+      }
+      .hl-key {
+        color: #1e40af;
+        font-weight: 800;
+      }
+      .hl-warn {
+        color: var(--warn);
+        font-weight: 800;
+      }
+      .hl-food {
+        color: var(--food);
+        font-weight: 800;
+      }
+      .hl-life {
+        color: var(--life);
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>ETP 보고용 문서</h1>
+      <p class="desc">원문 유지 + 가독성 강화</p>
+      <div class="tabs">
+        <button class="tab active" data-tab="doc1">
+          1. 리더들 저녁식사 정리
+        </button>
+        <button class="tab" data-tab="doc2">2. 라인 라운딩 정리</button>
+        <button class="tab" data-tab="doc3">3. IE팀 관련</button>
+      </div>
+      <section id="doc1" class="panel active">
+        <div class="doc">
+          <h2>1) 카테고리별 통합 이슈</h2>
+          <h3>A. 급식 품질·위생·일관성</h3>
+          <ul>
+            <li class="lvl1">
+              <span class="hl-food">인제라</span> 신맛 이슈가 반복적으로 제기됨.
+            </li>
+            <li class="lvl1">
+              Black Teff 변경 직후 일시 개선되었으나 1~2주 후 다시 신맛이
+              강해졌다는 의견이 있음.
+            </li>
+            <li class="lvl1">소스 품질 편차가 큼.</li>
+            <li class="lvl2">지나치게 묽음</li>
+            <li class="lvl2">탄 냄새 발생</li>
+            <li class="lvl2">감자 소스 내 탄 감자 혼입 사례</li>
+            <li class="lvl1">
+              렌틸 소스는 매우 맵고 묽다는 의견이 공통적으로 나왔으며, 특히 특정
+              요일(금/일 점심) 품질 저하가 크게 지적됨.
+            </li>
+            <li class="lvl1">
+              일부는 렌틸 세척 불충분 가능성을 제기했고, 섭취 후 몸 상태
+              이상(복통/불편감) 의견도 있었음.
+            </li>
+            <li class="lvl1">
+              <span class="hl-food">아침 식사</span>(킨체/라이스) 품질에 대해
+              건조함, 기름짐, 상한 냄새, 전날 조리 의심 등 부정 의견이 반복됨.
+            </li>
+            <li class="lvl1">
+              평일 대비 주말/휴일 급식 품질이 낮다는 인식이 공통적으로 확인됨.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br />문제점은 <span class="hl-food">인제라</span> 신맛 이슈,
+              <span class="hl-warn">렌틸콩 소스</span> 문제,
+              <span class="hl-food">아침 식사</span> 문제로 파악됨. 다만
+              상대적으로 오래 근무한 인원 의견에서는
+              <span class="hl-food">인제라</span>가 점진적으로 개선되고 있다는
+              피드백도 있었음. 공통적으로는 현재
+              <span class="hl-food">인제라</span>보다
+              <span class="hl-warn">렌틸콩 소스</span> 문제를 더 심각하게
+              받아들이고 있어, 개선 우선순위는
+              <span class="hl-warn">렌틸콩 소스</span>가 더 높아 보임.
+            </p>
+          </blockquote>
+          <h3>B. 생산 운영의 <span class="hl-key">품질-목표 균형</span></h3>
+          <ul>
+            <li class="lvl1">
+              생산팀이 품질보다 목표 수량 달성에 더 집중한다는 현장 인식이 있음.
+            </li>
+            <li class="lvl1">
+              “품질 없는 수량은 의미 없다”는 의견이 QC 리더들에게서 제시됨.
+            </li>
+            <li class="lvl1">
+              라인 내 불량 발생 시 초기 대응이 늦거나 일부 불량 포인트가 충분히
+              처리되지 않는다는 지적이 있었음.
+            </li>
+            <li class="lvl1">
+              대응 지연은 불량 확대 및 목표 달성 저하로 연결된다는 우려가
+              공통적으로 확인됨.
+            </li>
+          </ul>
+          <h3>C. 의사결정 속도·책임선·에스컬레이션</h3>
+          <ul>
+            <li class="lvl1">
+              품질 기준 해석이 모호할 때 의사결정이 지연된다는 문제가 반복
+              제기됨.
+            </li>
+            <li class="lvl1">
+              책임자가 즉시 판단하지 못하는 상황이 지연의 핵심 원인으로 언급됨.
+            </li>
+            <li class="lvl1">
+              이슈가 상위 관리자에게 빠르게 보고되지 않는 에스컬레이션 지연도
+              확인됨.
+            </li>
+            <li class="lvl1">
+              현장 판단으로는 “실행 지연”의 핵심이 단순 인지 부족보다 “결정
+              주체의 즉시 판단 자신감 부족”에 가까움.
+            </li>
+          </ul>
+          <h3>D. <span class="hl-key">IE 역할 정합성</span></h3>
+          <ul>
+            <li class="lvl1">
+              라인 IE 책임 체감이 낮다는 의견이 있음(특히 목표 미달 시).
+            </li>
+            <li class="lvl1">
+              결근/밸런싱 시 대체 인원 배치가 공정 적합성과 맞지 않는 사례가
+              보고됨.
+            </li>
+            <li class="lvl1">
+              관련 개선을 위한 IE 팀 매니저 Henock 과 라인리더 미팅으로 해당
+              부분 개선 진행 중.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong
+                >B, C, D
+                <strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br /><br />- 현재 IE 팀과 파일럿 프로젝트를 공동으로 운영하며,
+              라인 이슈를
+              <code><span class="hl-key">실시간으로 파악</span></code
+              >하고 <code><span class="hl-key">즉시 대응</span></code
+              >하는 체계를 구축 중임.<br />- 핵심 운영 방식은 시간대별 데이터
+              확인 → 현장 원인 확인 → 담당자 즉시 조치 → 결과 재확인(리뷰)
+              흐름으로 고정하고 있음.<br />- 특히
+              <span class="hl-key">품질-목표 균형</span>(B), 의사결정 속도(C),
+              <span class="hl-key">IE 역할 정합성</span>(D)을 우선 관리 항목으로
+              두고 개선 진행 중임.<br />- 본 프로젝트의 목적은 단순 보고 강화가
+              아니라, 현장 의사결정 속도와 실행 정확도를 함께 끌어올리는 데
+              있음.
+            </p>
+          </blockquote>
+          <h3>E. <span class="hl-key">Technician</span> 역할 및 현장 적용</h3>
+          <ul>
+            <li class="lvl1">
+              <span class="hl-key">Technician</span>이 기술 지원보다 데이터
+              기록/목표 압박 업무를 과도하게 수행해, 본연의 기술·품질 개선
+              집중이 약화된다는 의견이 있었음.
+            </li>
+            <li class="lvl1">
+              라인리더 측에서 라인 테크니션이 직접 레이아웃 전
+              <span class="hl-key">PP 샘플</span> 제작을 통한 기술 난이도 사전
+              확인을 하면 어떠한가에 대한 의견을 제시함.
+            </li>
+            <li class="lvl1">
+              <span class="hl-key">피딩</span> 시점에 신규 스타일 기술 대응보다
+              기존 스타일 목표 마감 압박이 우선되어, 신규 스타일 초기 품질
+              안정화가 지연된다는 문제가 공통 이슈로 확인됨.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br /><br />- 라인 <span class="hl-key">Technician</span>의
+              <span class="hl-key">PP 샘플</span> 사전 제작 의견은 방향성 자체는
+              좋음.<br />- 다만 <span class="hl-key">PP 샘플</span> 제작 가능
+              여부는 <span class="hl-key">Technician</span>별 숙련도 차이가
+              있어, 가능한 인원과 어려운 인원이 혼재된 상태임.<br />- 따라서
+              즉시 일괄 적용보다는 인력 역량 구분 후 단계 적용 방식으로 추가
+              검토가 필요함.
+            </p>
+          </blockquote>
+          <h3>F. 임금·공제 체계 공정성</h3>
+          <ul>
+            <li class="lvl1">
+              경력자/장기근속자의 임금이 신규 입사자보다 낮다는 인식이 있으며,
+              불공정성 체감과 이직 압력으로 연결된다는 의견이 있음.
+            </li>
+            <li class="lvl1">
+              수량 관리 기준이 Buyer Quantity가 아닌 Cutting Quantity 중심으로
+              운영된다는 인식이 있음.
+            </li>
+            <li class="lvl1">
+              Cutting Quantity 미달 시 USD/PCS 기준 공제가 부담이라는 의견이
+              다수였음.
+            </li>
+            <li class="lvl1">
+              급여(ETB)와 공제 인식(USD) 간 괴리로 인해 동기 저하가 발생한다는
+              의견이 제기됨.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br /><br />- Quantity 미달 시, 해당 라인에서 일부 인원이 몇 달치
+              급여에 해당하는 수준의 금액 부담 사례가 있었다는 보고가 접수됨.<br />-
+              해당 내용은 현재 사실관계와 적용 기준을 분리하여 별도로 추가 체크
+              중임.
+            </p>
+          </blockquote>
+          <h3>
+            G. <span class="hl-life">기숙사</span>·<span class="hl-life"
+              >생활 복지</span
+            >
+            지원
+          </h3>
+          <ul>
+            <li class="lvl1">
+              연장근무(예: 22:00 종료) 시 급수 종료(21:30)와 충돌해 기본
+              위생(샤워) 불편이 발생한다는 의견이 있었음.
+            </li>
+            <li class="lvl1">
+              <span class="hl-life">기숙사</span> 과밀, 환기 부족, 수납공간 부족
+              등 생활환경 스트레스가 제기됨.
+            </li>
+            <li class="lvl1">
+              체육활동 지원 측면에서 태권도 수업 증설(주 1회 → 주 2회) 요청이
+              있음.
+            </li>
+            <li class="lvl1">
+              농구/축구장 자체는 있으나 공 등 소모품 지급 및 요청 채널이
+              불명확해 개인 비용 사용 사례가 있음.
+            </li>
+            <li class="lvl1">
+              세탁줄 부족 및 외부 건조 시 분실 우려가 제기되었고, CCTV 설치 또는
+              실내 세탁라인 확대 요청이 있었음.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br /><br />- 연장근무가 5일간 지속되면서 일부 인원이 5일간
+              샤워를 못한 사례가 있었다는 보고가 있었음.<br />- 체육활동 지원
+              확대는 비용 이슈가 수반되어 회사 차원의 검토가 필요한 사안으로
+              판단됨.<br />- 농구/축구장 소모품 지급 이슈는 Admin팀에 전달하여
+              운영 처리하도록 안내함.<br />- CCTV 설치는 현실성이 낮은 대안으로
+              보이며, 대신 ETP 기획팀 내에서 Shin Mart 방식과 유사한 외부
+              세탁업체 도입·운영 방안을 검토 중인 것으로 파악됨.
+            </p>
+          </blockquote>
+          <h3>H. 작업복(<span class="hl-life">유니폼</span>) 적합성</h3>
+          <ul>
+            <li class="lvl1">
+              신규 <span class="hl-life">유니폼</span>(두꺼운 원단 티셔츠)이
+              고온 쉐드 환경에 적합하지 않다는 의견이 있었음.
+            </li>
+            <li class="lvl1">
+              과거 동일 불만 이력이 있으며, 당시 Juki
+              <span class="hl-life">유니폼</span> 도입 배경과 연결된다는 현장
+              언급이 있었음.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br /><br />- ETP 경영진 측 인식으로는
+              <span class="hl-life">유니폼</span> 단독 착용이 원칙이나, 일부
+              직원이 <span class="hl-life">유니폼</span>과 개인복을 함께 착용해
+              더 덥게 느껴지는 측면도 있다는 의견이 있음.<br />- 현장 관찰상
+              미싱사 작업환경에서는 <span class="hl-life">유니폼</span>이 실제로
+              더워 보였고, 타 파트 대비 체감 부담이 큰 것으로 보임.<br />-
+              최이사님이 지급한 메쉬(망사) 조끼는 현장 수용성이 비교적 좋아
+              보였으며, 가능하다면 해당 형태의 보완 지급을 검토할 가치가 있음.
+            </p>
+          </blockquote>
+          <h2>2) 통합 핵심 요약</h2>
+          <ul>
+            <li class="lvl1">
+              인터뷰 1·2차 및 크로스체크를 종합하면, 우선순위 이슈는
+              <code><span class="hl-warn">렌틸콩 소스</span>/급식 일관성</code>,
+              <code><span class="hl-key">품질-목표 균형</span></code
+              >, <code><span class="hl-warn">의사결정 지연</span></code
+              >,
+              <code>IE·<span class="hl-key">Technician</span> 역할 정합성</code
+              >, <code>임금·공제 공정성</code>, <code>생활복지</code>로 정리됨.
+            </li>
+            <li class="lvl1">
+              급식 이슈는 <span class="hl-food">인제라</span> 개선 의견도 일부
+              있으나, 현재는
+              <span class="hl-warn">렌틸콩 소스</span>(맵기/묽기/건강 불편)와
+              아침식사 품질 편차가 더 시급한 개선 대상으로 판단됨.
+            </li>
+            <li class="lvl1">
+              운영 개선은 IE 파일럿 프로젝트(실시간 파악-<span class="hl-key"
+                >즉시 대응</span
+              >-리뷰 체계) 중심으로 진행 중이며, B/C/D/E 항목의 실행 속도와 현장
+              대응 정확도를 높이는 방향으로 추진함.
+            </li>
+            <li class="lvl1">
+              임금·공제 항목은 일부 라인에서
+              <code
+                ><span class="hl-warn">수개월 급여 수준 부담 사례</span></code
+              >
+              보고가 있어 사실관계 및 적용 기준을 별도 점검 중임.
+            </li>
+            <li class="lvl1">
+              생활복지 항목은 연장근무-급수시간 충돌에 따른 실제 불편 사례가
+              확인되어, 단기 운영 보완(소모품 지급 등)과 중기 검토 과제(외부
+              세탁 운영 등)를 병행하는 방향이 필요함.
+            </li>
+            <li class="lvl1">
+              <span class="hl-life">유니폼</span> 항목은 경영진 인식(중복 착용
+              영향)과 현장 체감(미싱사 더위 부담)을 함께 고려해야 하며, 메쉬
+              조끼 방식은 현실적 보완안으로 검토 가치가 있음.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="doc2" class="panel">
+        <div class="doc">
+          <p>-</p>
+          <h2>부서: Warehouse (창고)</h2>
+          <ul>
+            <li class="lvl1">
+              담당자들은 큰 모니터 설치와 오래된 장비를 신규 장비로 교체하면
+              업무 속도 향상, 렉 문제 해결, 약 20% 수준의 효율 향상이 가능할
+              것이라고 의견 제시함.
+            </li>
+          </ul>
+          <h2>부서: Cutting (재단)</h2>
+          <h3>쉐드 2 Cutting (2층) -&gt; 쉐드 1 이동 이후 인력 부족 문제</h3>
+          <ul>
+            <li class="lvl1">
+              장갑 라인 설치로 인해 쉐드 2 Cutting(2층)이 쉐드 1으로 이동한
+              이후, Bundling 및 Numbering 인력이 부족해졌다고 보고함.
+            </li>
+          </ul>
+          <h3>Numbering 인력 현황</h3>
+          <ul>
+            <li class="lvl1">이동 전: 총 12명</li>
+            <li class="lvl1">현재:</li>
+            <li class="lvl2">쉐드 1 이동: 5명</li>
+            <li class="lvl2">쉐드 2 잔류: 4명</li>
+            <li class="lvl2">퇴사: 3명</li>
+            <li class="lvl2">퇴사 인원 충원 없음</li>
+          </ul>
+          <h3>Bundling 인력 현황</h3>
+          <ul>
+            <li class="lvl1">기존: 총 6명</li>
+            <li class="lvl1">현재:</li>
+            <li class="lvl2">쉐드 1 이동: 2명</li>
+            <li class="lvl2">쉐드 2 잔류: 1명</li>
+            <li class="lvl2">퇴사: 3명</li>
+            <li class="lvl2">퇴사 인원 충원 없음</li>
+          </ul>
+          <h3>현장 영향</h3>
+          <ul>
+            <li class="lvl1">
+              스타일 차이로 인해 쉐드 1에서 재단 및 Numbering 해야 하는 부품
+              수가 증가했으나, 인력은 감소하여 작업 압박이 매우 높아졌다고
+              보고함.
+            </li>
+            <li class="lvl1">
+              특히 Hand Cutter 포함 작업자들의 압박이 커졌다고 함.
+            </li>
+            <li class="lvl1">
+              쉐드 2에서 지원 인력이 오는 경우도 있으나, 쉐드 2가 바쁠 경우
+              지원이 불가능하여 업무 부담이 커진다고 설명함.
+            </li>
+          </ul>
+          <h2>부서: Line (라인)</h2>
+          <h3>주제: <span class="hl-key">Technician</span> (기술자)</h3>
+          <ul>
+            <li class="lvl1">
+              라인 <span class="hl-key">Technician</span>이 특정 공정을 이해하지
+              못할 경우, 기존에 Layout을 진행했던 외국인/시니어
+              <span class="hl-key">Technician</span>에게 배우기보다 소리를
+              지르거나 강하게 압박하는 분위기가 있다고 함.
+            </li>
+            <li class="lvl1">
+              작업자들 역시 같은 방식으로 압박받는 경우가 있다고 보고함.
+            </li>
+          </ul>
+          <h3>Seam Sealing 관련 기술 난이도</h3>
+          <ul>
+            <li class="lvl1">
+              쉐드 4는 과거 Seam Sealing 스타일 경험이 많지 않았음.
+            </li>
+            <li class="lvl1">
+              이후 쉐드 1으로 이동하면서 Seam Sealing 작업이 시작되었고, 현재
+              기술적 어려움이 있다고 함.
+            </li>
+            <li class="lvl1">
+              시니어 <span class="hl-key">Technician</span> 수가 부족하고, 경험
+              부족 및 시니어 인력 한계로 인해 기술 지원이 어려운 상황이라고
+              설명함.
+            </li>
+          </ul>
+          <h3>주제: 식당 및 급식 (Food and Canteen)</h3>
+          <h4>Enjera 배식 방식 문제</h4>
+          <ul>
+            <li class="lvl1">
+              현재 직원들이 Rack에서 원하는 Enjera를 직접 고르면서 여러 장을
+              손으로 만지는 구조라 위생상 좋지 않다는 의견 제시됨.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br />실제로 직원들이 <span class="hl-food">인제라</span>를
+              고르면서 손으로 만지는 구조를 확인함. 배식 방식 변경이 필요하며,
+              직원 직접 선택 방식에서 배식 담당 분배 방식으로 전환 검토가
+              필요함.
+            </p>
+          </blockquote>
+          <h4>아침 메뉴 관련</h4>
+          <ul>
+            <li class="lvl1">
+              현재 아침 메뉴가 Rice와 Kinche 두 종류뿐이며, 맛이 건조하고
+              단조롭다는 의견 있음.
+            </li>
+            <li class="lvl1">
+              과거에는 Macaroni, Firfir, Bread with sauce 메뉴도 있었으며, 다시
+              추가해달라는 요청이 있었다고 함.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br />마카로니 메뉴는 과거 운영했으나 배식의 어려움으로 중단된
+              것으로 확인함. Firfir, Bread with sauce는 추가 확인 필요.
+            </p>
+          </blockquote>
+          <h4>휴일 급식 품질 차이</h4>
+          <ul>
+            <li class="lvl1">
+              평일 대비 주말/휴일 급식 품질이 떨어진다고 보고함.
+            </li>
+            <li class="lvl1">
+              특히 휴일에는 음식 품질이 더 나빠진다는 의견 있었으며, 개선
+              요청함.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br />다수 인원이 동일 의견을 제시했으며, 휴일 급식 품질 저하
+              이슈는 사실 가능성이 높다고 판단함.
+            </p>
+          </blockquote>
+          <h4>Enjera 품질</h4>
+          <ul>
+            <li class="lvl1">
+              Teff를 Black Teff로 변경했을 때 품질이 개선되었으나, 이후 다시
+              품질이 나빠졌다고 함.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br />휴일 급식 품질 이슈와 유사하게 다수 인원의 공통 의견으로
+              확인됨. <span class="hl-food">인제라</span> 품질 변동은 실제 관리
+              이슈 가능성이 높아 추가 점검 필요.
+            </p>
+          </blockquote>
+          <h4>식기 위생 문제</h4>
+          <ul>
+            <li class="lvl1">
+              Tea kettle, 컵, Enjera 접시 등이 제대로 세척되지 않는다는 의견
+              제시됨.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br />현장에서 직접 확인했으며, 세척 관리에 추가 개선이
+              필요하다고 판단함.
+            </p>
+          </blockquote>
+          <h2>부서: Mechanic (기계팀)</h2>
+          <h3>안전화 요청</h3>
+          <ul>
+            <li class="lvl1">
+              기계 이동 작업 중 기계가 다리에 떨어지는 경우가 있어 Safety Shoes
+              지급 요청함.
+            </li>
+          </ul>
+          <h3>Incentive 제외 문제</h3>
+          <ul>
+            <li class="lvl1">
+              Incentive 계산 시 Mechanic 팀이 라인과 함께 포함되지 않는다고 함.
+            </li>
+          </ul>
+          <h3>의견 전달 문제</h3>
+          <ul>
+            <li class="lvl1">
+              Mechanic 팀에서 의견이나 불만을 전달해도, 외국인 Manager가 이를
+              상부 경영진에게 전달하거나 논의하지 않는다는 의견 제시됨.
+            </li>
+          </ul>
+          <h2>부서: Finishing (마감)</h2>
+          <h3>급식 품질 문제</h3>
+          <ul>
+            <li class="lvl1">Sauce 맛이 좋지 않다는 의견 있음.</li>
+            <li class="lvl1">
+              때때로 전날 만든 Sauce를 다시 제공한다고 보고함.
+            </li>
+            <li class="lvl1">
+              Lentil sauce가 너무 맵고, 많은 직원들이 먹고 배탈/몸 상태 이상을
+              경험했다고 함.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br />렌틸 소스의 맵기 이슈는 다수 인원의 공통 의견으로 재확인됨.
+              체감상 <span class="hl-food">인제라</span> 품질보다 렌틸 소스 맵기
+              이슈가 우선순위 높은 문제로 판단됨.
+            </p>
+          </blockquote>
+          <h3>식수 문제</h3>
+          <ul>
+            <li class="lvl1">
+              공장 내 Drinking Water가 깨끗하지 않으며, 마시면 몸이 아프다는
+              의견 제시됨.
+            </li>
+          </ul>
+          <blockquote>
+            <p>
+              <strong><strong class="hl-key">체크 상황 및 의견</strong></strong
+              ><br />현재 주 단위 필터 교체 및 정부 정기 점검을 받고 있어 즉시
+              이상 징후는 확인되지 않음. 다만 직원 체감 이슈가 반복 보고되므로
+              수질 관련 추가 확인이 필요함.
+            </p>
+          </blockquote>
+          <h2>부서: Cutting (재단)</h2>
+          <h3>연차 사용 문제</h3>
+          <ul>
+            <li class="lvl1">
+              높은 업무 압박과 긴 근무시간에도 불구하고, 연차 사용이 자유롭지
+              않다고 보고함.
+            </li>
+            <li class="lvl1">
+              이로 인해 휴식이 필요할 때 일부 직원들은 무단결근 형태로 쉬는
+              경우가 있다고 설명함.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="doc3" class="panel">
+        <div class="doc">
+          <h3>
+            1. <span class="hl-key"><strong>프로젝트 시작 배경</strong></span>
+          </h3>
+          <p>
+            본 프로젝트는 HQ 차원에서 ETP 생산 운영과 IE(Industrial Engineering)
+            조직의 실제 운영 수준을 확인하고, 향후 공장 디지털라이제이션 및 운영
+            고도화 방향을 검토하기 위해 시작되었다.
+          </p>
+          <p>
+            초기 목적은 단순 생산 문제 확인이 아니라, 아래 항목을 중점적으로
+            점검하는 것이었다.
+          </p>
+          <ul>
+            <li class="lvl1">IE 조직이 실제로 어떻게 운영되는가</li>
+            <li class="lvl1">현장 문제를 어떻게 기록하고 추적하는가</li>
+            <li class="lvl1">데이터가 실제 운영 행동으로 연결되는가</li>
+            <li class="lvl1">
+              라인 운영/밸런싱/병목 대응이 실제로 이루어지는가
+            </li>
+            <li class="lvl1">
+              반복 문제를 구조적으로 개선할 수 있는 체계가 있는가
+            </li>
+          </ul>
+
+          <h3>
+            2.
+            <span class="hl-key"><strong>초기 킥오프 미팅</strong></span>
+            (Henock / Tarahaka)
+          </h3>
+          <h4>기본 방향</h4>
+          <ul>
+            <li class="lvl1">감사 목적 아님</li>
+            <li class="lvl1">책임 추궁 목적 아님</li>
+            <li class="lvl1">실제 운영 구조 이해 목적</li>
+            <li class="lvl1">반복되는 효율 문제의 구조적 원인 파악 목적</li>
+          </ul>
+
+          <h4>주요 질문 영역</h4>
+          <ul>
+            <li class="lvl1">생산 운영의 가장 큰 어려움</li>
+            <li class="lvl1">효율 저하 원인</li>
+            <li class="lvl1">IE 팀 집중 개선 영역</li>
+            <li class="lvl1">병목 대응 방식</li>
+            <li class="lvl1">IE 일일 운영 루틴</li>
+            <li class="lvl1">PSD 대비 실제 실적 격차 원인</li>
+            <li class="lvl1">쉐드별 편차 원인</li>
+            <li class="lvl1">좋은 라인의 기준</li>
+          </ul>
+
+          <h3>
+            3.
+            <span class="hl-key"><strong>초기 인터뷰 핵심 결과</strong></span>
+          </h3>
+          <h4>3-1. 생산 운영 주요 어려움</h4>
+          <ul>
+            <li class="lvl1">빈번한 스타일 전환</li>
+            <li class="lvl1">소량 주문 구조(MOQ)</li>
+            <li class="lvl1">숙련 인력 부족</li>
+            <li class="lvl1">자재 분할 입고</li>
+            <li class="lvl1">고난도 제품 대응 어려움</li>
+          </ul>
+          <p>
+            특히 작은 수량 오더, 스타일 변경 반복, 자재 부분 입고가 line
+            stabilization을 어렵게 만든다는 의견이 반복되었다.
+          </p>
+
+          <h4>3-2. IE 조직 운영 특징</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>핵심 내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>강점</td>
+                <td>
+                  시간대별 목표 대비 실적 관리, 텔레그램 기반 실시간 공유, 병목
+                  추적 관리, 라인 balancing, 일일 모니터링, PSD 관리 체계 존재
+                </td>
+              </tr>
+              <tr>
+                <td>약점</td>
+                <td>
+                  기록은 있으나 현장 행동 연결이 약함, 현장 관리자 데이터 활용
+                  낮음, 반복 issue history 초기, 로스 사유 표준화 부족, 데이터
+                  중앙화 부족, 즉시 대응보다 기록 중심 성향
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>4. 라인 라운딩 및 현장 확인</h3>
+          <p>
+            초기에는 병목 공정, WIP accumulation, Waiting time, 피딩 issue,
+            Hourly output을 직접 확인하려 했으나, 현장 경험을 통해 방향을
+            조정했다.
+          </p>
+          <h4>중요한 판단 변화</h4>
+          <ul>
+            <li class="lvl1">
+              라인별 스타일/공정 난이도/작업자 스킬/피딩/자재 상황이 모두 달라
+              단순 관찰 일반화는 한계가 큼
+            </li>
+            <li class="lvl1">현장 문제 상당수는 IE팀도 이미 인지</li>
+            <li class="lvl1">
+              핵심은 문제 발견 자체보다 기록-추적-반복 패턴 관리 체계
+            </li>
+          </ul>
+
+          <h3>
+            5. <span class="hl-key"><strong>전략 방향 전환</strong></span>
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>초기 접근</th>
+                <th>전환 접근</th>
+                <th>전환 이유</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>라인 문제 직접 발견 / 생산 문제 직접 개선</td>
+                <td>
+                  <strong>IE 운영 체계 강화</strong><br />데이터 기록·실시간
+                  가시성·반복 issue 추적 관리·운영 행동 연결
+                </td>
+                <td>
+                  라인 조건 다양성 + 현지 인지 수준을 고려할 때, HQ의 고효율
+                  개입 지점은 체계 강화에 있음
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>5-1. 관점별 문제 정의 (중간 정렬)</h3>
+
+          <h4>1-1. Jay / Eugene 전무 관점</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>문제 인식</th>
+                <th>의미</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>핵심 문제: 현장 연결</strong></td>
+                <td>종이 기록 → 사무실 입력 → 사후 분석 구조</td>
+                <td>
+                  현장 데이터가 관리층과 즉시 공유되지 않아
+                  <strong><span class="hl-warn">실시간 판단/대응</span></strong>
+                  지연
+                </td>
+              </tr>
+              <tr>
+                <td>데이터</td>
+                <td>데이터와 대시보드는 이미 다수 존재</td>
+                <td>
+                  <strong><span class="hl-key">데이터 부족</span></strong
+                  >이 아니라 <strong>정밀 활용 부족</strong>의 문제
+                </td>
+              </tr>
+              <tr>
+                <td>활용</td>
+                <td>데이터를 보는 사람이 제한적</td>
+                <td>IE/일부 관리자 중심, 현장 관리자 활용이 약함</td>
+              </tr>
+              <tr>
+                <td>가시화</td>
+                <td>대형 모니터 기반 현장 공유 필요</td>
+                <td>현장 관리자들이 같은 화면으로 미팅/판단해야 함</td>
+              </tr>
+              <tr>
+                <td>시스템 방향</td>
+                <td>단기 구글 시트, 중장기 로컬 시스템화</td>
+                <td>당장 가능한 방식으로 시작 후 시스템 고도화</td>
+              </tr>
+              <tr>
+                <td>파일럿 방향</td>
+                <td>쉐드 1부터 작게 실행</td>
+                <td>
+                  전 공장 확장보다
+                  <strong><span class="hl-key">작동 검증</span></strong> 우선
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>1-2. Henock / IE 팀 관점</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>문제 인식</th>
+                <th>의미</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>인력</td>
+                <td>IE 인력 충원 중, 숙련 IE 채용 어려움</td>
+                <td>조직 역량 안정화에 시간 필요</td>
+              </tr>
+              <tr>
+                <td>경험</td>
+                <td>팀원의 상당수가 최근 입사</td>
+                <td>온보딩/실무 적응 진행 중</td>
+              </tr>
+              <tr>
+                <td>시스템</td>
+                <td>전문 IE 소프트웨어/통합 생산 시스템 부족</td>
+                <td>분석과 운영 가시성에 한계</td>
+              </tr>
+              <tr>
+                <td>데이터</td>
+                <td>시간대별 모니터링은 있으나 loss/격차 기록이 비체계적</td>
+                <td>
+                  <strong><span class="hl-key">표준화 + 중앙화</span></strong>
+                  필요
+                </td>
+              </tr>
+              <tr>
+                <td>개선 방향</td>
+                <td>
+                  Smart DB, GSD, PSD Analysis, Loss Recording, 스킬 매트릭스
+                  추진
+                </td>
+                <td>방향은 맞지만 범위가 넓어 우선순위화 필요</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>그래서, 어떻게 해결하기로 했는가</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>합의된 실행 원칙</th>
+                <th>실행 방법</th>
+                <th>기대 효과</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>작게 시작</strong></td>
+                <td>쉐드1 파일럿부터 시작, 전 공장 확장 보류</td>
+                <td>현장 저항/혼선 최소화, 빠른 학습</td>
+              </tr>
+              <tr>
+                <td><strong>입력 단순화</strong></td>
+                <td>라인 리더는 Target/Actual/품질 통과만 입력</td>
+                <td>입력 정착률 상승, 누락/오입력 감소</td>
+              </tr>
+              <tr>
+                <td><strong>원인 해석 분리</strong></td>
+                <td>로스 사유은 IE/관리자 분석 책임</td>
+                <td>원인 품질 향상, 재발 패턴 추적 가능</td>
+              </tr>
+              <tr>
+                <td><strong>실시간 가시화</strong></td>
+                <td>태블릿 입력 + 대형 모니터 상시 공유</td>
+                <td>
+                  <span class="hl-key"><strong>데이터-행동 연결</strong></span>
+                  강화
+                </td>
+              </tr>
+              <tr>
+                <td><strong>일일 루프 고정</strong></td>
+                <td>확인 → 원인 → 즉시 조치 → 리뷰</td>
+                <td>
+                  <span class="hl-key"><strong>운영 실행력</strong></span> 및
+                  회복 속도 향상
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>6. 주간 데이터 및 IE 운영 점검</h3>
+          <h4>확인된 항목</h4>
+          <ul>
+            <li class="lvl1">시간대별 목표 대비 실적 기록 존재</li>
+            <li class="lvl1">텔레그램 실시간 공유 존재</li>
+            <li class="lvl1">병목 추적 관리 존재</li>
+            <li class="lvl1">IE balancing 개입 존재</li>
+            <li class="lvl1">PSD 추적 관리 존재</li>
+            <li class="lvl1">QC issue 일부 추적 관리 존재</li>
+          </ul>
+
+          <h4>추가 요청 사항 (HQ 관점)</h4>
+          <ul>
+            <li class="lvl1">품질 통과 미달 추적 관리</li>
+            <li class="lvl1">반복 issue history</li>
+            <li class="lvl1">공통 로스 사유 pattern</li>
+          </ul>
+          <p>
+            특히 생산량은 달성했으나 품질 통과 미달로 실제 실적이 미달되는
+            사례가 확인되어, 해당 분리를 별도 기록하도록 요청했다.
+          </p>
+
+          <h3>7. IE 조직 성향에 대한 현재 판단</h3>
+          <p>
+            현재 ETP IE 조직은 <strong>즉시 대응 조직</strong>보다는
+            <strong>운영 측정/기록/추적 조직</strong> 성향이 강하다.
+          </p>
+          <p>따라서 HQ의 IE 평가 기준도 아래 항목 중심으로 조정이 필요하다.</p>
+          <ul>
+            <li class="lvl1">기록 품질</li>
+            <li class="lvl1">반복 issue 추적 가능성</li>
+            <li class="lvl1">현장과 데이터 정합성</li>
+            <li class="lvl1">병목 history</li>
+            <li class="lvl1">Action follow-up</li>
+            <li class="lvl1">개선 루프 존재 여부</li>
+          </ul>
+
+          <h3>8. 진현일 전무 미팅 및 디지털화 방향</h3>
+          <h4>현재 구축 상태</h4>
+          <ul>
+            <li class="lvl1">구글 스프레드시트 기반 데이터 관리</li>
+            <li class="lvl1">다수 대시보드 존재</li>
+            <li class="lvl1">IE 데이터 archive 구축 중</li>
+            <li class="lvl1">Hourly monitoring 진행 중</li>
+          </ul>
+
+          <h4>공통 문제 인식</h4>
+          <p>
+            데이터는 많으나, 현장 관리자들이 적극 활용하지 않고 “보는 사람만
+            보는 구조”이며, 행동 연결이 부족하다는 점에 공감했다.
+          </p>
+
+          <h3>9. 쉐드1 파일럿 프로젝트</h3>
+          <p>
+            파일럿의 목적은 완벽한 시스템 구축이 아니라
+            <strong>현장이 데이터 기반으로 움직이기 시작하는지</strong>를
+            검증하는 것이다.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>진행 현황</th>
+                <th>의도</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>모니터</td>
+                <td>
+                  쉐드1 대형 모니터 2대 설치, PC 연결, 대시보드 상시 표출 준비
+                </td>
+                <td>현장 공통 화면 기반 운영 미팅</td>
+              </tr>
+              <tr>
+                <td>태블릿</td>
+                <td>라인 리더 배포, 실시간 입력 구조 준비</td>
+                <td>종이→사무실 지연 제거</td>
+              </tr>
+              <tr>
+                <td>입력 항목</td>
+                <td>Target / Actual / 품질 통과 중심</td>
+                <td>초기 단순화로 정착률 확보</td>
+              </tr>
+              <tr>
+                <td>로스 사유</td>
+                <td>라인리더 직접 입력 제외, IE/관리자 해석 체계로 분리</td>
+                <td>현장 부담 완화 + 원인 품질 확보</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>10. 로스 사유 운영 방향 조정</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>역할</th>
+                <th>담당 범위</th>
+                <th>핵심 의미</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>라인 리더</td>
+                <td>Target, Actual, 품질 통과 입력</td>
+                <td>사실 입력(팩트 캡처)</td>
+              </tr>
+              <tr>
+                <td>IE/관리자</td>
+                <td>로스 사유, 병목, 피딩, 품질 보류, Repeated pattern 분석</td>
+                <td>원인 해석 + 운영 조치</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>11. 시스템 구축 방향 핵심 원칙</h3>
+          <ul>
+            <li class="lvl1">
+              <strong>처음부터 복잡하게 가지 않는다.</strong> 복잡한 구조는 현장
+              정착 실패 가능성이 높다.
+            </li>
+            <li class="lvl1">
+              <strong>대시보드는 분석보다 즉시 이해.</strong> 위험 라인, 달성
+              여부, QC 격차, 반복 issue가 빠르게 보여야 한다.
+            </li>
+            <li class="lvl1">
+              <strong>데이터보다 행동 연결.</strong> 대시보드 확인 → 현장 미팅 →
+              즉시 action → 결과 리뷰 루프가 핵심이다.
+            </li>
+          </ul>
+
+          <h3>12. 스킬 매트릭스 및 인력 운영 방향</h3>
+          <ul>
+            <li class="lvl1">작업자 skill database 구축</li>
+            <li class="lvl1">라인별 skill composition 확인</li>
+            <li class="lvl1">핵심 공정 백업 관리</li>
+            <li class="lvl1">유연 인력 운영 계획</li>
+            <li class="lvl1">QR 기반 작업자 skill 확인 가능성 검토</li>
+          </ul>
+          <p>
+            방향성은 “입력용 데이터는 단순하게, 보여지는 대시보드는 리스크가
+            직관적으로 보이게”로 정리된다.
+          </p>
+
+          <h3>13. Henock/IE 이슈 중 ‘중간관리자 인력·역량’ 대응 (AI 교육)</h3>
+          <p>
+            헤녹이 제기한 핵심 이슈 중 하나였던 중간관리자 역량 공백에 대해,
+            핵심 멤버 대상으로 AI 교육과 실습 트레이닝을 수일간 진행했다.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>항목</th>
+                <th>실행</th>
+                <th>피드백</th>
+                <th>현재 관찰</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AI 실무 교육</td>
+                <td>핵심 멤버 대상 집중 교육/실습</td>
+                <td>참여자 만족도 매우 높음</td>
+                <td>이미 AI로 결과물 생성·현업 적용 시작</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            해당 이슈는 단기적으로 상당 부분 완화 가능성이 높고, 실행 속도
+            향상에 기여할 것으로 판단된다.
+          </p>
+
+          <h3>14. 현재 파일럿 진행 상황 (실행 중)</h3>
+          <p>
+            현재 <strong><span class="hl-key">쉐드1</span></strong
+            >에서 파일럿을 실제 운영 중이며, 아래 구조로 데이터-의사결정 연결
+            체계를 구축했다.
+          </p>
+          <ul>
+            <li class="lvl1">
+              <strong>가시화:</strong> 쉐드1 대시보드(대형 모니터) 설치 및 상시
+              표출 운영
+            </li>
+            <li class="lvl1">
+              <strong>실시간 입력:</strong> 라인에 태블릿 제공 후 시간대별
+              데이터 즉시 입력 방식으로 전환
+            </li>
+            <li class="lvl1">
+              <strong>의사결정 연결:</strong> IE팀과 결정권자가 같은 데이터를
+              빠르게 확인하고 즉시 판단/조치하는 운영 루프 적용
+            </li>
+            <li class="lvl1">
+              <strong>확장 계획:</strong> 약 2주간 운영하며 보완사항과 기록
+              품질을 점검한 뒤, 전체 쉐드로 단계 확장 예정
+            </li>
+          </ul>
+          <h3>15. 현재 시점 핵심 결론</h3>
+          <p>
+            현재 ETP의 핵심 문제는 <strong>데이터 부족</strong>이 아니라,
+            <strong>데이터와 현장 행동 연결 부족</strong>에 가깝다.
+          </p>
+
+          <h4>긍정적 요소</h4>
+          <ul>
+            <li class="lvl1">IE 팀 개선 의지 존재</li>
+            <li class="lvl1">대시보드 구축 의지 존재</li>
+            <li class="lvl1">데이터 아카이브 방향 존재</li>
+            <li class="lvl1">현장 가시성 개선 진행 중</li>
+            <li class="lvl1">HQ/ETP 방향성 공감 형성</li>
+          </ul>
+
+          <h4>핵심 과제</h4>
+          <ul>
+            <li class="lvl1">현장 관리자 실제 활용 정착</li>
+            <li class="lvl1">실시간 즉시 대응 문화 내재화</li>
+            <li class="lvl1">반복 issue 추적 관리 고도화</li>
+            <li class="lvl1">데이터 기반 의사결정 문화 강화</li>
+            <li class="lvl1">단순하고 지속 가능한 운영 체계 구축</li>
+          </ul>
+
+          <blockquote>
+            <p>
+              <strong
+                ><span class="hl-key"
+                  >ETP IE의 다음 단계는 데이터를 더 쌓는 것이 아니라, 데이터가
+                  현장 행동으로 즉시 연결되는 운영 체계를 만드는 것이다.</span
+                ></strong
+              >
+            </p>
+          </blockquote>
+        </div>
+      </section>
+    </div>
+    <script>
+      const tabs = document.querySelectorAll(".tab");
+      const panels = document.querySelectorAll(".panel");
+      tabs.forEach((tab) =>
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          panels.forEach((p) => p.classList.remove("active"));
+          tab.classList.add("active");
+          const panel = document.getElementById(tab.dataset.tab);
+          if (panel) panel.classList.add("active");
+        }),
+      );
+    </script>
+  </body>
+</html>
