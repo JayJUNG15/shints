@@ -23,7 +23,25 @@ body[for=html-export]{
     #f5f7fb !important;
 }
 body[for=html-export] .markdown-preview{
-  max-width: 1180px;
+  max-width:none;
+  width:min(94vw, 1680px);
+}
+html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{
+  left:50%;
+  transform:translateX(-50%);
+  width:min(94vw, 1680px);
+  padding:32px 40px !important;
+}
+@media screen and (min-width:1400px){
+  html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{
+    padding:36px 52px !important;
+  }
+}
+@media screen and (max-width:1200px){
+  html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{
+    width:min(96vw, 1280px);
+    padding:24px 24px !important;
+  }
 }
 body[for=html-export] .crossnote.markdown-preview{
   color:#1f2937;
