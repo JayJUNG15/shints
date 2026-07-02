@@ -228,6 +228,19 @@ body[for=html-export] .callout-box p:last-child,
 body[for=html-export] .callout-box ul:last-child{
   margin-bottom:0;
 }
+body[for=html-export] .revision-tag{
+  display:inline-block;
+  margin-left:10px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:#fee2e2;
+  color:#dc2626;
+  border:1px solid #fecaca;
+  font-size:13px;
+  font-weight:800;
+  vertical-align:middle;
+  letter-spacing:-0.01em;
+}
 @media screen and (max-width: 720px){
   body[for=html-export] h1{font-size:2.1em;padding:18px}
   body[for=html-export] .page-card{padding:20px 18px}
@@ -817,11 +830,11 @@ body[for=html-export] .callout-box ul:last-child{
 <li><code>즉 연구논리와 결과 구조가 한 줄로 연결됩니다.</code></li>
 </ul>
 <hr>
-<h2 id="page-7-성과지표와-성능지표">Page 7. 성과지표와 성능지표 </h2>
+<h2 id="page-7-성과지표와-성능지표">Page 7. 성과지표와 성능지표 <span class="revision-tag">7월2일 1차 수정안</span></h2>
 <ul>
 <li>연결 평가항목: ③ 성능지표/성과지표 설정의 적절성</li>
-<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:67</code>, <code>연구개발계획서(KEIT)_최종본.pdf:68</code>, <code>연구개발계획서(KEIT)_최종본.pdf:69</code>, <code>연구개발계획서(KEIT)_최종본.pdf:70</code></li>
-<li>핵심 메시지: 계획서에는 정량 성과지표와 기술 성능지표가 모두 구체적으로 제시되어 있어 성공 기준이 명확</li>
+<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:23</code>, <code>연구개발계획서(KEIT)_최종본.pdf:26</code>, <code>연구개발계획서(KEIT)_최종본.pdf:67</code>, <code>연구개발계획서(KEIT)_최종본.pdf:68</code>, <code>연구개발계획서(KEIT)_최종본.pdf:69</code>, <code>연구개발계획서(KEIT)_최종본.pdf:70</code></li>
+<li>핵심 메시지: 계획서에는 정량 성과지표, 질적 평가요소, 공인인증시험 기반의 성능검증 구조가 함께 제시되어 있어 성공 기준이 명확</li>
 </ul>
 <h3 id="넣을-내용-6">넣을 내용 </h3>
 <ul>
@@ -833,6 +846,14 @@ body[for=html-export] .callout-box ul:last-child{
 <li>신규인력 채용 <code>3명</code></li>
 </ul>
 </li>
+<li>질적 평가요소
+<ul>
+<li>SCI 논문: <code>학문적 기여 + 실용적 제언</code></li>
+<li>소프트웨어 활용도 및 만족도 평가: <code>교육프로그램 효과 검증</code></li>
+<li>시제품 활용도: <code>전시회 및 쇼룸 기반 활용성</code></li>
+<li>신규인력 채용: <code>사업 추진과 확산의 지속성</code></li>
+</ul>
+</li>
 <li>성능지표
 <ul>
 <li>데이터셋 <code>1,500클립</code></li>
@@ -842,24 +863,32 @@ body[for=html-export] .callout-box ul:last-child{
 <li>인지거리·반응시간 <code>20% 이상 향상</code></li>
 </ul>
 </li>
+<li>공인인증·시험 구조
+<ul>
+<li>데이터셋: <code>KOLAS 인정 인공지능 품질 공인시험기관 정량 검수</code></li>
+<li>소재 및 제품 성능: <code>KOTITI 시험연구원 시험성적서 확보</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="추천-레이아웃-6">추천 레이아웃 </h3>
 <ul>
 <li>좌측: <code>성과지표</code></li>
 <li>우측: <code>성능지표</code></li>
-<li>숫자는 크게 배치</li>
+<li>하단: <code>질적 평가 및 공인검증</code></li>
+<li>숫자와 외부 검증기관명은 크게 배치</li>
 </ul>
 <h3 id="예시-대사-6">예시 대사 </h3>
 <ul>
 <li><code>무엇을 만들 것인가뿐 아니라, 무엇으로 성공을 증명할 것인가도 계획서에 명확히 들어가 있습니다.</code></li>
-<li><code>시제품, 활용도, 신규인력 채용 같은 성과지표와 함께, 모델 정확도와 인지 성능 개선 같은 성능지표가 함께 설계되어 있습니다.</code></li>
+<li><code>시제품, 활용도, 신규인력 채용 같은 정량 성과뿐 아니라, SCI 논문, 교육프로그램 활용도와 만족도, 시제품 전시·쇼룸 활용 같은 질적 성과도 함께 설계되어 있습니다.</code></li>
+<li><code>또한 데이터셋은 KOLAS 인정 공인시험기관 검수, 소재와 제품 성능은 KOTITI 시험연구원 시험성적서 확보로 연결되어 외부 검증 구조도 분명합니다.</code></li>
 </ul>
 <hr>
-<h2 id="page-8-왜-도전적인-과제인가">Page 8. 왜 도전적인 과제인가 </h2>
+<h2 id="page-8-왜-도전적인-과제인가">Page 8. 왜 도전적인 과제인가 <span class="revision-tag">7월2일 1차 수정안</span></h2>
 <ul>
 <li>연결 평가항목: ④ 도전적 목표의 설정</li>
-<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:12</code>, <code>연구개발계획서(KEIT)_최종본.pdf:13</code>, <code>연구개발계획서(KEIT)_최종본.pdf:14</code>, <code>연구개발계획서(KEIT)_최종본.pdf:16</code></li>
-<li>핵심 메시지: 이 과제는 다차원 데이터 구축, 운전자 시점 정렬, 인과추론 모델, 의복 설계, 현장 실증을 모두 묶고 있어 기술적 난도가 높음</li>
+<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:12</code>, <code>연구개발계획서(KEIT)_최종본.pdf:13</code>, <code>연구개발계획서(KEIT)_최종본.pdf:14</code>, <code>연구개발계획서(KEIT)_최종본.pdf:16</code>, <code>연구개발계획서(KEIT)_최종본.pdf:40</code>, <code>연구개발계획서(KEIT)_최종본.pdf:48</code></li>
+<li>핵심 메시지: 이 과제는 기술 개발 자체도 어렵지만, 심미성과 실용성을 갖춘 안전의복을 실제 시장에 보급하고 교육·캠페인·정책 확산까지 연결해야 한다는 점에서 더 도전적</li>
 </ul>
 <h3 id="넣을-내용-7">넣을 내용 </h3>
 <ul>
@@ -868,6 +897,9 @@ body[for=html-export] .callout-box ul:last-child{
 <li>월드모델 기반 운전자 시점 정렬</li>
 <li>지식그래프와 비전 모델 결합</li>
 <li>실제 보행환경 기반 실증</li>
+<li>심미성과 실용성을 동시에 충족하는 제품 설계</li>
+<li>안전의복 시장 판로 개척 및 보급 확산</li>
+<li>교육프로그램과 안전의복 캠페인 관련 정책안 제안</li>
 </ul>
 <h3 id="추천-레이아웃-7">추천 레이아웃 </h3>
 <ul>
@@ -878,20 +910,28 @@ body[for=html-export] .callout-box ul:last-child{
 <li><code>인과추론</code></li>
 <li><code>의복 설계</code></li>
 <li><code>실증</code></li>
+<li><code>시장 확산</code></li>
+</ul>
+</li>
+<li>우측 보조 박스
+<ul>
+<li><code>기술 도전</code></li>
+<li><code>사회경제적 확산 도전</code></li>
 </ul>
 </li>
 </ul>
 <h3 id="예시-대사-7">예시 대사 </h3>
 <ul>
 <li><code>이 과제의 도전성은 단순히 AI를 쓴다는 데 있지 않습니다.</code></li>
-<li><code>다차원 데이터를 만들고, 운전자 시점으로 정렬하고, 인과추론 모델로 위험을 해석하고, 그 결과를 실제 의복과 실증으로 연결하는 점이 어렵습니다.</code></li>
+<li><code>다차원 데이터를 만들고, 운전자 시점으로 정렬하고, 인과추론 모델로 위험을 해석하고, 그 결과를 실제 의복과 실증으로 연결하는 기술적 난도가 높습니다.</code></li>
+<li><code>여기에 더해 심미성과 실용성을 갖춘 제품을 실제 시장에 안착시키고, 교육프로그램과 캠페인, 정책 제안까지 확산해야 한다는 점에서 사회경제적 도전성도 큰 과제입니다.</code></li>
 </ul>
 <hr>
-<h2 id="page-9-컨소시엄-구성">Page 9. 컨소시엄 구성 </h2>
+<h2 id="page-9-컨소시엄-구성">Page 9. 컨소시엄 구성 <span class="revision-tag">7월2일 1차 수정안</span></h2>
 <ul>
 <li>연결 평가항목: ① 연구개발기관의 구성·역할의 타당성 및 연계성</li>
 <li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:35</code></li>
-<li>핵심 메시지: 본 과제는 분석, 설계, 생산, 교육, 실증이 모두 필요하므로 다학제 컨소시엄 구성이 필수</li>
+<li>핵심 메시지: 본 과제는 분석, 설계, 생산, 교육, 실증뿐 아니라 협력기관, 자문위원, 활용기관까지 연결되는 실행 네트워크 구성이 핵심</li>
 </ul>
 <h3 id="넣을-내용-8">넣을 내용 </h3>
 <ul>
@@ -900,18 +940,23 @@ body[for=html-export] .callout-box ul:last-child{
 <li>의류산업학과: 의복 기획·개발·평가</li>
 <li>신티에스: 시제품 제작·품질관리·양산성 검증</li>
 <li>에이투텍: XR 교육 콘텐츠</li>
-<li>실증기관: 교육·복지기관</li>
+<li>자문위원: 소비자 안전 및 아동교육 전문가 자문</li>
+<li>협력기관: <code>KOTITI 시험연구원</code>, <code>경찰청</code></li>
+<li>활용기관: <code>TS한국교통안전공단(K-City)</code></li>
+<li>실증기관: 우리동네키움센터, 어린이교육센터, 노인복지관 등 교육·복지기관</li>
 </ul>
 <h3 id="추천-레이아웃-8">추천 레이아웃 </h3>
 <ul>
 <li>중앙에 주관기관</li>
 <li>주변에 분야별 역할 배치</li>
-<li>하단에 <code>협력기관 / 활용기관 / 실증기관</code></li>
+<li>외곽 링 구조로 <code>자문위원 / 협력기관 / 활용기관 / 실증기관</code> 배치</li>
+<li>하단: <code>분석-개발-검증-확산 전주기 네트워크</code></li>
 </ul>
 <h3 id="예시-대사-8">예시 대사 </h3>
 <ul>
 <li><code>이 과제는 단일기관형 과제가 아니라 역할 분담형 과제입니다.</code></li>
-<li><code>보행환경 분석, AI 추론, 의복 설계, 시제품 제작, 교육 콘텐츠, 실증기관이 모두 연결되어야 하기 때문에 지금의 컨소시엄 구조가 필요합니다.</code></li>
+<li><code>보행환경 분석, AI 추론, 의복 설계, 시제품 제작, 교육 콘텐츠뿐 아니라 시험인증, 정책 연계, 실증기관까지 함께 연결되어야 하기 때문에 지금의 컨소시엄 구조가 필요합니다.</code></li>
+<li><code>즉 참여기관만의 구성이 아니라 자문, 협력, 활용, 실증까지 묶인 실행 네트워크로 이해하시면 됩니다.</code></li>
 </ul>
 <hr>
 <h2 id="page-10-이-컨소시엄이-실행-가능한-이유">Page 10. 이 컨소시엄이 실행 가능한 이유 </h2>
@@ -939,10 +984,10 @@ body[for=html-export] .callout-box ul:last-child{
 <li><code>AI 분석 역량, 의복 설계 역량, 시제품과 양산 역량, XR 콘텐츠 역량이 모두 준비되어 있어 개발기간과 리스크를 줄일 수 있습니다.</code></li>
 </ul>
 <hr>
-<h2 id="page-11-1차년도-설계단계">Page 11. 1차년도 설계단계 </h2>
+<h2 id="page-11-1차년도-설계단계">Page 11. 1차년도 설계단계 <span class="revision-tag">7월2일 1차 수정안</span></h2>
 <ul>
 <li>연결 평가항목: ② 연구추진 방법·일정의 구체성 및 타당성</li>
-<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:11</code>, <code>연구개발계획서(KEIT)_최종본.pdf:12</code>, <code>연구개발계획서(KEIT)_최종본.pdf:13</code>, <code>연구개발계획서(KEIT)_최종본.pdf:14</code>, <code>연구개발계획서(KEIT)_최종본.pdf:17</code></li>
+<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:11</code>, <code>연구개발계획서(KEIT)_최종본.pdf:12</code>, <code>연구개발계획서(KEIT)_최종본.pdf:13</code>, <code>연구개발계획서(KEIT)_최종본.pdf:14</code>, <code>연구개발계획서(KEIT)_최종본.pdf:17</code>, <code>연구개발계획서(KEIT)_최종본.pdf:26</code></li>
 <li>핵심 메시지: 1차년도는 데이터·위험도 체계·AI 기초 아키텍처·시장조사·설계요건을 만드는 기반 구축 단계</li>
 </ul>
 <h3 id="넣을-내용-10">넣을 내용 </h3>
@@ -952,23 +997,26 @@ body[for=html-export] .callout-box ul:last-child{
 <li>500클립 원천 영상 확보</li>
 <li>월드모델 및 지식그래프 기초 구조 설계</li>
 <li>시장조사, 소재조사, 수요조사 수행</li>
+<li>데이터셋 품질관리 기준 설계 및 공인 검증 연계 준비</li>
 </ul>
 <h3 id="추천-레이아웃-10">추천 레이아웃 </h3>
 <ul>
 <li>타임라인 <code>6개월</code></li>
 <li>좌측 <code>AI/데이터</code></li>
 <li>우측 <code>시장/설계요건</code></li>
+<li>하단 <code>공인검증 준비</code></li>
 </ul>
 <h3 id="예시-대사-10">예시 대사 </h3>
 <ul>
 <li><code>1차년도는 본격 개발 이전에 기준을 세우는 단계입니다.</code></li>
 <li><code>데이터 구조, 위험도 기준, AI 기초 아키텍처, 그리고 제품 설계를 위한 시장과 수요조사를 이 단계에서 마무리합니다.</code></li>
+<li><code>또한 이후 데이터셋이 공인 검증으로 연결될 수 있도록 품질관리 기준과 정량 검수 체계도 함께 준비합니다.</code></li>
 </ul>
 <hr>
-<h2 id="page-12-2차년도-구축단계">Page 12. 2차년도 구축단계 </h2>
+<h2 id="page-12-2차년도-구축단계">Page 12. 2차년도 구축단계 <span class="revision-tag">7월2일 1차 수정안</span></h2>
 <ul>
 <li>연결 평가항목: ② 연구추진 방법·일정의 구체성 및 타당성</li>
-<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:11</code>, <code>연구개발계획서(KEIT)_최종본.pdf:3</code></li>
+<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:11</code>, <code>연구개발계획서(KEIT)_최종본.pdf:3</code>, <code>연구개발계획서(KEIT)_최종본.pdf:23</code>, <code>연구개발계획서(KEIT)_최종본.pdf:26</code></li>
 <li>핵심 메시지: 2차년도는 AI 모델, 추천 엔진, 시제품, 착의평가, 교육기능이 실제로 구현되는 핵심 개발 단계</li>
 </ul>
 <h3 id="넣을-내용-11">넣을 내용 </h3>
@@ -979,6 +1027,8 @@ body[for=html-export] .callout-box ul:last-child{
 <li>통학형·생활형·야간외출형 시제품 제작</li>
 <li>착의평가·사용성평가</li>
 <li>교육프로그램 기능 정의 및 설계</li>
+<li>KOTITI 시험연구원 시험 연계 구조 반영</li>
+<li>데이터셋 정량 검수 및 외부 검증 준비</li>
 </ul>
 <h3 id="추천-레이아웃-11">추천 레이아웃 </h3>
 <ul>
@@ -992,17 +1042,19 @@ body[for=html-export] .callout-box ul:last-child{
 <li><code>교육</code></li>
 </ul>
 </li>
+<li>하단: <code>공인시험 / 외부검증 연계</code></li>
 </ul>
 <h3 id="예시-대사-11">예시 대사 </h3>
 <ul>
 <li><code>2차년도는 연구개발의 중심 구간입니다.</code></li>
 <li><code>데이터셋과 AI 모델이 구축되고, 그 결과를 반영한 시제품이 제작되며, 착의평가와 사용성 검증을 통해 실제 적용 가능성을 점검합니다.</code></li>
+<li><code>이 단계에서 시험연구원 연계와 외부 검증 체계도 함께 붙이기 때문에, 내부 개발에 그치지 않고 공인시험 기반 성능 입증으로 이어질 수 있습니다.</code></li>
 </ul>
 <hr>
-<h2 id="page-13-3차년도-검증확산단계">Page 13. 3차년도 검증·확산단계 </h2>
+<h2 id="page-13-3차년도-검증확산단계">Page 13. 3차년도 검증·확산단계 <span class="revision-tag">7월2일 1차 수정안</span></h2>
 <ul>
 <li>연결 평가항목: ② 연구추진 방법·일정의 구체성 및 타당성</li>
-<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:4</code>, <code>연구개발계획서(KEIT)_최종본.pdf:11</code></li>
+<li>계획서 기준 페이지: <code>연구개발계획서(KEIT)_최종본.pdf:4</code>, <code>연구개발계획서(KEIT)_최종본.pdf:11</code>, <code>연구개발계획서(KEIT)_최종본.pdf:23</code></li>
 <li>핵심 메시지: 3차년도는 성능과 실효성을 검증하고, 사업화 모델과 보급 확산 기반을 만드는 단계</li>
 </ul>
 <h3 id="넣을-내용-12">넣을 내용 </h3>
@@ -1012,6 +1064,7 @@ body[for=html-export] .callout-box ul:last-child{
 <li>사업화 모델 구축 및 시장 적용성 검증</li>
 <li>체험형 교육 프로그램 완성</li>
 <li>보급 캠페인과 정책 제안</li>
+<li>KOTITI 시험성적서 확보 및 성능검증 결과 반영</li>
 </ul>
 <h3 id="추천-레이아웃-12">추천 레이아웃 </h3>
 <ul>
@@ -1024,11 +1077,13 @@ body[for=html-export] .callout-box ul:last-child{
 <li><code>확산</code></li>
 </ul>
 </li>
+<li>우측 보조 박스: <code>시험성적서 확보 / 정책 제안</code></li>
 </ul>
 <h3 id="예시-대사-12">예시 대사 </h3>
 <ul>
 <li><code>3차년도는 기술을 완성하는 해이면서 동시에 사회적 활용 기반을 만드는 해입니다.</code></li>
 <li><code>실제 보행환경에서 효과를 검증하고, 제품을 고도화하고, 사업화 모델과 보급 체계까지 정리합니다.</code></li>
+<li><code>또한 공인시험 성과와 실증 결과를 바탕으로 정책 제안과 확산 논리까지 연결하게 됩니다.</code></li>
 </ul>
 <hr>
 <h2 id="page-14-검증-및-실증-체계">Page 14. 검증 및 실증 체계 </h2>
