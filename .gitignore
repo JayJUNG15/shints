@@ -1,3 +1,10 @@
+# Only the 00_Git folder is managed by this repository.
+/*
+!/.gitignore
+!/00_Git/
+!/00_Git/**
+
+# Codex and workspace files are intentionally not versioned.
 /.codex-global-state.json
 /.codex-global-state.json.bak
 /.personality_migration

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신티에스 홈페이지 검색 노출 확대에 따른 성과 보고</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3f5f7;
+      --paper: #ffffff;
+      --ink: #1f2a37;
+      --muted: #667085;
+      --line: #d7dde5;
+      --strong: #0f172a;
+      --accent: #1f4b6e;
+      --accent-soft: #eaf2f8;
+      --highlight: #fff3bf;
+      --highlight-strong: #ffe08a;
+      --success: #0f766e;
+      --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(31, 75, 110, 0.08), transparent 28%),
+        linear-gradient(180deg, #f6f8fa 0%, #eef2f6 100%);
+      color: var(--ink);
+      font-family: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1380px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+    }
+
+    .report {
+      background: var(--paper);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 44px 48px 34px;
+      background:
+        linear-gradient(135deg, rgba(31, 75, 110, 0.08), rgba(31, 75, 110, 0.02)),
+        linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      color: var(--strong);
+      font-size: 36px;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      max-width: 980px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .meta-card {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .meta-label {
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .meta-value {
+      color: var(--strong);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .content {
+      padding: 34px 56px 48px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .summary-card {
+      padding: 22px 22px 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    }
+
+    .summary-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .summary-number {
+      margin: 10px 0 6px;
+      color: var(--strong);
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .summary-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .summary-number mark {
+      background: linear-gradient(180deg, transparent 42%, var(--highlight) 42%);
+      color: inherit;
+      padding: 0 2px;
+    }
+
+    section {
+      margin-top: 36px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      color: var(--strong);
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 26px 0 10px;
+      color: var(--strong);
+      font-size: 17px;
+    }
+
+    p {
+      margin: 0 0 12px;
+      font-size: 15px;
+    }
+
+    .lead {
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    mark {
+      background: linear-gradient(180deg, transparent 48%, var(--highlight) 48%);
+      color: inherit;
+      padding: 0 3px;
+    }
+
+    .strong-mark {
+      background: linear-gradient(180deg, transparent 30%, var(--highlight-strong) 30%);
+      font-weight: 700;
+      padding: 0 4px;
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px solid #cfe0ee;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #f8fbfe 0%, #f3f8fc 100%);
+    }
+
+    .callout-title {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .callout p {
+      margin: 0;
+    }
+
+    .table-wrap {
+      margin-top: 14px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--strong);
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      height: 34px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .priority-a {
+      background: #e8f3ff;
+      color: #0f4c81;
+    }
+
+    .priority-b {
+      background: #eef7f2;
+      color: #166534;
+    }
+
+    .priority-c {
+      background: #f8f4ea;
+      color: #8a5a12;
+    }
+
+    .priority-end {
+      background: #f3f4f6;
+      color: #6b7280;
+    }
+
+    .case {
+      margin-top: 18px;
+      padding: 24px 24px 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fcfdff;
+    }
+
+    .case-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .case-title {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--strong);
+    }
+
+    .case-status {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #edf6f4;
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: normal;
+    }
+
+    ul, ol {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .volume {
+      margin-top: 16px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #f7fafc;
+      border: 1px solid var(--line);
+    }
+
+    .volume strong {
+      color: var(--strong);
+    }
+
+    .note-block {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f8fbfd;
+      border-radius: 0 16px 16px 0;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .content {
+        padding: 28px 22px;
+      }
+
+      .summary-grid,
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .case-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+
+      .report {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .page {
+        padding: 0;
+      }
+
+      .hero {
+        background: #ffffff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="report">
+      <header class="hero">
+        <div class="eyebrow">성과 보고</div>
+        <h1>신티에스 홈페이지 검색 노출 확대에 따른 성과 보고</h1>
+        <p class="subtitle">
+          홈페이지 검색 노출 확대 이후 유입된 신규 문의의 현황, 유효도, 우선 대응 과제를 기준일 현재 시점에서 정리한 보고서임.
+        </p>
+        <div class="meta">
+          <div class="meta-card">
+            <div class="meta-label">기준일</div>
+            <div class="meta-value">2026-07-29</div>
+          </div>
+          <div class="meta-card">
+            <div class="meta-label">작성 목적</div>
+            <div class="meta-value">유입 문의의 질적 성과와 후속 대응 우선순위 정리</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-label">전체 접수 문의</div>
+            <div class="summary-number"><mark>18</mark></div>
+            <div class="summary-note">홈페이지 기반 전체 유입 건수임</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">단순 문의 제외</div>
+            <div class="summary-number"><mark>7</mark></div>
+            <div class="summary-note">회사소개 요청 및 실질성 낮은 문의 제외 기준임</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">실질 검토 대상</div>
+            <div class="summary-number"><mark>11</mark></div>
+            <div class="summary-note">사업성 검토가 가능한 유효 문의 기준임</div>
+          </div>
+        </div>
+
+        <section>
+          <h2>1. 총괄</h2>
+          <p class="lead">
+            현재까지 홈페이지를 통해 접수된 문의는 총 <span class="strong-mark">18건</span>이며, 이 중 단순 문의 <span class="strong-mark">7건</span>을 제외하면 실질 검토 가치가 있는 문의는 총 <span class="strong-mark">11건</span>임.
+          </p>
+          <p>
+            문의의 양 자체보다 중요한 점은 일부 건이 <mark>실제 제품 검토와 샘플 평가 단계</mark>로 진입하고 있다는 점임. 특히 Dräger Safety AG &amp; Co. KGaA 건은 가장 진도가 빠른 신규 문의로서, 단순 접촉 단계를 넘어 <mark>도면 수령 및 샘플 평가 준비 단계</mark>로 진행 중임.
+          </p>
+          <p>
+            전반적으로 이번 문의 유입은 단순 트래픽 증가가 아니라, 홈페이지 노출을 통해 실제 해외 잠재 고객 접점이 확대되고 있음을 보여주는 결과로 판단됨.
+          </p>
+          <div class="callout">
+            <div class="callout-title">핵심 판단</div>
+            <p>현재 단계의 성과는 단순 방문 증가가 아니라, <span class="strong-mark">유효 해외 영업기회가 실제로 축적되기 시작했다는 점</span>에 있음.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>2. 접수 현황</h2>
+
+          <h3>2.1 문의 집계</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>건수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>전체 접수 문의</td>
+                  <td>18</td>
+                </tr>
+                <tr>
+                  <td>단순 문의 제외</td>
+                  <td>7</td>
+                </tr>
+                <tr>
+                  <td>실질 검토 대상</td>
+                  <td>11</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>2.2 현재 진행 상태 기준 분류</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>내용</th>
+                  <th>해당 건</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="priority priority-a">A</span></td>
+                  <td>도면, 샘플, 비밀유지계약 등 본격 검토 단계</td>
+                  <td>Dräger Safety AG &amp; Co. KGaA</td>
+                </tr>
+                <tr>
+                  <td><span class="priority priority-b">B</span></td>
+                  <td>샘플 요청, 조건 조율, 기술 검토 준비 단계</td>
+                  <td>Rider Motorcycle Stores, RAIDA, Crossrutt, Ridge &amp; Co., ALTIUS Performance, Asmara International, TOKEN</td>
+                </tr>
+                <tr>
+                  <td><span class="priority priority-c">C</span></td>
+                  <td>초기 문의 또는 정보 보강 필요 단계</td>
+                  <td>TEKNY, MAISON ZAINAB</td>
+                </tr>
+                <tr>
+                  <td><span class="priority priority-end">종료</span></td>
+                  <td>생산 부적합 또는 진행 중단</td>
+                  <td>ARC-SL</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>3. 핵심 성과</h2>
+          <h3>3.1 유효 문의 확보</h3>
+          <p>총 18건 중 <span class="strong-mark">11건</span>이 실질 검토 대상으로 분류됨. 단순 노출 증가에 그치지 않고 일정 수준 이상의 사업성 검토가 가능한 문의가 다수 유입되고 있음.</p>
+
+          <h3>3.2 신규 해외 바이어 접점 확대</h3>
+          <p>유입 문의는 독일, 필리핀, 인도 등 다양한 국가에서 발생하고 있음. 특히 오토바이 의류, 보호 기능성 제품, 기술 의류 중심 문의가 확인되고 있어 SHINTS의 생산 정체성과 일정 부분 맞닿아 있음.</p>
+
+          <h3>3.3 실제 전환 가능성 확인</h3>
+          <p>드래가 건은 상호 비밀유지계약 진행, <mark>설계도 수령</mark>, <mark>샘플 수령 준비</mark> 단계까지 진입함. 이는 홈페이지 기반 유입이 실제 신규 영업 파이프라인으로 전환될 수 있음을 보여주는 대표 사례임.</p>
+        </section>
+
+        <section>
+          <h2>4. 주요 문의별 현황</h2>
+
+          <article class="case">
+            <div class="case-head">
+              <h3 class="case-title">4.1 Dräger Safety AG &amp; Co. KGaA</h3>
+              <div class="case-status">우선 대응 중</div>
+            </div>
+            <ul>
+              <li>현재 가장 우선순위가 높은 신규 문의임</li>
+              <li>상호 비밀유지계약은 발송 완료 상태임</li>
+              <li>현재 영업1팀에서 대응 중임</li>
+              <li>설계도는 이미 수령한 상태임</li>
+              <li>기준 샘플 수령을 위한 절차를 진행 중임</li>
+            </ul>
+            <div class="volume">
+              <p><strong>제품별 검토 물량</strong></p>
+              <ul>
+                <li><strong>PARAT Covers</strong>: 연간 <span class="strong-mark">80,000~100,000개</span></li>
+                <li><strong>HPS 7000 목 보호대</strong>: 연간 <span class="strong-mark">10,000~15,000개</span></li>
+                <li><strong>X-plore 8000 벨트</strong>: 연간 <span class="strong-mark">10,000~15,000개</span></li>
+              </ul>
+            </div>
+            <div class="note-block">
+              단순 문의가 아니라 <span class="strong-mark">실제 공급업체 검토 단계</span>로 판단됨. 연간 물량 정보와 도면이 이미 공유된 상태여서 구체성이 높으며, 샘플 평가 이후 생산 가능 품목과 대응 범위를 빠르게 확정할 필요 있음.
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="case-head">
+              <h3 class="case-title">4.2 Rider Motorcycle Stores / Roshan Commercial Corp</h3>
+              <div class="case-status">기술 검토 준비 중</div>
+            </div>
+            <ul>
+              <li>필리핀 내수용 오토바이 재킷 개발 문의임</li>
+              <li>초기 발주 기준은 3개 스타일 × 스타일당 2,000장 수준임</li>
+              <li>SHINTS 측에서 1차 발주는 해당 조건으로 검토 가능하다는 방향으로 회신한 상태임</li>
+              <li>현재는 기준 샘플 수령 및 기술 검토 준비 단계임</li>
+            </ul>
+            <div class="note-block">
+              제품군 적합성은 비교적 높음. 다만 <mark>소재 조달 구조</mark>, <mark>보호대 등급</mark>, <mark>공급처 정보</mark> 확인이 선행되어야 함.
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="case-head">
+              <h3 class="case-title">4.3 RAIDA</h3>
+              <div class="case-status">정보 구체화 필요</div>
+            </div>
+            <ul>
+              <li>오토바이 의류 및 보호 장비 관련 문의임</li>
+              <li>관심 범위는 넓으나 제품 사양과 발주 구조는 아직 구체화되지 않은 상태임</li>
+            </ul>
+            <div class="note-block">
+              수요 가능성은 있으나 범위 축소와 구체 정보 확보가 우선임.
+            </div>
+          </article>
+        </section>
+
+        <section>
+          <h2>5. 종합 판단</h2>
+          <ul>
+            <li>단순 가격 문의보다 제품 개발 또는 기술 검토 성격의 문의가 포함되어 있음</li>
+            <li>오토바이 의류, 보호 기능성 제품 등 SHINTS와 접점이 있는 품목 비중이 높음</li>
+            <li>다수 문의는 아직 기초 검토 단계이며, 실제 전환 여부는 샘플과 기술자료 확보에 달려 있음</li>
+            <li>그럼에도 드래가 사례처럼 실질 영업 기회로 발전하는 건이 확인되고 있음</li>
+          </ul>
+          <p>즉, 홈페이지 검색 노출 확대는 단순 방문자 증가보다 신규 해외 문의의 질적 개선 측면에서 의미가 있음.</p>
+          <div class="callout">
+            <div class="callout-title">보고 포인트</div>
+            <p>검색 노출 확대의 직접 성과는 <span class="strong-mark">문의 수 증가</span>보다 <span class="strong-mark">검토 가능한 해외 바이어 문의의 확보</span>에 있음.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>6. 운영상 시사점</h2>
+          <ul>
+            <li>문의가 늘어날수록 전 건을 동일 강도로 대응하기보다 선별 대응 체계가 중요함</li>
+            <li>기준 샘플, 도면, 예상 물량, 소재 조달 구조 유무에 따라 우선순위를 나눌 필요 있음</li>
+            <li>에티오피아 공장 기준 최소수량과 기술 적합성을 초기 단계에서 빠르게 판단해야 함</li>
+            <li>실질 유효 문의 11건을 기준으로 후속 대응 이력 관리 체계를 정리할 필요 있음</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. 즉시 과제</h2>
+          <ol>
+            <li>Dräger 건은 샘플 수령 및 평가 준비를 최우선으로 진행할 필요 있음</li>
+            <li>필리핀 Rider Motorcycle Stores 건은 샘플, 소재 조달 구조, 보호대 관련 정보 확보가 필요함</li>
+            <li>전체 11건에 대해 회신 여부, 현재 단계, 다음 액션 기준으로 관리표를 정리할 필요 있음</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>8. 결론</h2>
+          <p>신티에스 홈페이지 검색 노출 확대는 실제 신규 문의 유입으로 연결되고 있음.</p>
+          <p>총 18건의 문의 중 11건은 실질 검토 가치가 있는 건으로 분류 가능함.</p>
+          <p>특히 드래가 건은 도면 수령과 샘플 진행 단계까지 진입한 대표 사례로서, 이번 노출 확대의 실질 성과를 보여주는 핵심 건임.</p>
+          <p><strong>따라서 현재 단계의 평가는 단순 문의 증가가 아니라, <span class="strong-mark">유효 해외 영업기회 축적이 시작되고 있음</span>으로 정리하는 것이 적절함.</strong></p>
+        </section>
+
+        <div class="footer">
+          SHINTS 내부 보고용 정리본임.
+        </div>
+      </main>
+    </article>
+  </div>
+</body>
+</html>
