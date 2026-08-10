@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="쏘영&철규 패밀리의 8월 가족여행 일정 공유 페이지"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="쏘영&철규 패밀리 8월 가족여행" />
+    <meta
+      property="og:description"
+      content="가족 여행 일정과 사진을 한눈에 보는 공유 페이지"
+    />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="쏘영&철규 패밀리 8월 가족여행" />
+    <meta
+      name="twitter:description"
+      content="가족 여행 일정과 사진을 한눈에 보는 공유 페이지"
+    />
+    <title>쏘영&철규 패밀리 8월 가족여행</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fbf7f1;
+        --paper: rgba(255, 252, 247, 0.84);
+        --card: #fffaf4;
+        --ink: #233042;
+        --muted: #6f7684;
+        --line: rgba(35, 48, 66, 0.1);
+        --peach: #ffd2b8;
+        --rose: #f5a6a6;
+        --sky: #bdddf8;
+        --mint: #bfe8d8;
+        --gold: #d9a85f;
+        --shadow: 0 28px 80px rgba(80, 61, 38, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans KR", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(255, 210, 184, 0.45),
+            transparent 24%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(189, 221, 248, 0.32),
+            transparent 22%
+          ),
+          linear-gradient(180deg, #fffdf9 0%, var(--bg) 40%, #f6efe6 100%);
+      }
+
+      .page {
+        width: min(1440px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 20px 0 80px;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 16px;
+        z-index: 20;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 18px;
+        margin-bottom: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 999px;
+        background: rgba(255, 250, 244, 0.78);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 16px 40px rgba(106, 79, 45, 0.1);
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+
+      .nav a {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(35, 48, 66, 0.08);
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        transition:
+          transform 180ms ease,
+          background 180ms ease;
+      }
+
+      .nav a:hover {
+        transform: translateY(-1px);
+        background: #ffffff;
+      }
+
+      .hero {
+        padding: 44px;
+        border-radius: 36px;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.55),
+            rgba(255, 250, 244, 0.88)
+          ),
+          linear-gradient(
+            135deg,
+            rgba(255, 210, 184, 0.22),
+            rgba(189, 221, 248, 0.12)
+          );
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: -80px;
+        top: -100px;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 210, 184, 0.38),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        color: #9c6a38;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+
+      h1 {
+        margin: 18px 0 12px;
+        max-width: 960px;
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+      }
+
+      .hero-sub {
+        max-width: 900px;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.7;
+      }
+
+      .hero-grid {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 18px;
+      }
+
+      .hero-card {
+        padding: 22px;
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid rgba(35, 48, 66, 0.08);
+      }
+
+      .hero-card h3 {
+        margin: 0 0 12px;
+        font-size: 24px;
+        letter-spacing: -0.03em;
+      }
+
+      .hero-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .hero-item {
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(35, 48, 66, 0.08);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .mini-days {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .mini-day {
+        padding: 14px 12px;
+        border-radius: 20px;
+        color: var(--ink);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.92),
+          rgba(255, 249, 241, 0.86)
+        );
+        border: 1px solid rgba(35, 48, 66, 0.08);
+        text-align: center;
+      }
+
+      .mini-day strong {
+        display: block;
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+
+      .mini-day span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .day-section {
+        margin-top: 26px;
+        padding: 32px;
+        border-radius: 34px;
+        background: var(--paper);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+        scroll-margin-top: 110px;
+      }
+
+      .day-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .day-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .day-title {
+        margin-top: 14px;
+        font-size: clamp(28px, 3vw, 46px);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .day-sub {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.7;
+        max-width: 920px;
+      }
+
+      .day-layout {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .story-card,
+      .image-card {
+        border-radius: 28px;
+        background: var(--card);
+        border: 1px solid rgba(35, 48, 66, 0.08);
+        overflow: hidden;
+      }
+
+      .story-card {
+        padding: 24px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .story-grid-4 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .story-grid-4 > .story-block:nth-child(n + 4) {
+        display: none;
+      }
+
+      .story-block {
+        padding: 18px 18px 16px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid rgba(35, 48, 66, 0.06);
+      }
+
+      .story-block strong {
+        display: block;
+        margin-bottom: 8px;
+        color: #2d5bbb;
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      .story-block p {
+        margin: 0;
+        color: #4f5f77;
+        font-size: 17px;
+        line-height: 1.72;
+      }
+
+      .image-card {
+        padding: 18px;
+        display: grid;
+        gap: 14px;
+        background: linear-gradient(180deg, #fffdf9, #fff8ef);
+      }
+
+      .image-main,
+      .image-sub {
+        border-radius: 24px;
+        overflow: hidden;
+        position: relative;
+        min-height: 220px;
+        cursor: pointer;
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .photo-fill {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: end start;
+        padding: 18px;
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .photo-fill span {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(18, 25, 37, 0.45);
+        backdrop-filter: blur(8px);
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+        background: rgba(15, 20, 31, 0.9);
+        z-index: 100;
+      }
+
+      .lightbox.open {
+        display: flex;
+      }
+
+      .lightbox-panel {
+        position: relative;
+        width: min(92vw, 1400px);
+        height: min(88vh, 900px);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+        background: #111827;
+      }
+
+      .lightbox-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .lightbox-caption {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(15, 20, 31, 0.48);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        backdrop-filter: blur(10px);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        width: 48px;
+        height: 48px;
+        border: 0;
+        border-radius: 999px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 1;
+        backdrop-filter: blur(10px);
+      }
+
+      .tone-1 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 168, 138, 0.18),
+            rgba(62, 102, 156, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80");
+      }
+      .tone-2 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 198, 156, 0.12),
+            rgba(78, 110, 144, 0.24)
+          ),
+          url("https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80");
+      }
+      .tone-3 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 210, 184, 0.16),
+            rgba(70, 115, 175, 0.24)
+          ),
+          url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80");
+      }
+      .tone-4 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 215, 170, 0.16),
+            rgba(59, 88, 132, 0.24)
+          ),
+          url("https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=80");
+      }
+      .tone-5 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 188, 176, 0.18),
+            rgba(89, 125, 170, 0.24)
+          ),
+          url("https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=80");
+      }
+      .day1-photo-1 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 168, 138, 0.1),
+            rgba(62, 102, 156, 0.18)
+          ),
+          url("https://megaworld-properties.weebly.com/uploads/8/4/7/0/84702868/uptown-parksuites-tower-2-facade-02_orig.jpg");
+      }
+      .day1-photo-2 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 198, 156, 0.08),
+            rgba(78, 110, 144, 0.14)
+          ),
+          url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/399596047.jpg?k=f90a32709ebe1186e724d7fe2d3830de59dd956243b1749486ac2bc7281f9156&o=");
+      }
+      .day1-photo-3 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 210, 184, 0.08),
+            rgba(70, 115, 175, 0.14)
+          ),
+          url("https://d1ef7ke0x2i9g8.cloudfront.net/global/_neighborhoodImage/3422060/455869851_523893383327762_6083723940771373158_n.webp");
+      }
+      .day1-photo-4 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 215, 170, 0.08),
+            rgba(59, 88, 132, 0.14)
+          ),
+          url("https://images.contentstack.io/v3/assets/blt827157d7af7bc6d4/blt233b0570218afbc0/67acb83ba1924a7573510a1f/DSCF5227-2.webp?format=webp");
+      }
+      .day2-photo-1 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 168, 138, 0.1),
+            rgba(62, 102, 156, 0.18)
+          ),
+          url("https://cdn.imweb.me/upload/S201707115963e2cd1f3ec/22ea9c87627a1.png");
+      }
+      .day2-photo-2 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 198, 156, 0.08),
+            rgba(78, 110, 144, 0.14)
+          ),
+          url("https://shopimg.tour5.co.kr/T5_117726359580.jpg");
+      }
+      .day2-photo-3 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 210, 184, 0.08),
+            rgba(70, 115, 175, 0.14)
+          ),
+          url("https://d2mgzmtdeipcjp.cloudfront.net/files/magazine/2026/01/10/17680417702687.jpg");
+      }
+      .day2-photo-4 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 215, 170, 0.08),
+            rgba(59, 88, 132, 0.14)
+          ),
+          url("https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=https://t1.daumcdn.net/brunch/service/user/cFwq/image/oaE3ZB5u8BjKJTtJ_yuPMT69liE.jpg");
+      }
+      .day3-photo-1 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 168, 138, 0.1),
+            rgba(62, 102, 156, 0.18)
+          ),
+          url("https://blog.kakaocdn.net/dna/bBJYRK/btszw84VC5D/AAAAAAAAAAAAAAAAAAAAAEaercdrHSgK_HuzykJzQ9KjNmkg74iiq2Iq0Q_Fnkso/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1782831599&allow_ip=&allow_referer=&signature=iaHIJsZ%2FcQOOjE20AsqeoKZ2phQ%3D");
+      }
+      .day3-photo-2 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 198, 156, 0.08),
+            rgba(78, 110, 144, 0.14)
+          ),
+          url("https://thumb.tidesquare.com/tour/public/product/PRV3006455682/PRD3009681386/origin/7-145.jpg?type=wide");
+      }
+      .day3-photo-3 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 210, 184, 0.08),
+            rgba(70, 115, 175, 0.14)
+          ),
+          url("https://cdn.getyourguide.com/image/format=auto,fit=crop,gravity=auto,quality=60,width=400,height=265,dpr=2/tour_img/69b9b32477f62e95fbabd6ce189d36cbd8feffd4da76b9e67fd0a4ece0171681.jpg");
+      }
+      .day3-photo-4 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 215, 170, 0.08),
+            rgba(59, 88, 132, 0.14)
+          ),
+          url("https://t1.daumcdn.net/cfile/tistory/245A733558FCA7AC23");
+      }
+      .day4-photo-1 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 168, 138, 0.1),
+            rgba(62, 102, 156, 0.18)
+          ),
+          url("https://bunny-wp-pullzone-jq11rxv9xs.b-cdn.net/wp-content/uploads/2023/04/bgc.webp");
+      }
+      .day4-photo-2 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 198, 156, 0.08),
+            rgba(78, 110, 144, 0.14)
+          ),
+          url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/ab/69/7d/caption.jpg?w=1200&h=-1&s=1");
+      }
+      .day4-photo-3 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 210, 184, 0.08),
+            rgba(70, 115, 175, 0.14)
+          ),
+          url("https://www.anewsa.com/news_images/2015/11/06/mark/20151106002215.jpg");
+      }
+      .day4-photo-4 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 215, 170, 0.08),
+            rgba(59, 88, 132, 0.14)
+          ),
+          url("https://mblogthumb-phinf.pstatic.net/MjAyNTA1MTZfMTEg/MDAxNzQ3MzMzMTQ4Mjky.R-kOnAn1SAIAm79IjsmCF_xGAuhh89IkFTPJTfoSIrIg.rNwuk0IO_neOmxgNWs74wjMlxkT5sKiaxFGs77Yw7I4g.JPEG/20250516_(8).JPG?type=w800");
+      }
+      .day5-photo-1 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 168, 138, 0.1),
+            rgba(62, 102, 156, 0.18)
+          ),
+          url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2egR06Fsxhy88oq5EZPqnH3IKoLlaoeYhLA&s");
+      }
+      .day5-photo-2 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 198, 156, 0.08),
+            rgba(78, 110, 144, 0.14)
+          ),
+          url("https://blog.kakaocdn.net/dna/rMejP/btsMGep6lIp/AAAAAAAAAAAAAAAAAAAAAK4GeOoqBhzjOzFVcS3FPeKVJHzMB-WTOt-DCTjWtzf9/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1782831599&allow_ip=&allow_referer=&signature=ZhcUFEh2p1g56BPZ362h1hIDbms%3D");
+      }
+      .day5-photo-3 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 210, 184, 0.08),
+            rgba(70, 115, 175, 0.14)
+          ),
+          url("https://businessweekmindanao.com/wp-content/uploads/2025/08/IMG_20250825_155627.jpg");
+      }
+      .day5-photo-4 {
+        background-image:
+          linear-gradient(
+            160deg,
+            rgba(255, 215, 170, 0.08),
+            rgba(59, 88, 132, 0.14)
+          ),
+          url("https://cdn.autodaily.co.kr/news/photo/202404/516457_125275_3746.jpg");
+      }
+
+      .keyword-row {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .keyword {
+        display: inline-flex;
+        align-items: center;
+        padding: 11px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(35, 48, 66, 0.08);
+        color: #49617d;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .footer {
+        margin-top: 24px;
+        padding: 0 8px;
+        color: var(--muted);
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      @media (max-width: 1180px) {
+        .hero-grid,
+        .day-layout {
+          grid-template-columns: 1fr;
+        }
+        .mini-days {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          width: min(100vw - 16px, 1440px);
+        }
+        .topbar,
+        .hero,
+        .day-section {
+          padding: 20px 18px;
+          border-radius: 24px;
+        }
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav {
+          justify-content: flex-start;
+        }
+        .mini-days,
+        .image-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .story-grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .day-head {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <div class="brand">
+          <strong>Family Trip Plan</strong>
+          <span>Shared itinerary mockup | Scroll by day</span>
+        </div>
+        <nav class="nav">
+          <a href="#day1">Day 1</a>
+          <a href="#day2">Day 2</a>
+          <a href="#day3">Day 3</a>
+          <a href="#day4">Day 4</a>
+          <a href="#day5">Day 5</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">Trip Preview</div>
+        <h1>8월 12일 가족 여행의 가이드 계획표</h1>
+        <p class="hero-sub">
+          첫날부터 다섯째 날까지, 여행을 가서 우리는 무엇을 할까 궁금해 할
+          그대들을 위한 가이드 정의 가이드 계획.
+        </p>
+
+        <div class="hero-grid">
+          <article class="hero-card">
+            <h3>구성 포인트</h3>
+            <div class="hero-list">
+              <div class="hero-item">첫날 부터 마지막 날까지 할 일 모두</div>
+              <div class="hero-item">중요한 스케줄 위주, 나머지는 알아서.</div>
+              <div class="hero-item">
+                가족끼리 보기 편하게 너무 딱딱하지 않고, 앨범처럼 따뜻한 톤으로
+                디자인
+              </div>
+            </div>
+          </article>
+          <article class="hero-card">
+            <h3>5-Day Flow</h3>
+            <div class="mini-days">
+              <div class="mini-day">
+                <strong>01</strong><span>Arrival</span>
+              </div>
+              <div class="mini-day">
+                <strong>02</strong><span>City Day</span>
+              </div>
+              <div class="mini-day"><strong>03</strong><span>Nature</span></div>
+              <div class="mini-day">
+                <strong>04</strong><span>Free Day</span>
+              </div>
+              <div class="mini-day"><strong>05</strong><span>Return</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="day-section" id="day1">
+        <div class="day-head">
+          <div>
+            <div class="day-tag">Day 1</div>
+            <div class="day-title">출발 & 첫날 분위기 적응</div>
+            <div class="day-sub">
+              공항 도착, 숙소 체크인, 가볍게 주변 산책하고 맛있는 저녁으로 여행
+              분위기 시작.
+            </div>
+          </div>
+        </div>
+        <div class="day-layout">
+          <article class="story-card">
+            <div class="story-grid-4">
+              <div class="story-block">
+                <strong>1. 오전 4시반, 공항 만남</strong>
+                <p>
+                  아침 6시 30분 비행기. 오전 4시반에 인천공함 만남. 4시간 가량
+                  비행, 마닐라 공항에 10시 (현지시간) 도착.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>2. 오후 2시경 체크인</strong>
+                <p>
+                  공항에서 짐 찾고 대략 11시~11시 20분쯤 픽업 차량 탑승. 숙소
+                  지역인 보니파시오 까지 약 30분 정도 이동. 이동 후 점심 식사 후
+                  체크인
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>3. 수영 & 보니파시오 에서 산책과 저녁 등등 </strong>
+                <p>
+                  숙소의 수영장 시설, 바로 앞의 쇼핑몰, 카페, 바 등등
+                  보니파시오를 즐기고 저녁 이후 Pub 에서 맥주 + 산책 등등 즐기기
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>추천 분위기</strong>
+                <p>
+                  첫날은 일정이 아니라 무드가 중요한 날. 숙소, 거리, 동네
+                  분위기를 가볍게 느끼는 정도로 잡는 것이 가장 자연스러움.
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="image-card">
+            <div class="image-grid">
+              <div class="image-main">
+                <div class="photo-fill day1-photo-1">
+                  <span>숙소 View</span>
+                </div>
+              </div>
+              <div class="image-main">
+                <div class="photo-fill day1-photo-2">
+                  <span>수영장 View</span>
+                </div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day1-photo-3">
+                  <span>숙소앞 멀티플렉스</span>
+                </div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day1-photo-4">
+                  <span>숙소앞 멀티플렉스</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="keyword-row">
+          <div class="keyword">체크인</div>
+          <div class="keyword">가벼운 산책</div>
+          <div class="keyword">첫날은 무리 없이</div>
+        </div>
+      </section>
+
+      <section class="day-section" id="day2">
+        <div class="day-head">
+          <div>
+            <div class="day-tag">Day 2</div>
+            <div class="day-title">마닐라 시티투어 & 시그니처 코스</div>
+            <div class="day-sub">
+              마닐라에서 가장 대표가 되는 장소를 중심으로 사진도 많이 남기고,
+              대표적인 장소 방문 + 마닐라 베이의 일몰에 저녁식사 까지.
+            </div>
+          </div>
+        </div>
+        <div class="day-layout">
+          <article class="story-card">
+            <div class="story-grid-4">
+              <div class="story-block">
+                <strong>오전 코스</strong>
+                <p>
+                  아침 숙소 건물의 카페&베이커리에서 브런치 + 커피로 하루를
+                  여유있게 시작. 그리고 보니파시오에서 마닐라 구도심 (우리나라의
+                  종로 같은)으로 이동.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>오후 코스</strong>
+                <p>
+                  스페인 점령시절을 볼 수 있는 인트라무로스, 아시아에서 가장 큰
+                  몰인 MOA 방문, 그 유명한 마닐라 일몰과 와인한잔. 이후 베니스를
+                  그대로 옮겨놓은 베니스몰에서 사진 찍고 숙소 복귀.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>사진 포인트</strong>
+                <p>
+                  이날은 가족사진을 가장 많이 남기는 날로 잡기 좋음. 오전 대표
+                  관광지, 오후 감성 거리처럼 배경이 다른 포인트를 섞으면 좋음.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>이동 팁</strong>
+                <p>
+                  핵심 코스가 많은 날은 이동 수단을 단순하게 잡는 것이 좋음.
+                  택시, 도보, 대중교통 중 하나를 중심으로 정리하면 덜 피곤함.
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="image-card">
+            <div class="image-grid">
+              <div class="image-main">
+                <div class="photo-fill day2-photo-1"><span>베니스몰</span></div>
+              </div>
+              <div class="image-main">
+                <div class="photo-fill day2-photo-2">
+                  <span>인트라무로스</span>
+                </div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day2-photo-3">
+                  <span>몰오브아시아</span>
+                </div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day2-photo-4">
+                  <span>마닐라베이 일몰</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="keyword-row">
+          <div class="keyword">대표 관광지</div>
+          <div class="keyword">사진 많이</div>
+          <div class="keyword">점심 + 카페 코스</div>
+        </div>
+      </section>
+
+      <section class="day-section" id="day3">
+        <div class="day-head">
+          <div>
+            <div class="day-tag">Day 3</div>
+            <div class="day-title">자연 / 휴식 / 드라이브 데이</div>
+            <div class="day-sub">
+              도시보다 풍경을 즐기는 날로 잡아서, 가족 모두가 조금 더 편하게
+              쉬면서 이동할 수 있는 날.
+            </div>
+          </div>
+        </div>
+        <div class="day-layout">
+          <article class="story-card">
+            <div class="story-grid-4">
+              <div class="story-block">
+                <strong>세계에서 가장 작은 화산 </strong>
+                <p>
+                  전세계에서 가장 작은 화산인 따알화산 관광. 뷰 맛집인 따알화산
+                  스타벅스에서 인생샷. 인생샷+점심 이후 직접 아래 호수의 보트
+                  투어 ㄱㄱ
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>저녁은 필리핀 전통 바베큐 Lechon 식사 </strong>
+                <p>
+                  새끼 돼지를 통으로 구운 필리핀 전통 바베큐 레촌을 곁들인 재영
+                  친구들과 함께 하는 홈 파티.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>준비물</strong>
+                <p>
+                  햇빛, 바람, 피크닉, 간식처럼 작은 준비물이 체감 만족도를 크게
+                  올려줌. 이날은 짐보다 편안함이 중요한 날.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>가족 포인트</strong>
+                <p>
+                  이동이 길어질 수 있으니 쉬는 시간과 화장실 포인트를 같이
+                  잡아두면 아이들이나 부모님과 함께 움직일 때 훨씬 편함.
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="image-card">
+            <div class="image-grid">
+              <div class="image-main">
+                <div class="photo-fill day3-photo-1">
+                  <span>따알 스타벅스</span>
+                </div>
+              </div>
+              <div class="image-main">
+                <div class="photo-fill day3-photo-2">
+                  <span>따알 화산</span>
+                </div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day3-photo-3">
+                  <span>보트투어</span>
+                </div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day3-photo-4">
+                  <span>Lechon</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="keyword-row">
+          <div class="keyword">드라이브</div>
+          <div class="keyword">자연 풍경</div>
+          <div class="keyword">쉬는 날</div>
+        </div>
+      </section>
+
+      <section class="day-section" id="day4">
+        <div class="day-head">
+          <div>
+            <div class="day-tag">Day 4</div>
+            <div class="day-title">보니파시오에서 자유 일정 & 쇼핑데이</div>
+            <div class="day-sub">
+              가족마다 원하는 게 다를 수 있으니, 이날은 자유시간이나 선택형
+              일정. 보니파시오에서 쇼핑 까지.
+            </div>
+          </div>
+        </div>
+        <div class="day-layout">
+          <article class="story-card">
+            <div class="story-grid-4">
+              <div class="story-block">
+                <strong>선택형 코스</strong>
+                <p>
+                  쇼핑, 수영, 휴식, 산책 등등 이젠 슬슬 익숙해진 보니파시오 각자
+                  즐기기. 쇼핑도 좋고 산책도 좋고 각자 하고 싶은 것을 해보는 날.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>필리핀 마닐라의 마지막 포토 데이 </strong>
+                <p>
+                  원하는 사진도 마음껏 찍고, 쇼핑몰도 가고. 선물 쇼핑 등등
+                  여러가지를 한꺼번에 할 수 있는 날.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>추천 운영</strong>
+                <p>
+                  오전만 함께 움직이고 오후는 자유시간으로 푸는 방식도 좋음.
+                  모두의 취향을 어느 정도 반영할 수 있어 만족도가 높음.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>체크 메모</strong>
+                <p>
+                  만나는 시간과 장소를 미리 정해두면 자유 일정이어도 훨씬
+                  안정적임. 저녁 식사는 다시 함께 모이도록 잡는 구성이 무난함.
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="image-card">
+            <div class="image-grid">
+              <div class="image-main">
+                <div class="photo-fill day4-photo-1">
+                  <span>Free Choice</span>
+                </div>
+              </div>
+              <div class="image-main">
+                <div class="photo-fill day4-photo-2"><span>Shopping</span></div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day4-photo-3">
+                  <span>Cafe Time</span>
+                </div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day4-photo-4">
+                  <span>Optional Spot</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="keyword-row">
+          <div class="keyword">자유시간</div>
+          <div class="keyword">A안 / B안</div>
+          <div class="keyword">취향 반영</div>
+        </div>
+      </section>
+
+      <section class="day-section" id="day5">
+        <div class="day-head">
+          <div>
+            <div class="day-tag">Day 5</div>
+            <div class="day-title">마무리 & 귀국</div>
+            <div class="day-sub">
+              짐 정리, 마지막 식사, 공항 이동까지 너무 불안하지 않게 여유 시간을
+              남겨두는 마지막 날.
+            </div>
+          </div>
+        </div>
+        <div class="day-layout">
+          <article class="story-card">
+            <div class="story-grid-4">
+              <div class="story-block">
+                <strong>출발 전 일정</strong>
+                <p>
+                  쏘영이의 최애 카페 Wildfolur 에서 마지막 브런치. 이후 여유
+                  시간을 가지다가 오후 2시쯤 필리핀 공항으로 출발. 기념품과 함께
+                  그리운 집으로
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>공유용 마무리</strong>
+                <p>
+                  가족 여행 계획표 마지막에는 “귀국편 시간 / 공항 도착 목표 시간
+                  / 픽업 여부” 같은 실무 정보가 들어가면 실제 활용성이 높음.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>체크리스트</strong>
+                <p>
+                  여권, 충전기, 기념품, 호텔 체크아웃 확인, 공항 이동 시간을
+                  마지막에 한 번 더 체크해두면 실수가 줄어듦.
+                </p>
+              </div>
+              <div class="story-block">
+                <strong>마지막 포인트</strong>
+                <p>
+                  마지막 날은 일정보다 안정감이 중요함. 여유 있게 움직이되, 여행
+                  마무리 사진 한 장 정도 남기는 흐름으로 잡으면 좋음.
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="image-card">
+            <div class="image-grid">
+              <div class="image-main">
+                <div class="photo-fill day5-photo-1">
+                  <span>Last Morning</span>
+                </div>
+              </div>
+              <div class="image-main">
+                <div class="photo-fill day5-photo-2"><span>Souvenir</span></div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day5-photo-3"><span>Airport</span></div>
+              </div>
+              <div class="image-sub">
+                <div class="photo-fill day5-photo-4">
+                  <span>Final</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="keyword-row">
+          <div class="keyword">체크아웃</div>
+          <div class="keyword">마지막 식사</div>
+          <div class="keyword">공항 이동 여유</div>
+        </div>
+      </section>
+
+      <div class="footer">
+        <div>Mockup for family trip sharing page</div>
+        <div>Replace sample text and images later</div>
+      </div>
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-panel">
+        <button
+          class="lightbox-close"
+          id="lightboxClose"
+          aria-label="Close image"
+        >
+          X
+        </button>
+        <div class="lightbox-image" id="lightboxImage"></div>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+    </div>
+
+    <script>
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const lightboxCaption = document.getElementById("lightboxCaption");
+      const lightboxClose = document.getElementById("lightboxClose");
+      const photoTargets = document.querySelectorAll(".photo-fill");
+
+      photoTargets.forEach((photo) => {
+        photo.parentElement.addEventListener("click", () => {
+          lightboxImage.style.backgroundImage =
+            getComputedStyle(photo).backgroundImage;
+          lightboxCaption.textContent = photo.textContent.trim();
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+      }
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && lightbox.classList.contains("open")) {
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>
