@@ -1,0 +1,1399 @@
+<!DOCTYPE html><html><head>
+      <title>07. NSR 판매데이터 분석 및 2027 SS 생산기획_260811</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\shint\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.30\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-details{margin:0;padding:0;border:none}.markdown-preview .md-toc summary.md-toc-link-wrapper{cursor:pointer;list-style-position:outside}.markdown-preview .md-toc summary.md-toc-link-wrapper::marker{font-size:.85em}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='0']{margin-left:12px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='1']{margin-left:28px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='2']{margin-left:44px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='3']{margin-left:60px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='4']{margin-left:76px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='5']{margin-left:80px}.markdown-preview a.tag,.markdown-preview a.tag:active,.markdown-preview a.tag:link,.markdown-preview a.tag:visited,.markdown-preview span.tag:not(.token){display:inline-block;background-color:var(--vscode-badge-background,rgba(127,127,127,.18));color:var(--vscode-badge-foreground,currentColor);border-radius:2em;font-size:.85em;font-weight:500;padding:.05em .55em;line-height:1.5;white-space:nowrap;text-decoration:none;text-shadow:none;box-shadow:none;transition:background-color .12s ease,opacity .12s ease}.markdown-preview a.tag{cursor:pointer}.markdown-preview a.tag:focus,.markdown-preview a.tag:hover{background-color:var(--vscode-badge-background,rgba(127,127,127,.32));color:var(--vscode-badge-foreground,currentColor);opacity:.85;text-decoration:none;outline:0}.markdown-preview .wikilink-embed-content{border-left:3px solid var(--vscode-textBlockQuote-border,rgba(128,128,128,.3));background:var(--vscode-textBlockQuote-background,rgba(128,128,128,.05));margin:.5em 0;padding:.5em .75em;border-radius:0 3px 3px 0}.markdown-preview .wikilink-embed-content.wikilink-embed-error{border-left-color:var(--vscode-errorForeground,#cf222e);color:var(--vscode-errorForeground,#cf222e);font-style:italic;opacity:.8}.markdown-preview .wikilink-embed-content h1:first-child,.markdown-preview .wikilink-embed-content h2:first-child,.markdown-preview .wikilink-embed-content h3:first-child,.markdown-preview .wikilink-embed-content h4:first-child,.markdown-preview .wikilink-embed-content h5:first-child,.markdown-preview .wikilink-embed-content h6:first-child{margin-top:.25em}.markdown-preview .wikilink-embed-content .wikilink-embed-content{margin:.25em 0;padding:.25em .5em}.markdown-preview .block-id{display:none}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));border:4px solid var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));background-clip:content-box}.scrollbar-style::-webkit-scrollbar-thumb:hover{background-color:var(--vscode-scrollbarSlider-hoverBackground,rgba(120,120,120,.66))}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));border:4px solid var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb:hover{background-color:var(--vscode-scrollbarSlider-hoverBackground,rgba(120,120,120,.66))}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-details{margin:0;padding:0;border:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='0']{padding-left:0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='1']{padding-left:16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='2']{padding-left:32px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='3']{padding-left:48px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='4']{padding-left:64px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='5']{padding-left:80px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. -->
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="nsr-판매데이터-분석-및-2027-ss-생산기획">NSR 판매데이터 분석 및 2027 SS 생산기획 </h1>
+<blockquote>
+<p>전면 재작성일: 2026-08-11<br>
+SS 분석 기준: <strong>4월 1일~9월 30일</strong><br>
+오프라인: 2024·2025·2026년 / 온라인: 2025·2026년<br>
+주의: 원천 파일이 2026-07-31에 종료되어 2026년은 4~7월만 포함</p>
+</blockquote>
+<hr>
+<h2 id="1-최종-결론">1. 최종 결론 </h2>
+<ol>
+<li><strong>NSR SS의 실제 중심은 저지 35%, 하의·빕 34%, 이너 18%다.</strong> 방풍·질렛 11%, 캐주얼 2%를 더하면 시즌 구조가 완성된다.</li>
+<li><strong>FONDO ICEBERG는 반드시 2027 SS의 기준 상품에 들어가야 한다.</strong> 새 기준의 정상가권 판매만 합쳐도 5,079개·9.23억원으로 FONDO의 가장 강한 검증 베이스다.</li>
+<li>FONDO는 <code>ICEBERG의 상업성·핏</code>과 <code>ITE PRO RACE의 최신 퍼포먼스 이미지</code>를 결합한다. 어느 한쪽만 기준으로 삼지 않는다.</li>
+<li>CLUB은 2024년의 <code>COLOR WORLD·GLOBE·SPACE</code>와 2025~2026년의 <code>LAZY PEDAL·ITE</code>를 함께 비교한다. 과거 베스트의 상업성을 유지하되 외관은 현재형으로 바꾼다.</li>
+<li>판매수량은 **오프라인 82%, 온라인 18%**다. 상품기획과 초도 배분은 오프라인 중심으로 설계하고 온라인은 저지·큰 사이즈·할인 왜곡을 별도로 관리한다.</li>
+<li>하의·빕은 정상가권 블랙 비중이 약 88~90%지만, 저지·방풍·질렛은 컬러가 분산된다. <strong>하의는 안전 컬러, 상의는 선택 컬러, 질렛·방풍은 쇼윈도 컬러</strong>로 역할을 나눈다.</li>
+<li>지역별 별도 패턴은 필요하지 않다. 공통 그레이딩을 유지하고, 온라인에 남성 2XL·3XL과 여성 XL·2XL 비중을 높인다.</li>
+<li>2027 SS 권장 생산 믹스는 <code>반팔 저지 18 / 긴팔 저지 18 / 일반 하의 22 / 빕 12 / 이너 17 / 방풍 8 / 질렛 3 / 캐주얼 2</code>다.</li>
+</ol>
+<hr>
+<h2 id="2-분석-범위와-정제-기준">2. 분석 범위와 정제 기준 </h2>
+<h3 id="21-채널별-포함-기간">2.1 채널별 포함 기간 </h3>
+<table>
+<thead>
+<tr>
+<th>채널</th>
+<th>포함 연도</th>
+<th>시즌 월</th>
+<th>실제 데이터 상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오프라인·대리점</td>
+<td>2024·2025·2026</td>
+<td>4~9월</td>
+<td>2024·2025는 4~9월, 2026은 4~7월</td>
+</tr>
+<tr>
+<td>온라인·이비즈</td>
+<td>2025·2026</td>
+<td>4~9월</td>
+<td>2025는 4~9월, 2026은 4~7월</td>
+</tr>
+</tbody>
+</table>
+<p>온라인 원천 데이터는 2024-11-05부터 시작하므로 2024년 온라인은 분석에서 제외했다. 2026년 8~9월 데이터가 없으므로 연도 증감은 <strong>동일 기간인 4~7월끼리만 비교</strong>했다.</p>
+<h3 id="22-데이터-정제">2.2 데이터 정제 </h3>
+<ul>
+<li>오프라인 282,653행, 온라인 33,251행을 분석했다.</li>
+<li>날짜가 없는 파일 마지막 합계 행은 제외했다. 포함하면 수량과 금액이 이중 집계된다.</li>
+<li>반품은 음수 수량·금액으로 유지해 총판매·반품·순판매를 분리했다.</li>
+<li>사은품 및 상품명으로 추정한 사은품 765행, 순수량 1,058개를 선호 분석에서 제외했다.</li>
+<li>수량 0인 9,817행은 수량 선호에 영향을 주지 않도록 처리했다.</li>
+<li><code>MULTI스카프</code> 3,665개가 품번 문자열의 <code>LTI</code> 때문에 타이즈로 오분류되는 문제를 발견해 액세서리로 재분류했다.</li>
+<li>동일 거래로 보이는 62행은 복수 판매 가능성이 있어 고유 행 키 없이 임의 삭제하지 않았다.</li>
+<li>미분류·장비·액세서리는 핵심 의류 생산 믹스에서 제외했다.</li>
+<li>점포 지역은 점포명으로 추정했다. 권역 분석은 방향 판단용이다.</li>
+</ul>
+<h3 id="23-분석-결과가-의미하는-것">2.3 분석 결과가 의미하는 것 </h3>
+<p>이 보고서는 실제 판매된 품목·컬러·사이즈의 구성비를 보여준다. 기초재고·입고수량·품절일이 없으므로 판매량만으로 판매율과 잠재수요를 확정할 수는 없다.</p>
+<p>따라서 다음에 사용한다.</p>
+<ul>
+<li>외주에 넘길 베이스 상품 선정</li>
+<li>품목·성별·컬러·사이즈 구성비 설정</li>
+<li>오프라인 점포별 초도 배분</li>
+<li>반품률이 높은 상품의 착용 검증 대상 선정</li>
+</ul>
+<p>총 생산수량은 재고·입고·MOQ·매출목표를 결합해 별도 확정한다.</p>
+<hr>
+<h2 id="3-49월-ss-판매-구조">3. 4~9월 SS 판매 구조 </h2>
+<h3 id="31-분석대상-누적">3.1 분석대상 누적 </h3>
+<table>
+<thead>
+<tr>
+<th>채널</th>
+<th style="text-align:right">순판매수량</th>
+<th style="text-align:right">구성비</th>
+<th style="text-align:right">순판매금액</th>
+<th style="text-align:right">평균 판매단가</th>
+<th style="text-align:right">반품률</th>
+<th style="text-align:right">추정 평균 할인율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>오프라인</td>
+<td style="text-align:right"><strong>68,201개</strong></td>
+<td style="text-align:right"><strong>82.0%</strong></td>
+<td style="text-align:right"><strong>73.12억원</strong></td>
+<td style="text-align:right">107,218원</td>
+<td style="text-align:right">10.3%</td>
+<td style="text-align:right">약 18%</td>
+</tr>
+<tr>
+<td>온라인</td>
+<td style="text-align:right">14,925개</td>
+<td style="text-align:right">18.0%</td>
+<td style="text-align:right">7.58억원</td>
+<td style="text-align:right">50,794원</td>
+<td style="text-align:right">10.2%</td>
+<td style="text-align:right">약 55%</td>
+</tr>
+<tr>
+<td><strong>합계</strong></td>
+<td style="text-align:right"><strong>83,126개</strong></td>
+<td style="text-align:right"><strong>100%</strong></td>
+<td style="text-align:right"><strong>80.71억원</strong></td>
+<td style="text-align:right">97,090원</td>
+<td style="text-align:right">10.3%</td>
+<td style="text-align:right">-</td>
+</tr>
+</tbody>
+</table>
+<p>온라인은 판매단가가 오프라인의 절반 수준이고, 저지 카테고리 할인율이 57~61%에 이른다. 온라인 전체 판매량은 정상가 수요가 아니라 이월·할인 판매의 영향을 크게 받으므로 베이스 상품과 컬러는 정상가권 판매를 우선한다.</p>
+<h3 id="32-동일-기간-47월-추세">3.2 동일 기간 4~7월 추세 </h3>
+<h4 id="오프라인">오프라인 </h4>
+<table>
+<thead>
+<tr>
+<th>연도</th>
+<th style="text-align:right">순판매수량</th>
+<th style="text-align:right">순판매금액</th>
+<th style="text-align:right">평균 판매단가</th>
+<th style="text-align:right">반품률</th>
+<th style="text-align:right">전년 대비 수량</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024</td>
+<td style="text-align:right">20,816개</td>
+<td style="text-align:right">22.78억원</td>
+<td style="text-align:right">109,439원</td>
+<td style="text-align:right">10.1%</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td>2025</td>
+<td style="text-align:right">18,131개</td>
+<td style="text-align:right">18.90억원</td>
+<td style="text-align:right">104,235원</td>
+<td style="text-align:right">10.5%</td>
+<td style="text-align:right"><strong>-12.9%</strong></td>
+</tr>
+<tr>
+<td>2026</td>
+<td style="text-align:right">14,523개</td>
+<td style="text-align:right">15.98억원</td>
+<td style="text-align:right">110,053원</td>
+<td style="text-align:right">10.6%</td>
+<td style="text-align:right"><strong>-19.9%</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="온라인">온라인 </h4>
+<table>
+<thead>
+<tr>
+<th>연도</th>
+<th style="text-align:right">순판매수량</th>
+<th style="text-align:right">순판매금액</th>
+<th style="text-align:right">평균 판매단가</th>
+<th style="text-align:right">반품률</th>
+<th style="text-align:right">전년 대비 수량</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025</td>
+<td style="text-align:right">6,827개</td>
+<td style="text-align:right">3.63억원</td>
+<td style="text-align:right">53,112원</td>
+<td style="text-align:right">10.1%</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td>2026</td>
+<td style="text-align:right">4,750개</td>
+<td style="text-align:right">2.50억원</td>
+<td style="text-align:right">52,537원</td>
+<td style="text-align:right">9.2%</td>
+<td style="text-align:right"><strong>-30.4%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>2025년 대비 2026년 온·오프라인 합계는 24,958개에서 19,273개로 <strong>22.8% 감소</strong>, 매출은 22.52억원에서 18.48억원으로 <strong>18.0% 감소</strong>했다. 단가는 유지됐지만 판매할 상품과 신상품 공급이 줄어든 영향이 크다.</p>
+<h3 id="33-카테고리별-47월-변화">3.3 카테고리별 4~7월 변화 </h3>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th style="text-align:right">오프라인 2024</th>
+<th style="text-align:right">오프라인 2025</th>
+<th style="text-align:right">오프라인 2026</th>
+<th style="text-align:right">온라인 2025</th>
+<th style="text-align:right">온라인 2026</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반팔 저지</td>
+<td style="text-align:right">3,439</td>
+<td style="text-align:right">2,890</td>
+<td style="text-align:right">2,005</td>
+<td style="text-align:right">2,022</td>
+<td style="text-align:right">1,329</td>
+</tr>
+<tr>
+<td>긴팔 저지</td>
+<td style="text-align:right">3,547</td>
+<td style="text-align:right">3,213</td>
+<td style="text-align:right">2,249</td>
+<td style="text-align:right">1,342</td>
+<td style="text-align:right">653</td>
+</tr>
+<tr>
+<td>일반 하의</td>
+<td style="text-align:right">4,704</td>
+<td style="text-align:right">3,805</td>
+<td style="text-align:right">3,310</td>
+<td style="text-align:right">1,638</td>
+<td style="text-align:right">876</td>
+</tr>
+<tr>
+<td>빕</td>
+<td style="text-align:right">2,579</td>
+<td style="text-align:right">2,616</td>
+<td style="text-align:right">1,563</td>
+<td style="text-align:right">572</td>
+<td style="text-align:right">320</td>
+</tr>
+<tr>
+<td>이너·베이스레이어</td>
+<td style="text-align:right">3,756</td>
+<td style="text-align:right">3,180</td>
+<td style="text-align:right">3,096</td>
+<td style="text-align:right">782</td>
+<td style="text-align:right">949</td>
+</tr>
+<tr>
+<td>방풍 재킷</td>
+<td style="text-align:right">1,958</td>
+<td style="text-align:right">1,720</td>
+<td style="text-align:right">927</td>
+<td style="text-align:right">308</td>
+<td style="text-align:right">203</td>
+</tr>
+<tr>
+<td>질렛</td>
+<td style="text-align:right">591</td>
+<td style="text-align:right">410</td>
+<td style="text-align:right">800</td>
+<td style="text-align:right">44</td>
+<td style="text-align:right">106</td>
+</tr>
+<tr>
+<td>캐주얼·MTB</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">286</td>
+<td style="text-align:right">558</td>
+<td style="text-align:right">67</td>
+<td style="text-align:right">262</td>
+</tr>
+</tbody>
+</table>
+<p>2025년 대비 2026년 오프라인에서 반팔 -30.6%, 긴팔 -30.0%, 빕 -40.3%, 방풍 -46.1%다. 반면 이너는 -2.6%로 방어했고 질렛·캐주얼은 각각 약 95% 증가했다. 온라인도 저지·하의는 크게 감소하고 이너·질렛·캐주얼은 증가했다.</p>
+<p>방풍 감소는 미출시·이염 사고 등 상품 공급 문제와 연결되므로 수요 감소로만 해석하지 않는다.</p>
+<hr>
+<h2 id="4-권장-카테고리-생산-믹스">4. 권장 카테고리 생산 믹스 </h2>
+<h3 id="41-관측-판매-구성">4.1 관측 판매 구성 </h3>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th style="text-align:right">순판매수량</th>
+<th style="text-align:right">구성비</th>
+<th style="text-align:right">반품률</th>
+<th style="text-align:right">할인율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>일반 하의·타이즈·팬츠</td>
+<td style="text-align:right">18,200</td>
+<td style="text-align:right">21.9%</td>
+<td style="text-align:right">10.9%</td>
+<td style="text-align:right">21.5%</td>
+</tr>
+<tr>
+<td>긴팔 저지</td>
+<td style="text-align:right">15,028</td>
+<td style="text-align:right">18.1%</td>
+<td style="text-align:right">11.6%</td>
+<td style="text-align:right">26.4%</td>
+</tr>
+<tr>
+<td>이너·베이스레이어</td>
+<td style="text-align:right">14,831</td>
+<td style="text-align:right">17.8%</td>
+<td style="text-align:right"><strong>7.0%</strong></td>
+<td style="text-align:right">18.7%</td>
+</tr>
+<tr>
+<td>반팔 저지</td>
+<td style="text-align:right">14,382</td>
+<td style="text-align:right">17.3%</td>
+<td style="text-align:right">10.6%</td>
+<td style="text-align:right">30.4%</td>
+</tr>
+<tr>
+<td>빕</td>
+<td style="text-align:right">9,732</td>
+<td style="text-align:right">11.7%</td>
+<td style="text-align:right">11.5%</td>
+<td style="text-align:right">19.3%</td>
+</tr>
+<tr>
+<td>방풍 재킷</td>
+<td style="text-align:right">6,779</td>
+<td style="text-align:right">8.2%</td>
+<td style="text-align:right">12.5%</td>
+<td style="text-align:right">24.7%</td>
+</tr>
+<tr>
+<td>질렛·베스트</td>
+<td style="text-align:right">2,162</td>
+<td style="text-align:right">2.6%</td>
+<td style="text-align:right"><strong>7.6%</strong></td>
+<td style="text-align:right">14.5%</td>
+</tr>
+<tr>
+<td>캐주얼·MTB 상의</td>
+<td style="text-align:right">1,745</td>
+<td style="text-align:right">2.1%</td>
+<td style="text-align:right"><strong>4.8%</strong></td>
+<td style="text-align:right">22.8%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-2027-ss-권장안">4.2 2027 SS 권장안 </h3>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th style="text-align:right">권장 비중</th>
+<th style="text-align:right">1,000개 기준</th>
+<th>판단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반팔 저지</td>
+<td style="text-align:right"><strong>18%</strong></td>
+<td style="text-align:right">180</td>
+<td>시즌 중반·온라인 콘텐츠 주력</td>
+</tr>
+<tr>
+<td>긴팔 저지</td>
+<td style="text-align:right"><strong>18%</strong></td>
+<td style="text-align:right">180</td>
+<td>4월·9월과 자외선 차단 수요</td>
+</tr>
+<tr>
+<td>일반 하의</td>
+<td style="text-align:right"><strong>22%</strong></td>
+<td style="text-align:right">220</td>
+<td>가장 큰 단일 카테고리</td>
+</tr>
+<tr>
+<td>빕</td>
+<td style="text-align:right"><strong>12%</strong></td>
+<td style="text-align:right">120</td>
+<td>FONDO 정체성과 세트 판매</td>
+</tr>
+<tr>
+<td>이너·베이스레이어</td>
+<td style="text-align:right"><strong>17%</strong></td>
+<td style="text-align:right">170</td>
+<td>낮은 반품률과 반복 구매</td>
+</tr>
+<tr>
+<td>방풍 재킷</td>
+<td style="text-align:right"><strong>8%</strong></td>
+<td style="text-align:right">80</td>
+<td>상품 공백을 복원하는 필수 카테고리</td>
+</tr>
+<tr>
+<td>질렛</td>
+<td style="text-align:right"><strong>3%</strong></td>
+<td style="text-align:right">30</td>
+<td>성장·레이어링·쇼윈도 역할</td>
+</tr>
+<tr>
+<td>캐주얼·MTB</td>
+<td style="text-align:right"><strong>2%</strong></td>
+<td style="text-align:right">20</td>
+<td>커뮤니티·매장 신선도</td>
+</tr>
+<tr>
+<td><strong>합계</strong></td>
+<td style="text-align:right"><strong>100%</strong></td>
+<td style="text-align:right"><strong>1,000</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>총량별 단순 환산은 다음과 같다. 이는 총 생산량 확정안이 아니라 믹스 계산 기준이다.</p>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th style="text-align:right">20,000개</th>
+<th style="text-align:right">30,000개</th>
+<th style="text-align:right">40,000개</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반팔 저지</td>
+<td style="text-align:right">3,600</td>
+<td style="text-align:right">5,400</td>
+<td style="text-align:right">7,200</td>
+</tr>
+<tr>
+<td>긴팔 저지</td>
+<td style="text-align:right">3,600</td>
+<td style="text-align:right">5,400</td>
+<td style="text-align:right">7,200</td>
+</tr>
+<tr>
+<td>일반 하의</td>
+<td style="text-align:right">4,400</td>
+<td style="text-align:right">6,600</td>
+<td style="text-align:right">8,800</td>
+</tr>
+<tr>
+<td>빕</td>
+<td style="text-align:right">2,400</td>
+<td style="text-align:right">3,600</td>
+<td style="text-align:right">4,800</td>
+</tr>
+<tr>
+<td>이너</td>
+<td style="text-align:right">3,400</td>
+<td style="text-align:right">5,100</td>
+<td style="text-align:right">6,800</td>
+</tr>
+<tr>
+<td>방풍</td>
+<td style="text-align:right">1,600</td>
+<td style="text-align:right">2,400</td>
+<td style="text-align:right">3,200</td>
+</tr>
+<tr>
+<td>질렛</td>
+<td style="text-align:right">600</td>
+<td style="text-align:right">900</td>
+<td style="text-align:right">1,200</td>
+</tr>
+<tr>
+<td>캐주얼·MTB</td>
+<td style="text-align:right">400</td>
+<td style="text-align:right">600</td>
+<td style="text-align:right">800</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-성별-구성">4.3 성별 구성 </h3>
+<p>성별이 확인되는 핵심 의류는 남성 71.7%, 여성 28.3%다. 기본값은 <strong>남성 72 : 여성 28</strong>로 잡고 품목별로 조정한다.</p>
+<table>
+<thead>
+<tr>
+<th>품목</th>
+<th style="text-align:right">남성</th>
+<th style="text-align:right">여성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반팔 저지</td>
+<td style="text-align:right">74%</td>
+<td style="text-align:right">26%</td>
+</tr>
+<tr>
+<td>긴팔 저지</td>
+<td style="text-align:right">66%</td>
+<td style="text-align:right">34%</td>
+</tr>
+<tr>
+<td>일반 하의</td>
+<td style="text-align:right">69%</td>
+<td style="text-align:right">31%</td>
+</tr>
+<tr>
+<td>빕</td>
+<td style="text-align:right">76%</td>
+<td style="text-align:right">24%</td>
+</tr>
+<tr>
+<td>이너</td>
+<td style="text-align:right">78%</td>
+<td style="text-align:right">22%</td>
+</tr>
+<tr>
+<td>방풍</td>
+<td style="text-align:right">67%</td>
+<td style="text-align:right">33%</td>
+</tr>
+<tr>
+<td>질렛</td>
+<td style="text-align:right">65%</td>
+<td style="text-align:right">35%</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="5-베스트-상품과-외주-기준-제품">5. 베스트 상품과 외주 기준 제품 </h2>
+<h3 id="51-fondo-패밀리-재평가">5.1 FONDO 패밀리 재평가 </h3>
+<p>4~9월 기준을 적용하면 ICEBERG가 최상위로 올라온다.</p>
+<table>
+<thead>
+<tr>
+<th>패밀리</th>
+<th style="text-align:right">정상가권 순판매</th>
+<th style="text-align:right">순판매금액</th>
+<th style="text-align:right">반품률</th>
+<th>해석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FONDO ICEBERG</strong></td>
+<td style="text-align:right"><strong>5,079개</strong></td>
+<td style="text-align:right"><strong>9.23억원</strong></td>
+<td style="text-align:right">8.7%</td>
+<td>누적 상업성·오프라인 검증 1순위</td>
+</tr>
+<tr>
+<td>FONDO ITE PRO RACE</td>
+<td style="text-align:right">2,776개</td>
+<td style="text-align:right">5.02억원</td>
+<td style="text-align:right">8.4%</td>
+<td>최신 퍼포먼스·브랜드 이미지 기준</td>
+</tr>
+<tr>
+<td>FONDO INSTINCT</td>
+<td style="text-align:right">2,556개</td>
+<td style="text-align:right">4.82억원</td>
+<td style="text-align:right">9.0%</td>
+<td>중간 세대 비교 기준</td>
+</tr>
+</tbody>
+</table>
+<p>출시 시기가 달라 단순 우열 비교는 어렵지만 ICEBERG를 빼고 2027 SS를 기획하는 것은 데이터와 맞지 않는다.</p>
+<h3 id="52-fondo-1순위-기준-제품">5.2 FONDO 1순위 기준 제품 </h3>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th>1순위 기준 제품</th>
+<th style="text-align:right">순판매</th>
+<th style="text-align:right">반품률</th>
+<th>보조 비교 제품</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>남성 반팔</td>
+<td>ICEBERG 반팔 저지 <code>NSB41GZZBZZZ007</code></td>
+<td style="text-align:right">466</td>
+<td style="text-align:right"><strong>6.8%</strong></td>
+<td>ITE PRO RACE 반팔</td>
+</tr>
+<tr>
+<td>남성 긴팔</td>
+<td>ICEBERG 긴팔 저지 <code>NSB41GFDTLJE001</code></td>
+<td style="text-align:right">533</td>
+<td style="text-align:right">11.0%</td>
+<td>ITE PRO RACE 긴팔</td>
+</tr>
+<tr>
+<td>여성 반팔</td>
+<td>ICEBERG 반팔 저지 <code>NSB41WZZBZZZ005</code></td>
+<td style="text-align:right">98</td>
+<td style="text-align:right"><strong>7.6%</strong></td>
+<td>ITE PRO RACE 반팔</td>
+</tr>
+<tr>
+<td>여성 긴팔</td>
+<td>ICEBERG 긴팔 저지 <code>NSB41GFDTLJE002</code></td>
+<td style="text-align:right">194</td>
+<td style="text-align:right"><strong>8.5%</strong></td>
+<td>ITE PRO RACE 긴팔</td>
+</tr>
+<tr>
+<td>남성 숏 타이즈</td>
+<td>ICEBERG <code>NSB41GZZHZZZ003</code></td>
+<td style="text-align:right"><strong>804</strong></td>
+<td style="text-align:right"><strong>6.4%</strong></td>
+<td>ITE PRO RACE</td>
+</tr>
+<tr>
+<td>남성 롱 타이즈</td>
+<td>ICEBERG <code>NSB41GFDBLTI001</code></td>
+<td style="text-align:right"><strong>674</strong></td>
+<td style="text-align:right">9.8%</td>
+<td>ITE PRO RACE</td>
+</tr>
+<tr>
+<td>남성 빕 숏</td>
+<td>ICEBERG <code>NSB41GZZHZZZ002</code></td>
+<td style="text-align:right"><strong>758</strong></td>
+<td style="text-align:right"><strong>7.8%</strong></td>
+<td>ITE PRO RACE</td>
+</tr>
+<tr>
+<td>남성 빕 롱</td>
+<td>ICEBERG <code>NSB41GFDBBLT001</code></td>
+<td style="text-align:right">495</td>
+<td style="text-align:right">9.5%</td>
+<td>INSTINCT</td>
+</tr>
+<tr>
+<td>여성 숏 타이즈</td>
+<td>ICEBERG <code>NSB41WZZHZZZ004</code></td>
+<td style="text-align:right">161</td>
+<td style="text-align:right"><strong>5.9%</strong></td>
+<td>ITE PRO RACE</td>
+</tr>
+<tr>
+<td>여성 롱 타이즈</td>
+<td>ICEBERG <code>NSB41WFDBLTI001</code></td>
+<td style="text-align:right">239</td>
+<td style="text-align:right">12.1%</td>
+<td>ITE PRO RACE 우선 비교</td>
+</tr>
+<tr>
+<td>여성 빕 숏</td>
+<td>ICEBERG <code>NSB41WZZHZZZ003</code></td>
+<td style="text-align:right">198</td>
+<td style="text-align:right"><strong>7.9%</strong></td>
+<td>ITE PRO RACE</td>
+</tr>
+<tr>
+<td>여성 빕 롱</td>
+<td>ITE PRO RACE <code>NSB61WFDBBLT001</code></td>
+<td style="text-align:right">108</td>
+<td style="text-align:right"><strong>9.2%</strong></td>
+<td>ICEBERG는 반품 12.2%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-club-1순위-기준-제품">5.3 CLUB 1순위 기준 제품 </h3>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th>제품</th>
+<th style="text-align:right">순판매</th>
+<th style="text-align:right">반품률</th>
+<th>판단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>남성 반팔 저지</td>
+<td>클럽 글로브 <code>NSB41GZZBZZZ010</code></td>
+<td style="text-align:right"><strong>513</strong></td>
+<td style="text-align:right"><strong>7.1%</strong></td>
+<td>상업성 기준</td>
+</tr>
+<tr>
+<td>남성 반팔 저지</td>
+<td>클럽 레이지 페달 <code>NSB51MCLTSJE001</code></td>
+<td style="text-align:right">444</td>
+<td style="text-align:right">9.6%</td>
+<td>최근 세대 비교</td>
+</tr>
+<tr>
+<td>여성 반팔 저지</td>
+<td>클럽 글로브 <code>NSB41WZZBZZZ008</code></td>
+<td style="text-align:right">148</td>
+<td style="text-align:right">9.8%</td>
+<td>여성 반팔 기준</td>
+</tr>
+<tr>
+<td>남성 긴팔 저지</td>
+<td>클럽 컬러 월드 <code>NSB41GCLTLJE001</code></td>
+<td style="text-align:right"><strong>581</strong></td>
+<td style="text-align:right"><strong>8.4%</strong></td>
+<td>CLUB 긴팔 1순위</td>
+</tr>
+<tr>
+<td>여성 긴팔 저지</td>
+<td>클럽 컬러 월드 <code>NSB41GZZAZZZ011</code></td>
+<td style="text-align:right"><strong>276</strong></td>
+<td style="text-align:right"><strong>6.4%</strong></td>
+<td>여성 CLUB 1순위</td>
+</tr>
+<tr>
+<td>카고 숏 타이즈</td>
+<td>클럽 아이트 <code>NSB61MCLBSTI001</code></td>
+<td style="text-align:right">366</td>
+<td style="text-align:right"><strong>3.2%</strong></td>
+<td>CLUB 기능성 하의</td>
+</tr>
+<tr>
+<td>컴포터블 롱 팬츠</td>
+<td><code>NSB31GCLBLPN001</code></td>
+<td style="text-align:right">325</td>
+<td style="text-align:right"><strong>6.3%</strong></td>
+<td>여유핏 하의</td>
+</tr>
+<tr>
+<td>남성 방풍 재킷</td>
+<td>클럽 리베르떼 <code>NSB31GCLOH1J001</code></td>
+<td style="text-align:right">251</td>
+<td style="text-align:right"><strong>8.1%</strong></td>
+<td>방풍 기준</td>
+</tr>
+<tr>
+<td>남성 질렛</td>
+<td>울트라 라이트 패커블 <code>NSB41GCLOWGI001</code></td>
+<td style="text-align:right">330</td>
+<td style="text-align:right"><strong>6.8%</strong></td>
+<td>질렛 1순위</td>
+</tr>
+<tr>
+<td>여성 질렛</td>
+<td>울트라 라이트 패커블 <code>NSB41WCLOWGI001</code></td>
+<td style="text-align:right">224</td>
+<td style="text-align:right"><strong>8.2%</strong></td>
+<td>여성 질렛 1순위</td>
+</tr>
+<tr>
+<td>커뮤니티 반팔</td>
+<td>컴포터블 MTB <code>NSB51MCLTSST001</code></td>
+<td style="text-align:right">303</td>
+<td style="text-align:right"><strong>5.0%</strong></td>
+<td>그래픽 캡슐 기준</td>
+</tr>
+</tbody>
+</table>
+<h3 id="54-그대로-사용하지-말아야-할-상품">5.4 그대로 사용하지 말아야 할 상품 </h3>
+<ul>
+<li><code>NSB51MCLOWGI001 클럽 레이지 페달 방풍 질렛 남성</code>: 270개가 팔렸지만 반품률 22.4%. 작지 그대로 재사용하지 않는다.</li>
+<li><code>NSB33WCLLITI001 여성 클럽 벨로 메쉬 이너 팬츠</code>: 386개, 반품률 15.2%. 여성 허리·밑위·패드 검증 필요.</li>
+<li>ICEBERG 여성 롱·빕 롱은 판매량은 크지만 반품률 12%대다. ITE 제품과 착용 비교 후 결정한다.</li>
+<li>정상가권 반품률 15% 이상인 제품은 판매량이 많아도 외주 기준 작지로 바로 확정하지 않는다.</li>
+</ul>
+<hr>
+<h2 id="6-사이즈-생산-기준">6. 사이즈 생산 기준 </h2>
+<h3 id="61-품목별-100개-기준">6.1 품목별 100개 기준 </h3>
+<h4 id="남성">남성 </h4>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th style="text-align:right">S</th>
+<th style="text-align:right">M</th>
+<th style="text-align:right">L</th>
+<th style="text-align:right">XL</th>
+<th style="text-align:right">2XL</th>
+<th style="text-align:right">3XL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반팔 저지</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right"><strong>29</strong></td>
+<td style="text-align:right"><strong>25</strong></td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>긴팔 저지</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right"><strong>29</strong></td>
+<td style="text-align:right"><strong>25</strong></td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>일반 하의</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right"><strong>31</strong></td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>빕</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right"><strong>30</strong></td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>이너</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right"><strong>32</strong></td>
+<td style="text-align:right">25</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>방풍</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right"><strong>30</strong></td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td>질렛</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right"><strong>30</strong></td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">4</td>
+</tr>
+</tbody>
+</table>
+<h4 id="여성">여성 </h4>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th style="text-align:right">XS</th>
+<th style="text-align:right">S</th>
+<th style="text-align:right">M</th>
+<th style="text-align:right">L</th>
+<th style="text-align:right">XL</th>
+<th style="text-align:right">2XL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반팔 저지</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right"><strong>32</strong></td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>긴팔 저지</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right"><strong>33</strong></td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>일반 하의</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right"><strong>30</strong></td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>빕</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right"><strong>32</strong></td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>이너</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right"><strong>35</strong></td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>방풍</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right"><strong>30</strong></td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>질렛</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right"><strong>32</strong></td>
+<td style="text-align:right">27</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-채널별-보정">6.2 채널별 보정 </h3>
+<table>
+<thead>
+<tr>
+<th>채널</th>
+<th>권장 패킹</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>남성 오프라인</td>
+<td>S 7 / M 22 / L 31 / XL 24 / 2XL 11 / 3XL 5</td>
+</tr>
+<tr>
+<td>남성 온라인</td>
+<td>S 9 / M 16 / L 27 / XL 24 / 2XL 14 / 3XL 10</td>
+</tr>
+<tr>
+<td>여성 오프라인</td>
+<td>XS 8 / S 26 / M 33 / L 22 / XL 9 / 2XL 2</td>
+</tr>
+<tr>
+<td>여성 온라인</td>
+<td>XS 10 / S 19 / M 28 / L 25 / XL 13 / 2XL 5</td>
+</tr>
+</tbody>
+</table>
+<p>온라인은 남성 2XL·3XL이 24%, 여성 XL·2XL이 18%다. 오프라인 패킹을 온라인에 그대로 적용하면 큰 사이즈 품절과 M 재고가 동시에 발생할 가능성이 높다.</p>
+<hr>
+<h2 id="7-컬러-생산-기준">7. 컬러 생산 기준 </h2>
+<h3 id="71-정상가권-관측">7.1 정상가권 관측 </h3>
+<ul>
+<li>남성 반팔 저지: 그레이 22%, 블랙 21%, 블루 13%, 화이트 11%, 레드 11%</li>
+<li>여성 반팔 저지: 그레이 19%, 퍼플 17%, 블랙 14%, 그린 13%, 블루·핑크 각각 10%</li>
+<li>남성 긴팔 저지: 블랙 22%, 블루 19%, 그레이 15%, 화이트 11%, 레드 10%</li>
+<li>여성 긴팔 저지: 블랙 15%, 퍼플 14%, 화이트 13%, 블루 11%, 핑크·그레이·레드 각각 약 9~10%</li>
+<li>일반 하의·빕: 블랙 87~90%</li>
+<li>이너: 남성 블랙 88%, 여성 블랙 84%</li>
+<li>남성 방풍: 블랙 21%, 화이트 19%, 그레이 17%, 블루 12%</li>
+<li>여성 방풍: 핑크 18%, 화이트 18%, 그레이 17%, 블랙 16%, 퍼플 13%</li>
+<li>질렛: 남녀 모두 블랙·화이트·블루·그레이가 중심이며 퍼플·오렌지가 보조</li>
+</ul>
+<h3 id="72-권장-배분">7.2 권장 배분 </h3>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th>권장 컬러 구성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>일반 하의</td>
+<td>블랙 86%, 차콜·그레이 7%, 카키·퍼플·패턴 7%</td>
+</tr>
+<tr>
+<td>빕</td>
+<td>블랙 88%, 그레이 4%, 카키·퍼플·패턴 8%</td>
+</tr>
+<tr>
+<td>이너</td>
+<td>블랙 84%, 화이트 13%, 시즌 컬러 3%</td>
+</tr>
+<tr>
+<td>남성 저지</td>
+<td>블랙·그레이 35%, 블루 18%, 화이트·크림 13%, 레드·버건디 12%, 그린·카키 8%, 퍼플 6%, 쇼윈도 8%</td>
+</tr>
+<tr>
+<td>여성 저지</td>
+<td>그레이·블랙 28%, 퍼플 17%, 블루 13%, 그린 12%, 핑크·코랄 12%, 화이트 8%, 쇼윈도 10%</td>
+</tr>
+<tr>
+<td>남성 방풍</td>
+<td>블랙 22%, 그레이 18%, 화이트·크림 18%, 블루 13%, 카키·민트 10%, 쇼윈도 10%, 기타 9%</td>
+</tr>
+<tr>
+<td>여성 방풍</td>
+<td>블랙 18%, 그레이 17%, 화이트·크림 17%, 핑크·코랄 17%, 퍼플 13%, 블루·그린 8%, 쇼윈도 10%</td>
+</tr>
+<tr>
+<td>질렛</td>
+<td>블랙 23%, 화이트 20%, 블루 20%, 그레이 15%, 퍼플·핑크 10%, 오렌지·옐로 7%, 기타 5%</td>
+</tr>
+<tr>
+<td>캐주얼·MTB</td>
+<td>뉴트럴 50%, 버건디·카키·퍼플·오렌지·옐로 50%</td>
+</tr>
+</tbody>
+</table>
+<p>전체 시즌 의류의 <strong>10~12%는 쇼윈도·액센트 컬러</strong>로 운영한다. 코발트·터쿼이즈, 라임·옐로, 코랄·버건디, 라벤더·퍼플을 사용하되 하의보다 저지·방풍·질렛에 집중한다.</p>
+<hr>
+<h2 id="8-오프라인-점포-분석">8. 오프라인 점포 분석 </h2>
+<h3 id="81-상위-15개-점포와-카테고리-구성">8.1 상위 15개 점포와 카테고리 구성 </h3>
+<p>카테고리 비중은 각 점포의 8개 핵심 기획 카테고리 순판매수량을 기준으로 했다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">순위</th>
+<th>점포</th>
+<th style="text-align:right">순판매</th>
+<th style="text-align:right">반품률</th>
+<th style="text-align:right">반팔</th>
+<th style="text-align:right">긴팔</th>
+<th style="text-align:right">하의</th>
+<th style="text-align:right">빕</th>
+<th style="text-align:right">이너</th>
+<th style="text-align:right">방풍</th>
+<th style="text-align:right">질렛·캐주얼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>태릉</td>
+<td style="text-align:right">5,918</td>
+<td style="text-align:right">16.0%</td>
+<td style="text-align:right">6.8%</td>
+<td style="text-align:right">7.6%</td>
+<td style="text-align:right">19.3%</td>
+<td style="text-align:right">7.5%</td>
+<td style="text-align:right"><strong>48.5%</strong></td>
+<td style="text-align:right">7.5%</td>
+<td style="text-align:right">2.7%</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>행주</td>
+<td style="text-align:right">5,735</td>
+<td style="text-align:right">19.1%</td>
+<td style="text-align:right">16.0%</td>
+<td style="text-align:right">20.7%</td>
+<td style="text-align:right"><strong>23.8%</strong></td>
+<td style="text-align:right">10.8%</td>
+<td style="text-align:right">12.2%</td>
+<td style="text-align:right">10.4%</td>
+<td style="text-align:right">6.1%</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>위례</td>
+<td style="text-align:right">5,546</td>
+<td style="text-align:right">6.2%</td>
+<td style="text-align:right">8.6%</td>
+<td style="text-align:right">10.5%</td>
+<td style="text-align:right">16.9%</td>
+<td style="text-align:right">7.9%</td>
+<td style="text-align:right"><strong>42.9%</strong></td>
+<td style="text-align:right">8.9%</td>
+<td style="text-align:right">4.4%</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>아라</td>
+<td style="text-align:right">4,581</td>
+<td style="text-align:right">9.6%</td>
+<td style="text-align:right">17.0%</td>
+<td style="text-align:right">20.1%</td>
+<td style="text-align:right"><strong>24.6%</strong></td>
+<td style="text-align:right">13.6%</td>
+<td style="text-align:right">8.1%</td>
+<td style="text-align:right">10.3%</td>
+<td style="text-align:right">6.4%</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>천호</td>
+<td style="text-align:right">3,274</td>
+<td style="text-align:right">9.1%</td>
+<td style="text-align:right">13.4%</td>
+<td style="text-align:right">19.3%</td>
+<td style="text-align:right"><strong>22.1%</strong></td>
+<td style="text-align:right">11.0%</td>
+<td style="text-align:right">18.3%</td>
+<td style="text-align:right">11.4%</td>
+<td style="text-align:right">4.5%</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td>인천정서진</td>
+<td style="text-align:right">3,152</td>
+<td style="text-align:right">8.2%</td>
+<td style="text-align:right">14.8%</td>
+<td style="text-align:right">16.6%</td>
+<td style="text-align:right"><strong>26.6%</strong></td>
+<td style="text-align:right">13.5%</td>
+<td style="text-align:right">14.0%</td>
+<td style="text-align:right">10.2%</td>
+<td style="text-align:right">4.2%</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td>평택</td>
+<td style="text-align:right">2,792</td>
+<td style="text-align:right"><strong>20.4%</strong></td>
+<td style="text-align:right"><strong>21.0%</strong></td>
+<td style="text-align:right">18.6%</td>
+<td style="text-align:right">17.1%</td>
+<td style="text-align:right">15.4%</td>
+<td style="text-align:right">16.4%</td>
+<td style="text-align:right">8.2%</td>
+<td style="text-align:right">3.4%</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>팔당</td>
+<td style="text-align:right">2,777</td>
+<td style="text-align:right">8.2%</td>
+<td style="text-align:right">20.0%</td>
+<td style="text-align:right">14.6%</td>
+<td style="text-align:right"><strong>23.8%</strong></td>
+<td style="text-align:right">14.8%</td>
+<td style="text-align:right">13.3%</td>
+<td style="text-align:right">8.7%</td>
+<td style="text-align:right">4.8%</td>
+</tr>
+<tr>
+<td style="text-align:right">9</td>
+<td>의정부</td>
+<td style="text-align:right">2,636</td>
+<td style="text-align:right">7.0%</td>
+<td style="text-align:right">18.5%</td>
+<td style="text-align:right">17.8%</td>
+<td style="text-align:right"><strong>23.8%</strong></td>
+<td style="text-align:right">12.5%</td>
+<td style="text-align:right">13.9%</td>
+<td style="text-align:right">8.9%</td>
+<td style="text-align:right">4.6%</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td>거북섬</td>
+<td style="text-align:right">2,448</td>
+<td style="text-align:right"><strong>2.2%</strong></td>
+<td style="text-align:right">14.9%</td>
+<td style="text-align:right">18.9%</td>
+<td style="text-align:right"><strong>25.8%</strong></td>
+<td style="text-align:right">14.9%</td>
+<td style="text-align:right">9.4%</td>
+<td style="text-align:right">9.6%</td>
+<td style="text-align:right">6.5%</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td>전주</td>
+<td style="text-align:right">2,329</td>
+<td style="text-align:right">4.7%</td>
+<td style="text-align:right">13.1%</td>
+<td style="text-align:right"><strong>22.0%</strong></td>
+<td style="text-align:right">17.3%</td>
+<td style="text-align:right">16.7%</td>
+<td style="text-align:right">15.6%</td>
+<td style="text-align:right">8.5%</td>
+<td style="text-align:right">6.8%</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td>미음나루</td>
+<td style="text-align:right">2,105</td>
+<td style="text-align:right">8.6%</td>
+<td style="text-align:right">20.0%</td>
+<td style="text-align:right">16.8%</td>
+<td style="text-align:right"><strong>24.9%</strong></td>
+<td style="text-align:right">14.5%</td>
+<td style="text-align:right">12.7%</td>
+<td style="text-align:right">6.7%</td>
+<td style="text-align:right">4.4%</td>
+</tr>
+<tr>
+<td style="text-align:right">13</td>
+<td>경주</td>
+<td style="text-align:right">1,963</td>
+<td style="text-align:right">9.2%</td>
+<td style="text-align:right">14.3%</td>
+<td style="text-align:right">18.3%</td>
+<td style="text-align:right"><strong>22.6%</strong></td>
+<td style="text-align:right">11.6%</td>
+<td style="text-align:right">16.9%</td>
+<td style="text-align:right">8.9%</td>
+<td style="text-align:right">7.4%</td>
+</tr>
+<tr>
+<td style="text-align:right">14</td>
+<td>세종</td>
+<td style="text-align:right">1,866</td>
+<td style="text-align:right">7.9%</td>
+<td style="text-align:right">16.1%</td>
+<td style="text-align:right"><strong>21.0%</strong></td>
+<td style="text-align:right">18.4%</td>
+<td style="text-align:right">16.6%</td>
+<td style="text-align:right">14.5%</td>
+<td style="text-align:right">9.2%</td>
+<td style="text-align:right">4.1%</td>
+</tr>
+<tr>
+<td style="text-align:right">15</td>
+<td>대구강정보</td>
+<td style="text-align:right">1,798</td>
+<td style="text-align:right">13.3%</td>
+<td style="text-align:right">11.7%</td>
+<td style="text-align:right">24.2%</td>
+<td style="text-align:right"><strong>27.7%</strong></td>
+<td style="text-align:right">9.7%</td>
+<td style="text-align:right">12.7%</td>
+<td style="text-align:right">11.3%</td>
+<td style="text-align:right">2.6%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-점포-운영-판단">8.2 점포 운영 판단 </h3>
+<ul>
+<li>태릉·위례는 이너 특화점으로 별도 리오더 풀을 둔다.</li>
+<li>아라·정서진·팔당·의정부·거북섬·미음나루는 하의·빕 초도 비중을 높인다.</li>
+<li>평택·행주는 반품률이 19~20%로 높아 초도 확대 전에 반품 사유를 확인한다.</li>
+<li>전주·세종·대구강정보는 긴팔·빕 비중이 높다.</li>
+<li>거북섬은 판매량이 크면서 반품률이 2.2%로 낮아 핵심 검증점으로 활용할 가치가 있다.</li>
+</ul>
+<h3 id="83-온라인은-별도-관리">8.3 온라인은 별도 관리 </h3>
+<table>
+<thead>
+<tr>
+<th>채널</th>
+<th style="text-align:right">순판매</th>
+<th>주요 구성</th>
+<th style="text-align:right">할인율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cafe24 유튜브쇼핑</td>
+<td style="text-align:right">7,176</td>
+<td>반팔 36.5%, 하의 23.0%, 긴팔 16.4%</td>
+<td style="text-align:right">56.2%</td>
+</tr>
+<tr>
+<td>쿠팡</td>
+<td style="text-align:right">4,054</td>
+<td>긴팔 28.0%, 반팔 24.9%, 하의 16.1%, 이너 15.9%</td>
+<td style="text-align:right">53.9%</td>
+</tr>
+<tr>
+<td>스마트스토어</td>
+<td style="text-align:right">842</td>
+<td>할인·이월 영향 큼</td>
+<td style="text-align:right">59.7%</td>
+</tr>
+</tbody>
+</table>
+<p>온라인은 저지 콘텐츠와 큰 사이즈 재고를 강화하되, 2027 신상품을 기존과 같은 50%대 할인 구조로 운영하지 않는다.</p>
+<h3 id="84-권역별-구성">8.4 권역별 구성 </h3>
+<table>
+<thead>
+<tr>
+<th>권역</th>
+<th>주요 특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>수도권</td>
+<td>하의 22.1%, 이너 21.2%, 긴팔 16.6%</td>
+</tr>
+<tr>
+<td>충청권</td>
+<td>하의 22.1%, 긴팔 20.5%, 반팔 16.1%, 빕 14.7%</td>
+</tr>
+<tr>
+<td>영남권</td>
+<td>하의 23.1%, 긴팔 20.8%, 반팔 15.4%, 빕 13.8%</td>
+</tr>
+<tr>
+<td>호남권</td>
+<td>긴팔·하의 각각 19.9%, 이너 15.9%, 빕 14.9%</td>
+</tr>
+<tr>
+<td>온라인</td>
+<td>반팔 29.4%, 하의 21.2%, 긴팔 19.2%</td>
+</tr>
+</tbody>
+</table>
+<p>지역별 상품 차이보다 점포별 차이가 크므로 지역 전용 스타일보다 점포별 초도 패킹으로 대응한다.</p>
+<hr>
+<h2 id="9-출시-드롭">9. 출시 드롭 </h2>
+<table>
+<thead>
+<tr>
+<th>드롭</th>
+<th>매장 출시</th>
+<th>주력 상품</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drop 1</td>
+<td>3월 말~4월</td>
+<td>긴팔 저지, 롱 타이즈·빕 롱, 방풍, 질렛, 이너</td>
+<td>SS 시작과 매장 교체</td>
+</tr>
+<tr>
+<td>Drop 2</td>
+<td>5월</td>
+<td>반팔 저지 1차, 숏 타이즈·빕 숏, 카고 하의</td>
+<td>시즌 최대 판매기</td>
+</tr>
+<tr>
+<td>Drop 3</td>
+<td>7월</td>
+<td>반팔·긴팔 추가 그래픽, 커뮤니티, 액센트 컬러</td>
+<td>8~9월 재방문과 신선도</td>
+</tr>
+</tbody>
+</table>
+<p>Drop 3는 신규 패턴이 아니라 동일 베이스의 사전 개발 컬러·그래픽을 나눠 출시한다.</p>
+<hr>
+<h2 id="10-총-생산수량-확정-방식">10. 총 생산수량 확정 방식 </h2>
+<ol>
+<li>총 생산가능수량 <code>Q</code>를 매출목표·원가예산·MOQ로 확정</li>
+<li>품목수량 = <code>Q × 권장 카테고리 비중</code></li>
+<li>성별수량 = <code>품목수량 × 성별 비중</code></li>
+<li>스타일·컬러수량 = 외주 최종 채택안과 컬러 배분으로 분해</li>
+<li>사이즈수량 = 스타일·컬러수량 × 품목별 사이즈 런</li>
+<li>초도 85%, 중앙 리오더 재고 15%로 배분</li>
+</ol>
+<p>총량 확정 전 필요한 자료는 다음 세 가지다.</p>
+<ol>
+<li>2026-07-31 품번·컬러·사이즈별 재고</li>
+<li>품번별 입고수량·최초 입고일·품절일</li>
+<li>2027 SS 매출목표·생산원가 예산·스타일/컬러 MOQ</li>
+</ol>
+<hr>
+<h2 id="11-즉시-실행할-일">11. 즉시 실행할 일 </h2>
+<ol>
+<li>ICEBERG·COLOR WORLD·GLOBE·SPACE·LAZY PEDAL·ITE 기준 제품의 실물과 작업지를 회수한다.</li>
+<li>외주 오더서의 12개 제품 디자인 그룹과 1차 시안 50개를 확정해 8월 31일 일정으로 착수한다.</li>
+<li>재고·입고 데이터를 결합해 총 생산량과 스타일·컬러별 발주수량을 계산한다.</li>
+</ol>
+<hr>
+<h2 id="부록-지표-정의와-주의사항">부록. 지표 정의와 주의사항 </h2>
+<ul>
+<li>순판매수량 = 총판매수량 - 반품수량</li>
+<li>반품률 = 반품수량 ÷ 총판매수량</li>
+<li>정상가권 = 아울렛 및 40% 이상 할인판매 제외</li>
+<li>빕 숏 제품도 상품명에 <code>타이즈</code>가 포함되면 원천 분류상 빕 타이즈에 합산되므로 보고서에서는 <code>빕</code>으로 통합 표기했다.</li>
+<li>2026년 8~9월 데이터가 들어오면 2026년 완전 시즌 수치를 다시 갱신해야 한다.</li>
+<li>판매량은 재고가 있었던 상품만 보여준다. ICEBERG처럼 조기 품절·재생산 중단 가능성이 있는 상품은 재고 데이터로 판매율을 재검증해야 한다.</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
