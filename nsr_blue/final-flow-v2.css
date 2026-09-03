@@ -1,0 +1,12 @@
+/* Final slide: keep the full ten-step logic visible in two rows. */
+.final-reverse-slide .reverse-flow-ten{display:block;margin-top:28px}
+.reverse-flow-ten .reverse-row{display:flex;align-items:stretch;gap:7px}
+.reverse-flow-ten .reverse-row + .reverse-row{margin-top:0}
+.reverse-flow-ten article{display:flex;flex:1 1 0;min-width:0;min-height:84px;padding:10px 11px;border-radius:13px;background:#f7f6f5}
+.reverse-flow-ten article.goal{background:#4fa3ff}
+.reverse-flow-ten b{font-size:10px;line-height:1}
+.reverse-flow-ten strong{margin-top:7px;font-size:13px;line-height:1.22;word-break:keep-all}
+.reverse-flow-ten span{margin-top:6px;font-size:9px;line-height:1.28;word-break:keep-all}
+.reverse-flow-ten i{display:flex;flex:0 0 18px;align-items:center;justify-content:center;color:#4fa3ff;font-size:18px;font-style:normal}
+.reverse-flow-ten .reverse-turn{height:18px;padding-right:8.2%;color:#4fa3ff;font-size:18px;line-height:18px;text-align:right}
+.final-reverse-slide .now-preparing{margin-top:18px;padding:13px 17px}
