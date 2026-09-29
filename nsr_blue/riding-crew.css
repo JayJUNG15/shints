@@ -1,0 +1,10 @@
+.riding-crew-slide .subtitle{margin-top:8px;font-size:15px;color:#252c36}
+.crew-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.crew-grid article{min-height:190px;padding:20px;border:1px solid #cfe4ff;border-radius:16px;background:#f7fbff}
+.crew-grid article:nth-child(2){background:#edf6ff}
+.crew-grid b{display:block;color:#247fd8;font-size:10px;letter-spacing:.04em}
+.crew-grid h3{margin:12px 0 10px;color:#252c36;font-size:18px;line-height:1.26;word-break:keep-all}
+.crew-grid p{margin:0;color:#252c36;font-size:12px;line-height:1.45;word-break:keep-all}
+.crew-grid strong{display:block;margin-top:18px;color:#247fd8;font-size:11px;line-height:1.35;word-break:keep-all}
+.crew-flow{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:5px;padding:13px 18px;border-radius:13px;background:#f4f8fc;color:#252c36;font-size:14px;font-weight:700}
+.crew-flow i{color:#4fa3ff;font-size:20px;font-style:normal}

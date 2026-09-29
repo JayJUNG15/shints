@@ -1,0 +1,147 @@
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('assets/NotoSansKR-VF.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+.shower,
+.shower::before,
+.shower::after,
+.shower .slide,
+.shower .slide * {
+  font-family: 'Noto Sans KR', sans-serif !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.shower {
+  --color-red: #4fa3ff;
+  --color-blue: #4fa3ff;
+  --color-blue-lighter: #7bb9ff;
+}
+
+.slide {
+  padding: 42px 62px 0;
+  background: #fff;
+}
+
+.slide::after { display: none; }
+
+.slide h2 {
+  margin: 7px 0 0;
+  color: #242a33;
+  font-size: 30px;
+  font-weight: 760;
+  letter-spacing: -.06em;
+  line-height: 1.28;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #4fa3ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  line-height: 1.2;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 67px;
+}
+
+.option-card {
+  min-height: 211px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #f8f6f5;
+}
+
+.option-card .card-label {
+  display: block;
+  padding: 24px 28px 0;
+  color: #39414d;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.04em;
+}
+
+.option-card.recommended .card-label {
+  margin: 0;
+  padding: 17px 28px;
+  background: #4fa3ff;
+  color: white;
+}
+
+.option-card ul {
+  margin: 27px 0 0;
+  padding: 0 28px;
+  list-style: none;
+}
+
+.option-card li {
+  margin: 0 0 8px;
+  color: #78808c;
+  font-size: 17px;
+  font-weight: 480;
+  letter-spacing: -.04em;
+  line-height: 1.35;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 30px 28px 0;
+}
+
+.score i {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d9eaff;
+}
+
+.score i.on { background: #4fa3ff; }
+.score span { margin-left: 9px; color: #8b929c; font-size: 13px; letter-spacing: -.03em; }
+
+.takeaway {
+  margin: 50px 0 0;
+  padding: 23px 29px;
+  border-radius: 17px;
+  background: #f8f6f5;
+  color: #343b46;
+  font-size: 17px;
+  font-weight: 620;
+  letter-spacing: -.04em;
+}
+
+.slide-footer {
+  position: absolute;
+  right: 62px;
+  display: none !important;
+  left: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #8b929c;
+  font-size: 10px;
+  font-weight: 620;
+  letter-spacing: .01em;
+  padding: 0 !important;
+  background: transparent !important;
+  transform: none !important;
+}
+
+.page-top {
+  position: absolute;
+  top: 25px;
+  right: 62px;
+  color: #4fa3ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
